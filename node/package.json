@@ -1,0 +1,20 @@
+{
+  "name": "google-home-101-node",
+  "version": "1.0.0",
+  "description": "Node application for the workshop \"Introduction to Voice Assistant\"",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ingrid Guren and Mathias Johansen",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
+}
