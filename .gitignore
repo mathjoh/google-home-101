@@ -28,6 +28,8 @@ kotlin/.idea/**/dbnavigator.xml
 # Gradle
 kotlin/.idea/**/gradle.xml
 kotlin/.idea/**/libraries
+kotlin/.idea/.name
+
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
