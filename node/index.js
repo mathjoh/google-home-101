@@ -40,12 +40,25 @@ app.post('/', (req, res) => {
   		const conv = agent.conv(); // agent.requestSource need to be ACTIONS_ON_GOOGLE or conv will be null
   		if (conv) {
   			conv.ask(new Permission({
-	  			contexts: 'To know where to deliver the ice cream',
+	  			context: 'To know where to deliver the ice cream',
 	  			permissions: 'DEVICE_PRECISE_LOCATION',
 	  		}));
   			agent.add(conv);
   		} else {
-  			agent.add('Your current device does not support location data so unfortunately I do not know')
+  			agent.add('Your current device does not support location data so unfortunately I do not know.')
+  		}
+  	}
+
+  	const askName = agent => {
+  		const conv = agent.conv(); // agent.requestSource need to be ACTIONS_ON_GOOGLE or conv will be null
+  		if (conv) {
+  			conv.ask(new Permission({
+	  			context: 'To know who your are',
+	  			permissions: 'NAME',
+	  		}));
+  			agent.add(conv);
+  		} else {
+  			agent.add('Your current device does not know who you are so I cannot help you.')
   		}
   	}
 
@@ -58,6 +71,7 @@ app.post('/', (req, res) => {
   	intentMap.set('Default Welcome Intent', welcome);
   	intentMap.set('Good something', goodSomething);
   	intentMap.set('Find location', findLocation);
+  	intentMap.set('Ask name', askName);
   	intentMap.set('Default Fallback Intent', fallback);
 	intentMap.set(null, fallback);
 
