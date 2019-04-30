@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { WebhookClient } = require('dialogflow-fulfillment');
+const { Permission } = require('actions-on-google');
 const PORT = 1234;
 const app = express();
 app.use(bodyParser.json());
@@ -14,12 +15,38 @@ app.post('/', (req, res) => {
   	console.log('Dialogflow Request body: ' + JSON.stringify(req.body));
 	const agent = new WebhookClient({ request: req, response: res });
 
+	console.log('WebhookClient agent version: ', agent.agentVersion);
+	console.log('WebhookClient intent: ', agent.intent);
+	console.log('WebhookClient action: ', agent.action);
+	console.log('WebhookClient parameters: ', agent.parameters);
+	console.log('WebhookClient contexts: ', agent.contexts);
+	console.log('WebhookClient requestSource: ', agent.requestSource);
+	console.log('WebhookClient originalRequest: ', agent.originalRequest);
+	console.log('WebhookClient query: ', agent.query);
+	console.log('WebhookClient locale: ', agent.locale);
+	console.log('WebhookClient session: ', agent.session);
+	console.log('WebhookClient consoleMessages: ', agent.consoleMessages);
+	console.log('WebhookClient alternativeQueryResults: ', agent.alternativeQueryResults);
+
   	const welcome = agent => {
   		agent.add('Welcome to the ice cream super shop!');
   	}
 
   	const goodSomething = agent => {
-  		agent.add('Good ' + agent.parameters.timeofday + ' to you too!');
+  		agent.add(`Good ${agent.parameters.timeofday} to you too!`);
+  	}
+
+  	const findLocation = agent => {
+  		const conv = agent.conv(); // agent.requestSource need to be ACTIONS_ON_GOOGLE or conv will be null
+  		if (conv) {
+  			conv.ask(new Permission({
+	  			contexts: 'To know where to deliver the ice cream',
+	  			permissions: 'DEVICE_PRECISE_LOCATION',
+	  		}));
+  			agent.add(conv);
+  		} else {
+  			agent.add('Your current device does not support location data so unfortunately I do not know')
+  		}
   	}
 
   	const fallback = agent => {
@@ -30,7 +57,10 @@ app.post('/', (req, res) => {
   	let intentMap = new Map();
   	intentMap.set('Default Welcome Intent', welcome);
   	intentMap.set('Good something', goodSomething);
+  	intentMap.set('Find location', findLocation);
   	intentMap.set('Default Fallback Intent', fallback);
+	intentMap.set(null, fallback);
+
   	agent.handleRequest(intentMap)
 });
 
