@@ -44,8 +44,9 @@ app.post('/', (req, res) => {
 	  			permissions: 'DEVICE_PRECISE_LOCATION',
 	  		}));
   			agent.add(conv);
+  			agent.context.set({ name: 'pre permission intent', lifespan: 1, parameters: { name: agent.intent } });
   		} else {
-  			agent.add('Your current device does not support location data so unfortunately I do not know.')
+  			agent.add('Your current device does not support location data so unfortunately I do not know.');
   		}
   	}
 
@@ -56,10 +57,16 @@ app.post('/', (req, res) => {
 	  			context: 'To know who your are',
 	  			permissions: 'NAME',
 	  		}));
+	  		agent.context.set({ name: 'pre permission intent', lifespan: 1, parameters: { name: 'Ask name' } });
   			agent.add(conv);
   		} else {
-  			agent.add('Your current device does not know who you are so I cannot help you.')
+  			agent.add('Your current device does not know who you are so I cannot help you.');
   		}
+  	}
+
+  	const gotPermission = agent => {
+  		console.log('pre permission intent: ', agent.context.get('pre perission intent'));
+  		agent.add('Thank you for the permission!')
   	}
 
   	const fallback = agent => {
@@ -73,6 +80,7 @@ app.post('/', (req, res) => {
   	intentMap.set('Find location', findLocation);
   	intentMap.set('Ask name', askName);
   	intentMap.set('Default Fallback Intent', fallback);
+  	intentMap.set('Got permission', gotPermission)
 	intentMap.set(null, fallback);
 
   	agent.handleRequest(intentMap)
