@@ -5,6 +5,7 @@ id: introduction-to-voice-assistant
 
 !INCLUDE "codelabs/sections/installation.mdpp"
 !INCLUDE "codelabs/sections/test.mdpp"
+!INCLUDE "codelabs/main_task.mdpp"
 
 ## And that's it! ⎈
 
