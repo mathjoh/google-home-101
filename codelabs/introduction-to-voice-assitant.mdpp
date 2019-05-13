@@ -3,9 +3,9 @@ id: introduction-to-voice-assistant
 
 # Introduction to Voice Assistant with Google Home
 
-!INCLUDE "codelabs/sections/installation.mdpp"
-!INCLUDE "codelabs/sections/test.mdpp"
-!INCLUDE "codelabs/main_task.mdpp"
+!INCLUDE "./codelabs/sections/1-installation.mdpp"
+!INCLUDE "./codelabs/sections/2-setup.mdpp"
+!INCLUDE "./codelabs/sections/3-main_task.mdpp"
 
 ## And that's it! ⎈
 

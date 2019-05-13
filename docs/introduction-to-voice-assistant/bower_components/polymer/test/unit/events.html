@@ -34,7 +34,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           document.body.removeChild(el);
         });
 
-        test('setup', function() {
+        test('2-setup.mdpp', function() {
           var boundListeners = el.__boundListeners;
           assert(boundListeners, 'listeners are bound');
           var map = boundListeners.get(el);
@@ -71,7 +71,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           document.body.removeChild(el);
         });
 
-        test('setup', function() {
+        test('2-setup.mdpp', function() {
           var boundListeners = el.__boundListeners;
           assert(boundListeners, 'listeners are bound');
           var map = boundListeners.get(el.$.inner);
@@ -111,9 +111,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           document.body.removeChild(el);
         });
 
-        test('setup', function() {
+        test('2-setup.mdpp', function() {
           assert(!el.__boundListeners, 'listeners are not bound');
-          el.setup();
+          el.2();
           var boundListeners = el.__boundListeners;
           assert(boundListeners, 'listeners are bound');
           var outerMap = boundListeners.get(el);
@@ -146,7 +146,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         suiteSetup(function() {
           el = document.createElement('x-double');
           document.body.appendChild(el);
-          el.setup();
+          el.2();
         });
 
         suiteTeardown(function() {

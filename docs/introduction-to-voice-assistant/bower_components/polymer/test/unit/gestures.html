@@ -74,7 +74,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         inner = outer.$.inner;
       });
 
-      suite('setup', function() {
+      suite('2-setup.mdpp', function() {
         test('listeners block', function() {
           assert.equal(outer.__polymerGesturesTouchAction, 'none');
           var obj = outer.__polymerGestures;
@@ -117,7 +117,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           var el = document.createElement('x-dynamic');
           var obj = el.__polymerGestures;
           assert(!obj);
-          el.setup();
+          el.2();
           obj = el.__polymerGestures;
           assert(obj, 'gestures object exists');
           assert.equal(obj.mousedown.tap, 1, 'mousedown tap');
@@ -176,7 +176,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           var el = document.createElement('x-dynamic');
           var obj = el.__polymerGestures;
           assert(!obj);
-          el.setup();
+          el.2();
           el.teardown();
           obj = el.__polymerGestures;
           assert(obj, 'gestures object exists');
@@ -437,7 +437,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       setup(function() {
         el = document.createElement('x-document-listener');
         document.body.appendChild(el);
-        el.setup();
+        el.2();
       });
 
       teardown(function() {

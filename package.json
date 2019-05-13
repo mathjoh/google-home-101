@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./codelabs/markdown-pp-js/markdownpp ./codelabs/introduction-to-voice-assitant.mdpp -o ./codelabs/introduction-to-voice-assitant.md",
-    "clean": "rm -rf introduction-to-voice-assistant.md",
+    "clean": "rm -rf ./codelabs/introduction-to-voice-assistant.md",
     "dev": "node index.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "claat": "echo claat export --prefix \"../../\" -o docs ./codelabs/introduction-to-voice-assitant.md",
+    "claat": "echo claat export --prefix \"../\" -o ./docs ./codelabs/introduction-to-voice-assitant.md",
     "print": "npm run claat"
   },
   "author": "Ingrid Guren and Mathias Johansen",
