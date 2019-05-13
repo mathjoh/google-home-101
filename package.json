@@ -1,0 +1,25 @@
+{
+  "name": "google-home-101-node",
+  "version": "1.0.0",
+  "description": "Node application for the workshop \"Introduction to Voice Assistant\"",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./codelabs/markdown-pp-js/markdownpp ./codelabs/introduction-to-voice-assitant.mdpp -o ./codelabs/introduction-to-voice-assitant.md",
+    "clean": "rm -rf introduction-to-voice-assistant.md",
+    "dev": "node index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "claat": "echo claat export --prefix \"../../\" -o docs ./codelabs/introduction-to-voice-assitant.md",
+    "print": "npm run claat"
+  },
+  "author": "Ingrid Guren and Mathias Johansen",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "markdown-pp-js": "^1.0.0"
+  }
+}
