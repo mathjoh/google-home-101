@@ -1,0 +1,34 @@
+{
+    "payload": {
+        "google": {
+            "expectUserResponse": true,
+            "systemIntent": {
+                "intent": "actions.intent.PERMISSION",
+                "data": {
+                    "@type": "type.googleapis.com/google.actions.v2.PermissionValueSpec",
+                    "optContext": "To know who and where you are",
+                    "permissions": [
+                        "NAME",
+                        "DEVICE_PRECISE_LOCATION"
+                    ]
+                }
+            }
+        }
+    },
+    "outputContexts": [
+        {
+            "name": "projects/<PROJECT_ID>/agent/sessions/<SESSION_ID>/contexts/pre_permission_intent",
+            "lifespanCount": 1,
+            "parameters": {
+                "name": "Ask name"
+            }
+        },
+        {
+            "name": "projects/<PROJECT_ID>/agent/sessions/<SESSION_ID>/contexts/pre_permission_params",
+            "lifespanCount": 1,
+            "parameters": {
+                "otherValue": "Foo"
+            }
+        }
+    ]
+}

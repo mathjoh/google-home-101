@@ -44,7 +44,8 @@ app.post('/', (req, res) => {
 	  			permissions: 'DEVICE_PRECISE_LOCATION',
 	  		}));
   			agent.add(conv);
-  			agent.context.set({ name: 'pre_permission_intent', lifespan: 1, parameters: { name: agent.intent } });
+  			agent.context.set({ name: 'pre_permission_intent', lifespan: 1, parameters: { name: agent.intent } }); // no spaces allowed in these names
+	  		agent.context.set({ name: 'pre_permission_params', lifespan: 1, parameters: agent.parameters });
   		} else {
   			agent.add('Your current device does not support location data so unfortunately I do not know.');
   		}
@@ -57,7 +58,9 @@ app.post('/', (req, res) => {
 	  			context: 'To know who your are',
 	  			permissions: 'NAME',
 	  		}));
-	  		agent.context.set({ name: 'pre_permission_intent', lifespan: 1, parameters: { name: 'Ask name' } });
+	  		agent.context.set({ name: 'pre_permission_intent', lifespan: 1, parameters: { name: agent.intent } });
+	  		agent.context.set({ name: 'pre_permission_params', lifespan: 1, parameters: agent.parameters });
+
   			agent.add(conv);
   		} else {
   			agent.add('Your current device does not know who you are so I cannot help you.');
