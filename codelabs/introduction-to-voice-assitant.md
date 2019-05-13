@@ -5,21 +5,24 @@ id: introduction-to-voice-assistant
 
 #Introduction to Voice Assistant with Google Home
 
-<a name="test"></a>
+<a name="installation"></a>
 
-##test
+##Installation
 
 slkfjsdf
 
-<a name="test-1"></a>
+<a name="setup"></a>
 
-##test
+##Setup
 
 halloo???
 
+<a name="maintasks:"></a>
+
+##Main tasks:
 <a name="dronescream"></a>
 
-##Drones Cream
+###Drones Cream
 
 "We deliver great ice cream delivered with drones"
 
