@@ -30,11 +30,11 @@ app.post('/', (req, res) => {
 
   	const welcome = agent => {
   		agent.add('Welcome to the ice cream super shop!');
-  	}
+  	};
 
   	const goodSomething = agent => {
   		agent.add(`Good ${agent.parameters.timeofday} to you too!`);
-  	}
+  	};
 
   	const findLocation = agent => {
   		const conv = agent.conv(); // agent.requestSource need to be ACTIONS_ON_GOOGLE or conv will be null
@@ -49,7 +49,7 @@ app.post('/', (req, res) => {
   		} else {
   			agent.add('Your current device does not support location data so unfortunately I do not know.');
   		}
-  	}
+  	};
 
   	const askName = agent => {
   		const conv = agent.conv(); // agent.requestSource need to be ACTIONS_ON_GOOGLE or conv will be null
@@ -65,17 +65,17 @@ app.post('/', (req, res) => {
   		} else {
   			agent.add('Your current device does not know who you are so I cannot help you.');
   		}
-  	}
+  	};
 
   	const gotPermission = agent => {
   		console.log('pre_permission_intent: ', agent.context.get('pre_permission_intent'));
   		agent.add('Thank you for the permission!');
-  	}
+  	};
 
   	const fallback = agent => {
   		agent.add(`I didn't understand`);
     	agent.add(`I'm sorry, can you try again?`);
-  	}
+  	};
 
   	let intentMap = new Map();
   	intentMap.set('Default Welcome Intent', welcome);
@@ -83,7 +83,7 @@ app.post('/', (req, res) => {
   	intentMap.set('Find location', findLocation);
   	intentMap.set('Ask name', askName);
   	intentMap.set('Default Fallback Intent', fallback);
-  	intentMap.set('Got permission', gotPermission)
+  	intentMap.set('Got permission', gotPermission);
 	intentMap.set(null, fallback);
 
   	agent.handleRequest(intentMap)
