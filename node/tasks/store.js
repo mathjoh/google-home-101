@@ -25,7 +25,7 @@ const remainingFlavours = inventory => Object.values(inventory).filter(item => i
 
 const emptyFlavours = inventory => Object.values(inventory).filter(item => item.cones === 0).map(item => item.displayName);
 
-const numberOfCones = (flavour, inventory) => inventory[flavour].cones
+const numberOfCones = (flavour, inventory) => inventory[flavour].cones;
 
 const order = (flavour, cones, inventory) => {
     if(inventory[flavour].cones >= cones) {

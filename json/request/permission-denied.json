@@ -1,5 +1,5 @@
 {
-  "responseId": "f64606bb-7eed-4e81-822b-0ce90868c3e0",
+  "responseId": "5dc3470f-385f-4b98-92fd-1f93cde4fd7a",
   "queryResult": {
     "queryText": "actions_intent_PERMISSION",
     "parameters": {},
@@ -15,22 +15,42 @@
     ],
     "outputContexts": [
       {
-        "name": "projects/<PROJECT_ID>/agent/sessions/<CONVERSATION_ID>/contexts/pre_permission_intent",
-        "parameters": {
-          "name": "Find location"
-        }
+        "name": "projects/actiontest-ca353/agent/sessions/ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA/contexts/actions_capability_screen_output"
       },
       {
-        "name": "projects/<PROJECT_ID>/agent/sessions/<CONVERSATION_ID>/contexts/actions_intent_permission",
+        "name": "projects/actiontest-ca353/agent/sessions/ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA/contexts/actions_intent_permission",
         "parameters": {
           "PERMISSION": false,
           "text": "no"
         }
+      },
+      {
+        "name": "projects/actiontest-ca353/agent/sessions/ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA/contexts/actions_capability_audio_output"
+      },
+      {
+        "name": "projects/actiontest-ca353/agent/sessions/ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA/contexts/actions_capability_account_linking"
+      },
+      {
+        "name": "projects/actiontest-ca353/agent/sessions/ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA/contexts/google_assistant_input_type_keyboard"
+      },
+      {
+        "name": "projects/actiontest-ca353/agent/sessions/ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA/contexts/actions_capability_media_response_audio"
+      },
+      {
+        "name": "projects/actiontest-ca353/agent/sessions/ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA/contexts/actions_capability_web_browser"
+      },
+      {
+        "name": "projects/actiontest-ca353/agent/sessions/ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA/contexts/params",
+        "parameters": {
+          "flavour": "chocolate",
+          "cones": "4",
+          "location": ""
+        }
       }
     ],
     "intent": {
-      "name": "projects/<PROJECT_ID>/agent/intents/601be270-2f5d-4e38-bb8f-22a858f486ff",
-      "displayName": "Got permission"
+      "name": "projects/actiontest-ca353/agent/intents/601be270-2f5d-4e38-bb8f-22a858f486ff",
+      "displayName": "finishOrder"
     },
     "intentDetectionConfidence": 1,
     "languageCode": "en-us"
@@ -46,13 +66,13 @@
             "name": "actions.capability.ACCOUNT_LINKING"
           },
           {
-            "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+            "name": "actions.capability.WEB_BROWSER"
           },
           {
             "name": "actions.capability.AUDIO_OUTPUT"
           },
           {
-            "name": "actions.capability.WEB_BROWSER"
+            "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
           },
           {
             "name": "actions.capability.SCREEN_OUTPUT"
@@ -64,19 +84,19 @@
         {
           "rawInputs": [
             {
-              "query": "yes",
+              "query": "no",
               "inputType": "KEYBOARD"
             }
           ],
           "arguments": [
             {
-              "textValue": "true",
+              "textValue": "false",
               "name": "PERMISSION",
-              "boolValue": true
+              "boolValue": false
             },
             {
-              "rawText": "yes",
-              "textValue": "yes",
+              "rawText": "no",
+              "textValue": "no",
               "name": "text"
             }
           ],
@@ -84,34 +104,31 @@
         }
       ],
       "user": {
-        "lastSeen": "2019-04-30T12:43:20Z",
-        "permissions": [],
+        "lastSeen": "2019-05-24T08:02:07Z",
         "locale": "en-US",
-        "userId": "<USER_ID>"
-      },
-      "device": {
+        "userId": "ABwppHGLrwSOj1tmyf6OZUJWX1NzsPubHBJeLFBKEyiMJ-biCcNg8GrklohJQi3r82C1E8p_dhmFTPbBHh1Uzw"
       },
       "conversation": {
-        "conversationId": "<CONVERSATION_ID>",
+        "conversationId": "ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA",
         "type": "ACTIVE",
-        "conversationToken": "[\"pre_permission_intent\"]"
+        "conversationToken": "[\"params\"]"
       },
       "availableSurfaces": [
         {
           "capabilities": [
             {
-              "name": "actions.capability.AUDIO_OUTPUT"
-            },
-            {
               "name": "actions.capability.SCREEN_OUTPUT"
             },
             {
               "name": "actions.capability.WEB_BROWSER"
+            },
+            {
+              "name": "actions.capability.AUDIO_OUTPUT"
             }
           ]
         }
       ]
     }
   },
-  "session": "projects/<PROJECT_ID>/agent/sessions/<CONVERSATION_ID>"
+  "session": "projects/actiontest-ca353/agent/sessions/ABwppHG6WzLWXLOvNmuL14jslt5fUhLUs8Mig16vEBkVMAyGfEE4vJd6ztaKa-YLObCiO4MbpxWRwzAWU79IpA"
 }

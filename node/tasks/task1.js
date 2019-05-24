@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { WebhookClient } = require('dialogflow-fulfillment');
+
 const PORT = 1234;
 const app = express();
 app.use(bodyParser.json());
@@ -9,11 +10,16 @@ app.post('/', (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
 
     const welcome = agent => {
-        agent.add('Welcome to Drone\'s Cream. We supply the world with the best possible ice cream, anywhere, anytime.');
+        if (agent.parameters.timeOfDay) {
+            agent.add(`Good ${timeOfDay} Welcome to Drone's Cream. We supply the world with the best possible ice cream, anywhere, anytime.`);
+
+        } else {
+            agent.add(`Welcome to Drone's Cream. We supply the world with the best possible ice cream, anywhere, anytime.`);
+        }
     };
 
     const fallback = agent => {
-        agent.add('I\'m sorry. Your request was not recognized. Please try again.');
+        agent.add(`I'm sorry. Your request was not recognized. Please try again.`);
     };
 
     let intentMap = new Map();
