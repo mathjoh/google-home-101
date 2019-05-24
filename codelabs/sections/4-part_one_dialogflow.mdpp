@@ -1,5 +1,5 @@
 ## Part one: 
-### Dialogflow intents
+### Dialogflow intent fulfillment
 
 #### Task 1
 
@@ -21,7 +21,7 @@ being read when a user starts a conversation with your application.
 Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry. 
 Do this using using only Dialogflow. 
 
-The intent should answer questions such as "What kinds of flours do you have?" and "What ice creams do you offer?".
+The intent should answer questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?".
 
 #### Task 4
 

@@ -1,0 +1,58 @@
+## Part two: 
+### Webhook intent fulfillment
+
+In this part you will need to adapt the intents created in part one to be answered by a webhook instead of dialogflow. 
+
+#### Task 1
+
+Enable webhook fulfillment for the intent created in task one in part one.
+
+Create a simple express webhook answering the intent with the same response as Dialogflow did as well as fallback 
+handling if unknown intents are routed to the webhook.
+
+Test your webhook using either the testing tool in Dialogflow or Actions by Google.
+
+#### Task 2
+
+Convert the intent from task three in part one to be answered by your webhook. This time the answer should reflect the 
+actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling 
+which should contain all the necessary business logic in the file `store.js`.
+
+Have the answer to the prompt include both which flavours are in stock and which are out of stock. The number of cones
+remaining of each does not need to be included.
+
+Test your webhook using either the testing tool in Dialogflow or Actions by Google.
+
+#### Task 3
+
+Convert the intent from task thfourree in part one to be answered by your webhook. This time the answer should reflect the 
+actual inventory of the Ice Cream store. 
+
+If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones 
+left the inventory numbers should be updated.
+
+Test your webhook using either the testing tool in Dialogflow or Actions by Google.
+
+#### Task 4
+
+#####a)
+
+In this task you need to update the intent fulfillment from the previous task. 
+
+As specified in task four in part one, location is an optional parameter. But in order to fulfill and order, our drones 
+need to know where to deliver the ice cream cones. To get this knowledge you will ask the user for permission to get the 
+location of the device used to communicate the order.
+
+If requests contain location we can use the same logic as in the previous task. Otherwise, request the permission to get 
+device location from the user.
+
+Create a new intent handling the response to the permission request submitted by the user. This request must handle both 
+getting the permission as well as being denied the permission.
+
+#####b)
+
+Now that we can get the location of the device our service is ready to start serving the community. Unfortunately it 
+will keep asking for permission to get device location from users who have already consented.
+
+Update your service to check if the user already have consented before asking for the location again.
+

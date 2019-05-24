@@ -27,6 +27,7 @@ app.post('/', (req, res) => {
 	console.log('WebhookClient session: ', agent.session);
 	console.log('WebhookClient consoleMessages: ', agent.consoleMessages);
 	console.log('WebhookClient alternativeQueryResults: ', agent.alternativeQueryResults);
+	console.log('WebhookClient alternativeQueryResults: ', agent.alternativeQueryResults);
 
   	const welcome = agent => {
   		agent.add('Welcome to the ice cream super shop!');

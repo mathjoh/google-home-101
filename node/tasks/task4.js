@@ -10,6 +10,8 @@ app.use(bodyParser.json());
 const backend = store();
 
 app.post('/', (req, res) => {
+    console.log('Dialogflow Request body: ' + JSON.stringify(req.body));
+
     const agent = new WebhookClient({ request: req, response: res });
 
     const welcome = agent => {
