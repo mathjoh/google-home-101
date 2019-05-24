@@ -6,6 +6,7 @@ id: introduction-to-voice-assistant
 !INCLUDE "./codelabs/sections/1-installation.mdpp"
 !INCLUDE "./codelabs/sections/2-setup.mdpp"
 !INCLUDE "./codelabs/sections/3-main_task.mdpp"
+!INCLUDE "./codelabs/sections/4-part_one_dialogflow.mdpp"
 
 ## And that's it! ⎈
 
