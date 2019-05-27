@@ -1,3 +1,55 @@
 ## Setup
 
-halloo???
+For this workshop you will need a Google account. 
+
+ - Go to [Google Actions](https://developers.google.com/actions/) to get started.
+
+ - Go to Actions Console
+ 
+ 
+### Create your first project 
+
+ - Add/Import Project
+ 
+  * Accept Terms of Service and choose Country of residence.
+  * Click "Agree and Continue"
+  
+ - Enter the name of you project _Voice Assistant Workshop_
+ - Let the language for your Actions project be _English_
+ - Click Create Project
+ 
+Wait while the project is being created 
+
+
+
+### Dialogflow
+
+ - Go to [Dialogflow](https://dialogflow.com/)
+ - Sign in with your Google Account
+ - Let Dialogflow get permission to your Google Account 
+ 
+ 
+ Review your account settings
+  - Choose country or territory (Norway)
+  - Accept Terms of Service
+  
+  - Click "Create Agent"
+  
+#### Create your agent
+
+We are now going to create your first agent: 
+- Give the agent a name: _Voice-assistant-workshop-agent_
+- Language: _English - en_
+- Timezone: GMT +2:00
+- Google Project: voice-assistant-workshop
+
+Click "Create"
+ 
+ 
+ 
+###### Inspecting the agent 
+ Let's inspect the agent we have created: 
+ 
+ 
+ The Service Account: Used for accessing the 
+ 
