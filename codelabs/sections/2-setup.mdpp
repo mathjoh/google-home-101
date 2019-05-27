@@ -1,4 +1,31 @@
-## Setup
+## Installation & setup
+
+### Requirements for the workshop: 
+ - Your own Google Account
+ - [Nodejs](https://nodejs.org/en/download/) installed on your computer
+ 
+Without these requirements fulfilled you will not be able to do the workshop. 
+
+### Installation
+
+Start by installing [Nodejs](https://nodejs.org/en/download/).
+You can verify that it is correctly installed by typing `node -v` in the terminal.
+
+#### Https connection 
+
+We need https connection for running the Dialogflow commands.  
+
+Registrere på ngrok.com/io
+
+
+
+To run the application, run `npm i && npm run dev`, application is available on [http://localhost:1234](http://localhost:1234)
+
+To run ngrok go to ngrok.com and register. Then run step 3 in the setup to connect ypur account `./ngrok authtoken [your auth token]`. Then run `./ngrok http 1234` to start the http tunnel. Copy the https url given in the terminal into the webhook address in the tab fullfilment in Dialogflow.
+
+
+
+### setup 
 
 For this workshop you will need a Google account. 
 

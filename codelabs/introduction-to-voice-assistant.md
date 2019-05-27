@@ -5,14 +5,52 @@ id: introduction-to-voice-assistant
 
 #Introduction to Voice Assistant with Google Home
 
+<a name="welcome!👋"></a>
+
+##Welcome ! 👋
+
+Welcome to this workshop: An introduction to Voice Assistant with Google Cloud. 
+
+The code is split in X part. First you will get to do tasks 
+
+<a name="installation&setup"></a>
+
+##Installation & setup
+
+<a name="requirementsfortheworkshop:"></a>
+
+###Requirements for the workshop:
+ - Your own Google Account
+ - [Nodejs](https://nodejs.org/en/download/) installed on your computer
+ 
+Without these requirements fulfilled you will not be able to do the workshop. 
+
 <a name="installation"></a>
 
-##Installation
+###Installation
+
+Start by installing [Nodejs](https://nodejs.org/en/download/).
+You can verify that it is correctly installed by typing `node -v` in the terminal.
+
+<a name="httpsconnection"></a>
+
+####Https connection
+
+We need https connection for running the Dialogflow commands.  
+
+Registrere på ngrok.com/io
+
+
+
+To run the application, run `npm i && npm run dev`, application is available on [http://localhost:1234](http://localhost:1234)
+
+To run ngrok go to ngrok.com and register. Then run step 3 in the setup to connect ypur account `./ngrok authtoken [your auth token]`. Then run `./ngrok http 1234` to start the http tunnel. Copy the https url given in the terminal into the webhook address in the tab fullfilment in Dialogflow.
+
 
 
 <a name="setup"></a>
 
-##Setup
+###setup
 
 For this workshop you will need a Google account. 
 
@@ -99,12 +137,17 @@ Check if the ice cream is still available?
 
 
 
-<a name="partone:"></a>
+<a name="part1:dialogflow"></a>
 
-##Part one:
+##Part 1: Dialogflow
+Duration: 10:00
+
 <a name="dialogflowintentfulfillment"></a>
 
 ###Dialogflow intent fulfillment
+
+In this part you will learn to use use Dialogflow to create your own intent fulfillment.
+The tasks you create will be used later in the workshop. 
 
 <a name="task1"></a>
 
@@ -116,7 +159,9 @@ The intent should answer the user with a welcome prompt.
 The intent should answer prompts such as "Hi", "hello", "good morning" etc.
 
 The response should include the time of day if the prompt has it. I.e: 
-If the prompt is "Good afternoon" the answer should also start with "Good afternoon". 
+If the prompt is "Good afternoon" the answer should also start with "Good afternoon".
+
+Hint: We want to create our own welcome intent, so you will have to delete the existing welcome intent (_Default Welcome Intent_).    
 
 <a name="task2"></a>
 
@@ -148,20 +193,22 @@ The answer should include the order details including location if it is supplied
 
 
 
-<a name="parttwo:"></a>
+<a name="part2:webhooks"></a>
 
-##Part two:
+##Part 2: Webhooks
+Duration: 20:00
+
 <a name="webhookintentfulfillment"></a>
 
 ###Webhook intent fulfillment
 
-In this part you will need to adapt the intents created in part one to be answered by a webhook instead of dialogflow. 
+In this part you will need to adapt the intents created in part one to be answered by a webhook instead of Dialogflow. 
 
 <a name="task1-1"></a>
 
 ####Task 1
 
-Enable webhook fulfillment for the intent created in task one in part one.
+Enable webhook fulfillment for the intent created in [task one in part one](#task1).
 
 Create a simple express webhook answering the intent with the same response as Dialogflow did as well as fallback 
 handling if unknown intents are routed to the webhook.
@@ -172,7 +219,7 @@ Test your webhook using either the testing tool in Dialogflow or Actions by Goog
 
 ####Task 2
 
-Convert the intent from task three in part one to be answered by your webhook. This time the answer should reflect the 
+Convert the intent from [task three in part one](#task3) to be answered by your webhook. This time the answer should reflect the 
 actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling 
 which should contain all the necessary business logic in the file `store.js`.
 
@@ -185,7 +232,7 @@ Test your webhook using either the testing tool in Dialogflow or Actions by Goog
 
 ####Task 3
 
-Convert the intent from task thfourree in part one to be answered by your webhook. This time the answer should reflect the 
+Convert the intent from task thfourree [???] in part one to be answered by your webhook. This time the answer should reflect the 
 actual inventory of the Ice Cream store. 
 
 If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones 
@@ -212,6 +259,8 @@ device location from the user.
 
 Create a new intent handling the response to the permission request submitted by the user. This request must handle both 
 getting the permission as well as being denied the permission.
+
+Hint: [Permission request granted](../../json/request/permission-granted.json)
 
 <a name="b)"></a>
 

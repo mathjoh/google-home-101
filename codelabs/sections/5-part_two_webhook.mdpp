@@ -1,11 +1,13 @@
-## Part two: 
+## Part 2: Webhooks
+Duration: 20:00
+
 ### Webhook intent fulfillment
 
-In this part you will need to adapt the intents created in part one to be answered by a webhook instead of dialogflow. 
+In this part you will need to adapt the intents created in part one to be answered by a webhook instead of Dialogflow. 
 
 #### Task 1
 
-Enable webhook fulfillment for the intent created in task one in part one.
+Enable webhook fulfillment for the intent created in [task one in part one](#task1).
 
 Create a simple express webhook answering the intent with the same response as Dialogflow did as well as fallback 
 handling if unknown intents are routed to the webhook.
@@ -14,7 +16,7 @@ Test your webhook using either the testing tool in Dialogflow or Actions by Goog
 
 #### Task 2
 
-Convert the intent from task three in part one to be answered by your webhook. This time the answer should reflect the 
+Convert the intent from [task three in part one](#task3) to be answered by your webhook. This time the answer should reflect the 
 actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling 
 which should contain all the necessary business logic in the file `store.js`.
 
@@ -25,7 +27,7 @@ Test your webhook using either the testing tool in Dialogflow or Actions by Goog
 
 #### Task 3
 
-Convert the intent from task thfourree in part one to be answered by your webhook. This time the answer should reflect the 
+Convert the intent from task thfourree [???] in part one to be answered by your webhook. This time the answer should reflect the 
 actual inventory of the Ice Cream store. 
 
 If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones 
@@ -48,6 +50,8 @@ device location from the user.
 
 Create a new intent handling the response to the permission request submitted by the user. This request must handle both 
 getting the permission as well as being denied the permission.
+
+Hint: [Permission request granted](../../json/request/permission-granted.json)
 
 #####b)
 

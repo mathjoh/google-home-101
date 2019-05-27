@@ -1,0 +1,29 @@
+## Part 1: Task 1
+
+La oss skrive løsning på oppgave 1 her
+
+#### Step 0
+![Step 0](images/p1t1-0.png)
+
+#### Step 1
+![Step 1](images/p1t1-1.png)
+
+#### Step 2
+![Step 2](images/p1t1-2.png)
+
+#### Step 3
+Add some training phrases to let the intent know what it should react on. 
+![Step 3](images/p1t1-3.png)
+
+#### Step 4
+Store the paramter you might receive in a variable that you can access later. 
+![Step 4](images/p1t1-4.png)
+
+#### Step 5
+Add your own custom responses that you want to send when receiving a welcome message. Use the variable you created in step 4. 
+![Step 5](images/p1t1-5.png)
+
+#### Step 6
+Verify your results by trying your new intent with your microphone on the right side of the screen. The results should be one of your predefined responses.  
+
+![Step 6](images/p1t1-6.png)

@@ -24,13 +24,29 @@
                   environment="web"
                   feedback-link="">
     
-      <google-codelab-step label="Installation" duration="0">
-        
+      <google-codelab-step label="Welcome ! 👋" duration="0">
+        <p>Welcome to this workshop: An introduction to Voice Assistant with Google Cloud.</p>
+<p>The code is split in X part. First you will get to do tasks</p>
+
 
       </google-codelab-step>
     
-      <google-codelab-step label="Setup" duration="0">
-        <p>For this workshop you will need a Google account.</p>
+      <google-codelab-step label="Installation &amp; setup" duration="0">
+        <h2>Requirements for the workshop:</h2>
+<ul>
+<li>Your own Google Account</li>
+<li><a href="https://nodejs.org/en/download/" target="_blank">Nodejs</a> installed on your computer</li>
+</ul>
+<p>Without these requirements fulfilled you will not be able to do the workshop.</p>
+<h2>Installation</h2>
+<p>Start by installing <a href="https://nodejs.org/en/download/" target="_blank">Nodejs</a>.<br>You can verify that it is correctly installed by typing <code>node -v</code> in the terminal.</p>
+<h3>Https connection</h3>
+<p>We need https connection for running the Dialogflow commands.</p>
+<p>Registrere på ngrok.com/io</p>
+<p>To run the application, run <code>npm i &amp;&amp; npm run dev</code>, application is available on <a href="http://localhost:1234" target="_blank">http://localhost:1234</a></p>
+<p>To run ngrok go to ngrok.com and register. Then run step 3 in the setup to connect ypur account <code>./ngrok authtoken [your auth token]</code>. Then run <code>./ngrok http 1234</code> to start the http tunnel. Copy the https url given in the terminal into the webhook address in the tab fullfilment in Dialogflow.</p>
+<h2>setup</h2>
+<p>For this workshop you will need a Google account.</p>
 <ul>
 <li>Go to <a href="https://developers.google.com/actions/" target="_blank">Google Actions</a> to get started.</li>
 <li>Go to Actions Console</li>
@@ -86,12 +102,14 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Part one:" duration="0">
+      <google-codelab-step label="Part 1: Dialogflow" duration="10">
         <h2>Dialogflow intent fulfillment</h2>
+<p>In this part you will learn to use use Dialogflow to create your own intent fulfillment.<br>The tasks you create will be used later in the workshop.</p>
 <h3>Task 1</h3>
 <p>Create an intent welcoming the user to the Drone&#39;s Cream virtual store using only Dialogflow.<br>The intent should answer the user with a welcome prompt.</p>
 <p>The intent should answer prompts such as &#34;Hi&#34;, &#34;hello&#34;, &#34;good morning&#34; etc.</p>
 <p>The response should include the time of day if the prompt has it. I.e:<br>If the prompt is &#34;Good afternoon&#34; the answer should also start with &#34;Good afternoon&#34;.</p>
+<p>Hint: We want to create our own welcome intent, so you will have to delete the existing welcome intent (<em>Default Welcome Intent</em>).</p>
 <h3>Task 2</h3>
 <p>Make the intent from task 1 your default welcoming intent,<br>being read when a user starts a conversation with your application.</p>
 <h3>Task 3</h3>
@@ -105,9 +123,9 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Part two:" duration="0">
+      <google-codelab-step label="Part 2: Webhooks" duration="20">
         <h2>Webhook intent fulfillment</h2>
-<p>In this part you will need to adapt the intents created in part one to be answered by a webhook instead of dialogflow.</p>
+<p>In this part you will need to adapt the intents created in part one to be answered by a webhook instead of Dialogflow.</p>
 <h3>Task 1</h3>
 <p>Enable webhook fulfillment for the intent created in task one in part one.</p>
 <p>Create a simple express webhook answering the intent with the same response as Dialogflow did as well as fallback<br>handling if unknown intents are routed to the webhook.</p>
@@ -117,7 +135,7 @@
 <p>Have the answer to the prompt include both which flavours are in stock and which are out of stock. The number of cones<br>remaining of each does not need to be included.</p>
 <p>Test your webhook using either the testing tool in Dialogflow or Actions by Google.</p>
 <h3>Task 3</h3>
-<p>Convert the intent from task thfourree in part one to be answered by your webhook. This time the answer should reflect the<br>actual inventory of the Ice Cream store.</p>
+<p>Convert the intent from task thfourree [???] in part one to be answered by your webhook. This time the answer should reflect the<br>actual inventory of the Ice Cream store.</p>
 <p>If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones<br>left the inventory numbers should be updated.</p>
 <p>Test your webhook using either the testing tool in Dialogflow or Actions by Google.</p>
 <h3>Task 4</h3>
@@ -126,6 +144,7 @@
 <p>As specified in task four in part one, location is an optional parameter. But in order to fulfill and order, our drones<br>need to know where to deliver the ice cream cones. To get this knowledge you will ask the user for permission to get the<br>location of the device used to communicate the order.</p>
 <p>If requests contain location we can use the same logic as in the previous task. Otherwise, request the permission to get<br>device location from the user.</p>
 <p>Create a new intent handling the response to the permission request submitted by the user. This request must handle both<br>getting the permission as well as being denied the permission.</p>
+<p>Hint: <a href="../../json/request/permission-granted.json" target="_blank">Permission request granted</a></p>
 <h4>b)</h4>
 <p>Now that we can get the location of the device our service is ready to start serving the community. Unfortunately it<br>will keep asking for permission to get device location from users who have already consented.</p>
 <p>Update your service to check if the user already have consented before asking for the location again.</p>
