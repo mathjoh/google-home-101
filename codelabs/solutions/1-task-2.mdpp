@@ -1,3 +1,17 @@
-## Part 1: Task 2
+## Part 1 - task 2
 
-La oss skrive løsning på oppgave 2 her
+#### Step 1
+First give your intent a good name so you will be able to find it later on. 
+![Step 0](images/p1t2-0.png)
+
+#### Step 2
+Add some training phrases to let the intent know what you want it to react on. Save the intent to start the training.
+![Step 1](images/p1t2-1.png)
+
+#### Step 3
+Define your response based on the questions you will receive. You might add more than one response to make the conversation with your voice assistant look better. 
+![Step 2](images/p1t2-2.png)
+
+#### Step 4
+Verify your results by trying your new intent with your microphone on the right side of the screen. The results should be your predefined response(s).  
+![Step 3](images/p1t2-3.png)

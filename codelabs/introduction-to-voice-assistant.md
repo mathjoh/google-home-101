@@ -149,6 +149,14 @@ Duration: 10:00
 In this part you will learn to use use Dialogflow to create your own intent fulfillment.
 The tasks you create will be used later in the workshop. 
 
+<a name="overviewoftasks"></a>
+
+###Overview of tasks
+- [Task 1](#task1)
+- [Task 2](#task2)
+- [Task 3](#task3)
+- [Task 4](#task4)
+
 <a name="task1"></a>
 
 ####Task 1
@@ -167,8 +175,7 @@ Hint: We want to create our own welcome intent, so you will have to delete the e
 
 ####Task 2
 
-Make the intent from task 1 your default welcoming intent, 
-being read when a user starts a conversation with your application.
+Make the intent from task 1 your default welcoming intent, being read when a user starts a conversation with your application.
 
 <a name="task3"></a>
 
@@ -202,7 +209,16 @@ Duration: 20:00
 
 ###Webhook intent fulfillment
 
-In this part you will need to adapt the intents created in part one to be answered by a webhook instead of Dialogflow. 
+In this part you will need to adapt the intents created in part one to be answered by a webhook instead of Dialogflow.
+
+<a name="overviewoftasks-1"></a>
+
+###Overview of tasks
+
+ - [Task 1](#task1-1) 
+ - [Task 1](#task2-1) 
+ - [Task 1](#task3-1) 
+ - [Task 1](#task4-1) 
 
 <a name="task1-1"></a>
 

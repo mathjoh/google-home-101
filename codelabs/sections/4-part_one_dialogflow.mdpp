@@ -6,6 +6,12 @@ Duration: 10:00
 In this part you will learn to use use Dialogflow to create your own intent fulfillment.
 The tasks you create will be used later in the workshop. 
 
+### Overview of tasks
+- [Task 1](#task1)
+- [Task 2](#task2)
+- [Task 3](#task3)
+- [Task 4](#task4)
+
 #### Task 1
 
 Create an intent welcoming the user to the Drone's Cream virtual store using only Dialogflow. 
@@ -20,8 +26,7 @@ Hint: We want to create our own welcome intent, so you will have to delete the e
 
 #### Task 2
 
-Make the intent from task 1 your default welcoming intent, 
-being read when a user starts a conversation with your application.
+Make the intent from task 1 your default welcoming intent, being read when a user starts a conversation with your application.
 
 #### Task 3
 
