@@ -175,16 +175,16 @@ Hint: We want to create our own welcome intent, so you will have to delete the e
 
 ####Task 2
 
-Make the intent from task 1 your default welcoming intent, being read when a user starts a conversation with your application.
+Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry. 
+Do this using using only Dialogflow. 
+
+The intent should answer questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?".
 
 <a name="task3"></a>
 
 ####Task 3
 
-Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry. 
-Do this using using only Dialogflow. 
-
-The intent should answer questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?".
+Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own intent _iceCreamFlavour_ with all the avilable flavours of Drone's Cream.  
 
 <a name="task4"></a>
 

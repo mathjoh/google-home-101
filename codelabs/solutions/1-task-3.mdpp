@@ -1,0 +1,14 @@
+## Part 1 - task 3
+
+#### Step 1
+First create an entity where you want to store all your available variables.  
+![Step 0](images/p1t3-0.png)
+
+#### Step 2
+Add a name you want to use for accessing your entity. 
+![Step 1](images/p1t3-1.png)
+
+#### Step 3
+Add all available flavours and how their corresponding values. You could also add multiple names for each of the flavours if you thing it is needed to get a smooth conversation with your customer.  
+![Step 2](images/p1t3-2.png)
+

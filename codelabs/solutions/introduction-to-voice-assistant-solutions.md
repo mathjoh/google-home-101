@@ -92,6 +92,30 @@ Verify your results by trying your new intent with your microphone on the right 
 ![Step 3](images/p1t2-3.png)
 
 
+<a name="part1-task3"></a>
+
+##Part 1 - task 3
+
+<a name="step1-2"></a>
+
+####Step 1
+First create an entity where you want to store all your available variables.  
+![Step 0](images/p1t3-0.png)
+
+<a name="step2-2"></a>
+
+####Step 2
+Add a name you want to use for accessing your entity. 
+![Step 1](images/p1t3-1.png)
+
+<a name="step3-2"></a>
+
+####Step 3
+Add all available flavours and how their corresponding values. You could also add multiple names for each of the flavours if you thing it is needed to get a smooth conversation with your customer.  
+![Step 2](images/p1t3-2.png)
+
+
+
 
 <a name="part2:task1"></a>
 
