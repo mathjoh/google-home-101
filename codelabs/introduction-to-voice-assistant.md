@@ -152,10 +152,10 @@ The tasks you create will be used later in the workshop.
 <a name="overviewoftasks"></a>
 
 ###Overview of tasks
-- [Task 1](#task1)
-- [Task 2](#task2)
-- [Task 3](#task3)
-- [Task 4](#task4)
+- [Task 1](#task-1)
+- [Task 2](#task-2)
+- [Task 3](#task-3)
+- [Task 4](#task-4)
 
 <a name="task1"></a>
 
@@ -209,33 +209,35 @@ Duration: 20:00
 
 ###Webhook intent fulfillment
 
-In this part you will need to adapt the intents created in part one to be answered by a webhook instead of Dialogflow.
+In this part you will need to adapt the intents created in part 1 to be answered by a webhook instead of Dialogflow.
 
 <a name="overviewoftasks-1"></a>
 
 ###Overview of tasks
 
- - [Task 1](#task1-1) 
- - [Task 1](#task2-1) 
- - [Task 1](#task3-1) 
- - [Task 1](#task4-1) 
+ - [Task 1](#task-1-1) 
+ - [Task 2](#task-2-1) 
+ - [Task 3](#task-3-1) 
+ - [Task 4](#task-4-1) 
 
 <a name="task1-1"></a>
 
 ####Task 1
 
-Enable webhook fulfillment for the intent created in [task one in part one](#task1).
+Enable webhook fulfillment for the intent created in [task 1 in part 1](#task1).
 
 Create a simple express webhook answering the intent with the same response as Dialogflow did as well as fallback 
 handling if unknown intents are routed to the webhook.
 
 Test your webhook using either the testing tool in Dialogflow or Actions by Google.
 
+Hint: You will have to 
+
 <a name="task2-1"></a>
 
 ####Task 2
 
-Convert the intent from [task three in part one](#task3) to be answered by your webhook. This time the answer should reflect the 
+Convert the intent from [task 3 in part 1](#task3) to be answered by your webhook. This time the answer should reflect the 
 actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling 
 which should contain all the necessary business logic in the file `store.js`.
 
