@@ -10,6 +10,7 @@ id: introduction-to-voice-assistant
 !INCLUDE "./codelabs/sections/5-tasks_part_one_dialogflow.mdpp"
 !INCLUDE "./codelabs/sections/6-intro_to_webhook_fulfillment.mdpp"
 !INCLUDE "./codelabs/sections/7-tasks_part_two_webhook.mdpp"
+!INCLUDE "./codelabs/sections/8-links-and-references.mdpp"
 
 ## And that's it! ⎈
 
