@@ -127,8 +127,53 @@ Actions by Google also uses contexts quite a lot to specify things such as devic
 cases there will always be 5-6 contexts set. But when debugging from Dialogflow only our own contexts are part of the 
 requests and responses.
 
-##### Actions on Google library
+### Actions on Google library
 
-### Developer tools
+There are some things done by the Google Assistant that cannot be handled by the Dialogflow Fulfillment Library alone.
 
-#### Ngrok
+One of those things that we will need to look at today is permissions. Every now and then we want to get information
+from either the user profile or device of the user behind an intent. For instance we may want to know the exact location
+if the user were to ask about the weather outside. 
+
+But because anyone can make an app for Google Assistant, Google does not share this information with your app by default.
+For each conversation your app will need to ask the user for permission to get this information.
+
+This is done by creating a special response asking for permission. When the user responds either yes or no to this request
+that is translated into a special event called "Google Assistant Permission" which we need to catch using a special
+intent in Dialogflow. The intent need to have the event "Google Assistant Permission" to fire, and our app need to
+handle an event with whatever name we choose for that intent.
+
+The way we create the response is by using the `Permission` class from the `actions-on-google` library. We need to 
+supply it what type of data we want and why.
+
+```
+const { Permission } = require('actions-on-google');
+
+...
+
+const conv = agent.conv();
+if (conv) { // conv can be null if the intent was not called from Google Assistant (say using the Dialogflow testing tool)
+    conv.ask(new Permission({
+        context: 'To know where you are',
+        permissions: 'DEVICE_PRECISE_LOCATION',
+    }));
+    agent.add(conv);
+} else {
+    agent.add('Your current device does not support location data.');
+}
+```
+
+The following intent will now include a quite deeply nested object called `originalRequest`. 
+Depending on what kind of data we request it will probably be contained under either user
+ (`agent.originalRequest.payload.user`) or device (`agent.originalRequest.payload.device`) data.
+
+In the case of location it can be found under `agent.originalRequest.payload.device.location`. It will have
+data such as latitude, longitude and formatted address. It is recommended to play use some console logging to get
+familiar with this object.
+
+In addition it is smart to check whether the permission actually was given, if not the data will be missing. That can 
+be found in one of the contexts called `actions_intent_permission`:
+
+```
+agent.context.get('actions_intent_permission').parameters.PERMISSION // this is a boolean
+```
