@@ -13,7 +13,7 @@ This workshop will focus mainly on the audio interaction, but there are other po
 Call to Action elements and more.
 
 To understand the different parts of an interaction between the user and our app we need to understand the concepts 
-<em>conversation</em>, <em>intent</em> and <em>fulfillment</em>.
+_conversation_, _intent_ and _fulfillment_
 
 ### Conversation
 
@@ -58,6 +58,6 @@ Dialogflow can also do simple intent fulfillment answering simple questions wher
 required. But in most cases we will want Dialogflow to use our existing or new backend service to answer many of, 
 if not all, our intents.
 
-So even thougn it is possible to create a Google Assistant app without using Dialogflow, it is absolutely preferable
+So even though it is possible to create a Google Assistant app without using Dialogflow, it is absolutely preferable
 to use it.
 

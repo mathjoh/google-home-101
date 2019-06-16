@@ -1,32 +1,131 @@
+## Intro to webhook intent fulfillment
 
-## ACtions
-
+To set up custom fulfillment for our Google Assistant app we will need to set up a webhook. A webhook is a simple
+http-POST endpoint capable of parsing the body of our request and create an appropriate response.
 
 If our backend were to communicate directly with the actions requests, it would look something like below. 
 
 ![Direct fulfillment](../images/json-conversation.png)
 * borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
 
-Actions on Google uses POST requests with a JSON payload with a bunch of information to communicate with the 
+Actions on Google sends POST requests with a JSON payload with a bunch of information to communicate with the 
 fulfillment service. The action will have done the rough work concerning speech to text, but the intent matching 
-would be up to our app. Thankfully Google have also created Dialogflow which will help us to do that.
+would be up to our app. Thankfully we have used Dialogflow to do that for us.
 
-### Dialogflow
-
-So in our case we need to use both Actions on Google, Dialogflow and our own backend service like in the figure below.
+So in our case the communications look like the figure below.
 
 ![Dialogflow fulfillment](../images/json-dialogflow.png)
 * borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
 
-Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Dialogflow will have detected 
-the user intent as well as having done work parsing any specified parameters into a manageable json format. Our backend
-will only need to parse that json and do the required task.
+Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Since Dialogflow will have 
+detected the user intent as well as having done work parsing any specified parameters into a manageable json format. 
+Our backend will only need to parse that json and respond to the provided intent.
 
-A typical request will look
+As stated earlier this workshop will use the Node.js Dialogflow Fulfillment Library. We could have solved the tasks in 
+any programming language with tools to parse and create json. But Node.js has the most complete client library for both
+Dialogflow and Actions on Google, making the work a bit easier. 
 
-##### Dialogflow fulfillment library
+But in case you are curious to how you could solve this without the client libraries we have provided examples of the
+json requests and responses that the client library handles and creates in the tasks you will do.
 
-In this workshop wil
+### Dialogflow Fulfillment Library
+
+The main component to the client library is the `WebhookClient` class. It is imported from the `dialogflow-fulfillment` npm 
+package like this:
+
+```
+const { WebhookClient } = require('dialogflow-fulfillment');
+```
+
+The way we use it is by sending request and response objects as arguments to the constructor of the class, and using its 
+built in functions to most of what we need to do today.
+
+```    
+app.post('/', (req, res) => {
+    const agent = new WebhookClient({ request: req, response: res });
+    ... 
+};
+```
+
+#### Know which intent needs fulfillment
+
+The agent created using our request and response has a built in function choose how to respond to the request. This 
+function takes a `Map` with the name of the intent as key and a function that takes the agent as parameter.
+
+So if we were to handle a welcome intent we would do as following.
+
+```
+const welcome = agent => {
+    ... // some logic to answer the intent
+}
+const fallback = agent => {
+    ... // some logic to answer that the intent was not recognized
+}
+let intentMap = new Map();
+intentMap.set('Welcome', welcome);
+intentMap.set(null, fallback);
+agent.handleRequest(intentMap)
+```
+
+Here the function welcome would be used if the name of the intent coming from Dialogflow is "Welcome". Be aware that the
+matching is case sensitive. So the match need to be absolute. The null element of the map is used if no match for the
+intent name can be found in the map.
+
+#### Read parameters
+
+The agent has the intent parameters stored in an object named `parameters`. The structure of the object will be the same 
+as the parameters in the json body of the POST request. If the name of the parameter is "location" in Dialogflow the
+value can be found in `agent.parameters.location`. 
+
+Most parameters are just a string or intenter value. But some complex types such as date ranges can occur and will be 
+objects themselves.
+
+#### Answer intents
+
+Answering an intent is done using the `add-function of the agent with the text we want read to the user as parameter.
+
+```
+agent.add('Hi, this is my answer!');
+```
+
+If add is used multiple times for a single intent, all texts added will be read. The `handleRequest`-function
+then contains the logic to turn everything added to the agent into a response and using the response-object passed 
+through the constructor to respond to the POST-request.
+
+#### Set contexts
+
+While every intent has a set of parameters to help us understand specifics of what the user wants, they are only 
+available for that specific intent. So if we for some reason need to store those or other values for more than the 
+passing of one single intent (say we need to know the first sentence the user said for the entire conversation) we
+can use the context. 
+
+The context is the combination of a string name and an object or other value. In addition it has
+an integer parameter to decide how long it should be kept before it is automatically deleted. 
+
+So if we specify a lifespan of 4, then the context would be part of the next four requests we get in that conversation.
+But for every request the lifespan will reduce by one.
+
+So if we were to want to store the parameters from one intent for one request it we would do it like this:
+
+```
+agent.context.set({ name: 'params', lifespan: 1, parameters: agent.parameters });
+```
+
+and then get them using:
+
+```
+agent.context.get('params').parameters;
+```
+
+We can also delete contexts if we would like to remove it even though it has a remaining lifespan of more than zero.
+
+```
+agent.context.delete('params');
+```
+
+Actions by Google also uses contexts quite a lot to specify things such as device capabilities. So in most real life 
+cases there will always be 5-6 contexts set. But when debugging from Dialogflow only our own contexts are part of the 
+requests and responses.
 
 ##### Actions on Google library
 
