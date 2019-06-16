@@ -139,7 +139,7 @@ policies and contribution forms [3].
     expose(test, 'test');
     expose(async_test, 'async_test');
     expose(generate_tests, 'generate_tests');
-    expose(setup, '2-setup.mdpp');
+    expose(setup, '3-setup.mdpp');
     expose(done, 'done');
     expose(on_event, 'on_event');
 
