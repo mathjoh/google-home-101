@@ -1,4 +1,16 @@
-## Tasks:
-### Drone's Cream 
+## What we will do today:
+### Drone's Cream voice app
 
-In this workshop you will create a 
+In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone's 
+Cream. 
+
+Drone's Cream's value proposition is quite simple. "We deliver the world's best ice cream by drone". To be able to
+fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people 
+stuck outside in the sun.
+
+Your tasks are split into two parts. For the first part you need to set up a voice assistant app with both static and
+dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to
+a Node.js backend provided to you.
+
+We will be using tools such as Actions on Google, Dialogflow, the Node.js Dialogflow Fullfilment Library and the 
+Actions on Google Node.js client library all of which will be explained to you throughout.
