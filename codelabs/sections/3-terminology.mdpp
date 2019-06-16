@@ -1,4 +1,4 @@
-## Concepts and tools
+## Terminology
 
 What we will be creating today is an app for Google Assistant. Google Assistant is the software that enables different 
 devices, such as Android phones and the Google Home smart speaker, to have fluent conversations with a user. 
@@ -48,15 +48,6 @@ The first tool we will use is Actions on Google. Together with a tool called Dia
 magic concerning understanding user intents. It is through Actions on Google that we create our action which can be 
 understood as the app.
 
-If our backend were to communicate directly with the actions requests, it would look something like below. 
-
-![Direct fulfillment](../images/json-conversation.png)
-* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
-
-Actions on Google uses POST requests with a JSON payload with a bunch of information to communicate with the 
-fulfillment service. The action will have done the rough work concerning speech to text, but the intent matching 
-would be up to our app. Thankfully Google have also created Dialogflow which will help us to do that.
-
 ### Dialogflow
 
 Dialogflow is a tool created to manage intents and train different agents to recognize the intent of the user. 
@@ -67,22 +58,6 @@ Dialogflow can also do simple intent fulfillment answering simple questions wher
 required. But in most cases we will want Dialogflow to use our existing or new backend service to answer many of, 
 if not all, our intents.
 
-So in our case we need to use both Actions on Google, Dialogflow and our own backend service like in the figure below.
-
-![Dialogflow fulfillment](../images/json-dialogflow.png)
-* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
-
-Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Dialogflow will have detected 
-the user intent as well as having done work parsing any specified parameters into a manageable json format. Our backend
-will only need to parse that json and do the required task.
-
-A typical request will look
-
-##### Dialogflow fulfillment library
-
-##### Actions on Google library
-
-### Developer tools
-
-#### Ngrok
+So even thougn it is possible to create a Google Assistant app without using Dialogflow, it is absolutely preferable
+to use it.
 

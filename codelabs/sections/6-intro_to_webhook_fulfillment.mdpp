@@ -1,0 +1,35 @@
+
+## ACtions
+
+
+If our backend were to communicate directly with the actions requests, it would look something like below. 
+
+![Direct fulfillment](../images/json-conversation.png)
+* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
+
+Actions on Google uses POST requests with a JSON payload with a bunch of information to communicate with the 
+fulfillment service. The action will have done the rough work concerning speech to text, but the intent matching 
+would be up to our app. Thankfully Google have also created Dialogflow which will help us to do that.
+
+### Dialogflow
+
+So in our case we need to use both Actions on Google, Dialogflow and our own backend service like in the figure below.
+
+![Dialogflow fulfillment](../images/json-dialogflow.png)
+* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
+
+Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Dialogflow will have detected 
+the user intent as well as having done work parsing any specified parameters into a manageable json format. Our backend
+will only need to parse that json and do the required task.
+
+A typical request will look
+
+##### Dialogflow fulfillment library
+
+In this workshop wil
+
+##### Actions on Google library
+
+### Developer tools
+
+#### Ngrok

@@ -4,11 +4,12 @@ id: introduction-to-voice-assistant
 # Introduction to Voice Assistant with Google Home
 
 !INCLUDE "./codelabs/sections/1-welcome.mdpp"
-!INCLUDE "./codelabs/sections/2-tools-and-concepts.mdpp"
-!INCLUDE "./codelabs/sections/3-setup.mdpp"
-!INCLUDE "./codelabs/sections/4-main_task.mdpp"
-!INCLUDE "./codelabs/sections/5-part_one_dialogflow.mdpp"
-!INCLUDE "./codelabs/sections/6-part_two_webhook.mdpp"
+!INCLUDE "./codelabs/sections/2-what-will-we-do.mdpp"
+!INCLUDE "./codelabs/sections/3-terminology.mdpp"
+!INCLUDE "./codelabs/sections/4-setup.mdpp"
+!INCLUDE "./codelabs/sections/5-tasks_part_one_dialogflow.mdpp"
+!INCLUDE "./codelabs/sections/6-intro_to_webhook_fulfillment.mdpp"
+!INCLUDE "./codelabs/sections/7-tasks_part_two_webhook.mdpp"
 
 ## And that's it! ⎈
 
