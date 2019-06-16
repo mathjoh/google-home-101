@@ -36,9 +36,9 @@
     
       <google-codelab-step label="What we will do today:" duration="0">
         <h2>Drone&#39;s Cream voice app</h2>
-<p>In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone&#39;s<br>Cream.</p>
-<p>Drone&#39;s Cream&#39;s value proposition is quite simple. <em>&#34;We deliver the world&#39;s best ice cream by drone&#34;</em>. To be able to<br>fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people<br>stuck outside in the sun.</p>
-<p>Your tasks are split into two parts. For the first part you need to set up a voice assistant app with both static and<br>dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to<br>a Node.js backend provided to you.</p>
+<p>In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone&#39;s Cream.</p>
+<p>Drone&#39;s Cream&#39;s value proposition is quite simple. <em>&#34;We deliver the world&#39;s best ice cream by drone&#34;</em>. To be able to fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people<br>stuck outside in the sun.</p>
+<p>The task is split into two parts. For the first part you need to set up a voice assistant app with both static and<br>dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to<br>a Node.js backend provided to you.</p>
 <p>We will be using tools such as Actions on Google, Dialogflow, the Node.js Dialogflow Fulfillment Library and the<br>Actions on Google Node.js client library all of which will be explained to you throughout.</p>
 
 
@@ -177,7 +177,7 @@
     ... 
 };
 </code></pre>
-<h3>Know which intent needs fulfillment</h3>
+<h3>Recognize which intent needs fulfillment</h3>
 <p>The agent created using our request and response has a built in function choose how to respond to the request. This<br>function takes a <code>Map</code> with the name of the intent as key and a function that takes the agent as parameter.</p>
 <p>So if we were to handle a welcome intent we would do as following.</p>
 <pre><code>const welcome = agent =&gt; {
@@ -194,7 +194,7 @@ agent.handleRequest(intentMap)
 <p>Here the function welcome would be used if the name of the intent coming from Dialogflow is &#34;Welcome&#34;. Be aware that the<br>matching is case sensitive. So the match need to be absolute. The null element of the map is used if no match for the<br>intent name can be found in the map.</p>
 <h3>Read parameters</h3>
 <p>The agent has the intent parameters stored in an object named <code>parameters</code>. The structure of the object will be the same<br>as the parameters in the json body of the POST request. If the name of the parameter is &#34;location&#34; in Dialogflow the<br>value can be found in <code>agent.parameters.location</code>.</p>
-<p>Most parameters are just a string or intenter value. But some complex types such as date ranges can occur and will be<br>objects themselves.</p>
+<p>Most parameters are just a string or integer value. But some complex types such as date ranges can occur and will be<br>objects themselves.</p>
 <h3>Answer intents</h3>
 <p>Answering an intent is done using the `add-function of the agent with the text we want read to the user as parameter.</p>
 <pre><code>agent.add(&#39;Hi, this is my answer!&#39;);
@@ -275,9 +275,9 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
 
       </google-codelab-step>
     
-      <google-codelab-step label="And that&#39;s it! ⎈" duration="0">
+      <google-codelab-step label="And that&#39;s it! 🎉" duration="0">
         <h2>Feedback? 😇</h2>
-<p>We would love to get feedback to improve our workshop. You are awesome if you have time to fill out . It is of course anonymous.</p>
+<p>We would love to get feedback to improve our workshop. You are awesome if you have time to fill out <a href="https://forms.gle/fJC4tR6LtakgGPye9" target="_blank">feedback form</a>. It is of course anonymous.</p>
 <h2>Any questions?</h2>
 <p>Contact us on <a href="https://twitter.com/mathjoh91" target="_blank">@mathjoh91</a> or <a href="https://twitter.com/ingridguren" target="_blank">@ingridguren</a>.</p>
 

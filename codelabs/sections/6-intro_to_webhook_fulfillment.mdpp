@@ -47,7 +47,7 @@ app.post('/', (req, res) => {
 };
 ```
 
-#### Know which intent needs fulfillment
+#### Recognize which intent needs fulfillment
 
 The agent created using our request and response has a built in function choose how to respond to the request. This 
 function takes a `Map` with the name of the intent as key and a function that takes the agent as parameter.
@@ -77,7 +77,7 @@ The agent has the intent parameters stored in an object named `parameters`. The 
 as the parameters in the json body of the POST request. If the name of the parameter is "location" in Dialogflow the
 value can be found in `agent.parameters.location`. 
 
-Most parameters are just a string or intenter value. But some complex types such as date ranges can occur and will be 
+Most parameters are just a string or integer value. But some complex types such as date ranges can occur and will be 
 objects themselves.
 
 #### Answer intents

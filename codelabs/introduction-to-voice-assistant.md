@@ -29,14 +29,12 @@ Each tasks has written
 
 ###Drone's Cream voice app
 
-In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone's 
-Cream. 
+In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone's Cream. 
 
-Drone's Cream's value proposition is quite simple. _"We deliver the world's best ice cream by drone"_. To be able to
-fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people 
+Drone's Cream's value proposition is quite simple. _"We deliver the world's best ice cream by drone"_. To be able to fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people 
 stuck outside in the sun.
 
-Your tasks are split into two parts. For the first part you need to set up a voice assistant app with both static and
+The task is split into two parts. For the first part you need to set up a voice assistant app with both static and
 dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to
 a Node.js backend provided to you.
 
@@ -330,9 +328,9 @@ app.post('/', (req, res) => {
 };
 ```
 
-<a name="knowwhichintentneedsfulfillment"></a>
+<a name="recognizewhichintentneedsfulfillment"></a>
 
-####Know which intent needs fulfillment
+####Recognize which intent needs fulfillment
 
 The agent created using our request and response has a built in function choose how to respond to the request. This 
 function takes a `Map` with the name of the intent as key and a function that takes the agent as parameter.
@@ -364,7 +362,7 @@ The agent has the intent parameters stored in an object named `parameters`. The 
 as the parameters in the json body of the POST request. If the name of the parameter is "location" in Dialogflow the
 value can be found in `agent.parameters.location`. 
 
-Most parameters are just a string or intenter value. But some complex types such as date ranges can occur and will be 
+Most parameters are just a string or integer value. But some complex types such as date ranges can occur and will be 
 objects themselves.
 
 <a name="answerintents"></a>
@@ -558,15 +556,15 @@ Update your service to check if the user already have consented before asking fo
 [Dialogflow Fulfillment Library](https://github.com/dialogflow/dialogflow-fulfillment-nodejs)
 
 
-<a name="andthat'sit!⎈"></a>
+<a name="andthat'sit!🎉"></a>
 
-##And that's it! ⎈
+##And that's it! 🎉
 
 <a name="feedback?😇"></a>
 
 ###Feedback? 😇
 
-We would love to get feedback to improve our workshop. You are awesome if you have time to fill out . It is of course anonymous.
+We would love to get feedback to improve our workshop. You are awesome if you have time to fill out [feedback form](https://forms.gle/fJC4tR6LtakgGPye9). It is of course anonymous.
 
 <a name="anyquestions?"></a>
 
