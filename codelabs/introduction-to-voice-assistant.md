@@ -13,6 +13,116 @@ Welcome to this workshop: An introduction to Voice Assistant with Google Cloud.
 
 The code is split in X part. First you will get to do tasks 
 
+<a name="conceptsandtools"></a>
+
+##Concepts and tools
+
+What we will be creating today is an app for Google Assistant. Google Assistant is the software that enables different 
+devices, such as Android phones and the Google Home smart speaker, to have fluent conversations with a user. 
+
+Google Assistant creates one common interface for all these pieces of hardware, allowing us to support them all with a 
+single implementation. The only thing that might change between devices is what kind of inputs and outputs they support.
+
+For instance: a Google Home smart speaker does not have a screen limiting the types of responses it can show to the user.
+But the same type of response is treated in the same way across devices.
+
+This workshop will focus mainly on the audio interaction, but there are other possibilities such as cards with images, 
+Call to Action elements and more.
+
+To understand the different parts of an interaction between the user and our app we need to understand the concepts 
+<em>conversation</em>, <em>intent</em> and <em>fulfillment</em>.
+
+<a name="conversation"></a>
+
+###Conversation
+
+A conversation is the overarching and simplest concept we need to know. It is simply all communications between the user
+and Google Assistant, starting when the user requests which app to talk to, ending when either the user or the app 
+requests the conversation to end. 
+
+So long as the conversation is active the app will respond to any request by the user. Before and after the conversation
+the general Google Assistant app is the one that will respond.
+
+<a name="intents"></a>
+
+####Intents
+
+An intent can be understood as a single type of request. The user will state their intent to the app, and it must 
+understand what the user intends and respond properly. 
+
+For instance, an intent can be the user saying 'Hello' or 'Good morning'. Even though those are different ways of 
+greeting the app, the app can consider these to be the same intent and answer both with the same or a similar answer.
+
+On the other hand. Should the user ask for the temperature outside that would be a different intent entirely.
+
+<a name="fulfillment"></a>
+
+####Fulfillment
+
+Every user intent needs to be fulfilled. Most intents will probably not have custom fulfillment but rather a general 
+answer such as "Sorry, I can't help you with that". As developers it is our job to identify which intents 
+needs to be answered, and how to answer them. 
+
+To help us with this we have a set of tools provided us by Google. Making it a quite easy thing to get started at.
+
+<a name="actionsongoogle"></a>
+
+###Actions on Google
+
+The first tool we will use is Actions on Google. Together with a tool called Dialogflow it will do most of the difficult 
+magic concerning understanding user intents. It is through Actions on Google that we create our action which can be 
+understood as the app.
+
+If our backend were to communicate directly with the actions requests, it would look something like below. 
+
+![Direct fulfillment](../images/json-conversation.png)
+* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
+
+Actions on Google uses POST requests with a JSON payload with a bunch of information to communicate with the 
+fulfillment service. The action will have done the rough work concerning speech to text, but the intent matching 
+would be up to our app. Thankfully Google have also created Dialogflow which will help us to do that.
+
+<a name="dialogflow"></a>
+
+###Dialogflow
+
+Dialogflow is a tool created to manage intents and train different agents to recognize the intent of the user. 
+We simply need to specify which intents we want, what data will be supplied and examples of how they can be phrased by
+the user.
+
+Dialogflow can also do simple intent fulfillment answering simple questions where no custom logic or data store is 
+required. But in most cases we will want Dialogflow to use our existing or new backend service to answer many of, 
+if not all, our intents.
+
+So in our case we need to use both Actions on Google, Dialogflow and our own backend service like in the figure below.
+
+![Dialogflow fulfillment](../images/json-dialogflow.png)
+* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
+
+Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Dialogflow will have detected 
+the user intent as well as having done work parsing any specified parameters into a manageable json format. Our backend
+will only need to parse that json and do the required task.
+
+A typical request will look
+
+<a name="dialogflowfulfillmentlibrary"></a>
+
+#####Dialogflow fulfillment library
+
+<a name="actionsongooglelibrary"></a>
+
+#####Actions on Google library
+
+<a name="developertools"></a>
+
+###Developer tools
+
+<a name="ngrok"></a>
+
+####Ngrok
+
+
+
 <a name="installation&setup"></a>
 
 ##Installation & setup
@@ -76,7 +186,7 @@ Wait while the project is being created
 
 
 
-<a name="dialogflow"></a>
+<a name="dialogflow-1"></a>
 
 ###Dialogflow
 
@@ -149,14 +259,6 @@ Duration: 10:00
 In this part you will learn to use use Dialogflow to create your own intent fulfillment.
 The tasks you create will be used later in the workshop. 
 
-<a name="overviewoftasks"></a>
-
-###Overview of tasks
-- [Task 1](#task-1)
-- [Task 2](#task-2)
-- [Task 3](#task-3)
-- [Task 4](#task-4)
-
 <a name="task1"></a>
 
 ####Task 1
@@ -210,15 +312,6 @@ Duration: 20:00
 ###Webhook intent fulfillment
 
 In this part you will need to adapt the intents created in part 1 to be answered by a webhook instead of Dialogflow.
-
-<a name="overviewoftasks-1"></a>
-
-###Overview of tasks
-
- - [Task 1](#task-1-1) 
- - [Task 2](#task-2-1) 
- - [Task 3](#task-3-1) 
- - [Task 4](#task-4-1) 
 
 <a name="task1-1"></a>
 

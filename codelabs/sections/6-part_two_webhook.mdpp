@@ -5,13 +5,6 @@ Duration: 20:00
 
 In this part you will need to adapt the intents created in part 1 to be answered by a webhook instead of Dialogflow.
 
-### Overview of tasks
-
- - [Task 1](#task-1-1) 
- - [Task 2](#task-2-1) 
- - [Task 3](#task-3-1) 
- - [Task 4](#task-4-1) 
-
 #### Task 1
 
 Enable webhook fulfillment for the intent created in [task 1 in part 1](#task1).

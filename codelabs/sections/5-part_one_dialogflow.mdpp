@@ -6,12 +6,6 @@ Duration: 10:00
 In this part you will learn to use use Dialogflow to create your own intent fulfillment.
 The tasks you create will be used later in the workshop. 
 
-### Overview of tasks
-- [Task 1](#task-1)
-- [Task 2](#task-2)
-- [Task 3](#task-3)
-- [Task 4](#task-4)
-
 #### Task 1
 
 Create an intent welcoming the user to the Drone's Cream virtual store using only Dialogflow. 
