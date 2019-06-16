@@ -11,11 +11,42 @@ id: introduction-to-voice-assistant
 
 Welcome to this workshop: An introduction to Voice Assistant with Google Cloud. 
 
-The code is split in X part. First you will get to do tasks 
+The workshop is split in two parts. Part 1 lets you explore Dialogflow to setup your own intent fulfillment, and in part 2 you will use Webhook intent fulfillment instead. 
 
-<a name="conceptsandtools"></a>
+Each tasks has written 
 
-##Concepts and tools
+
+<a name="aboutthedifferentpartsintheworkshop:"></a>
+
+###About the different parts in the workshop:
+*What we will do:* Gives an introduction to the task we are going to solve
+*Terminology:* Written explanation about the different   
+
+<a name="whatwewilldotoday:"></a>
+
+##What we will do today:
+<a name="drone'screamvoiceapp"></a>
+
+###Drone's Cream voice app
+
+In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone's 
+Cream. 
+
+Drone's Cream's value proposition is quite simple. _"We deliver the world's best ice cream by drone"_. To be able to
+fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people 
+stuck outside in the sun.
+
+Your tasks are split into two parts. For the first part you need to set up a voice assistant app with both static and
+dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to
+a Node.js backend provided to you.
+
+We will be using tools such as Actions on Google, Dialogflow, the Node.js Dialogflow Fulfillment Library and the 
+Actions on Google Node.js client library all of which will be explained to you throughout.
+
+
+<a name="terminology"></a>
+
+##Terminology
 
 What we will be creating today is an app for Google Assistant. Google Assistant is the software that enables different 
 devices, such as Android phones and the Google Home smart speaker, to have fluent conversations with a user. 
@@ -30,7 +61,7 @@ This workshop will focus mainly on the audio interaction, but there are other po
 Call to Action elements and more.
 
 To understand the different parts of an interaction between the user and our app we need to understand the concepts 
-<em>conversation</em>, <em>intent</em> and <em>fulfillment</em>.
+_conversation_, _intent_ and _fulfillment_
 
 <a name="conversation"></a>
 
@@ -73,15 +104,6 @@ The first tool we will use is Actions on Google. Together with a tool called Dia
 magic concerning understanding user intents. It is through Actions on Google that we create our action which can be 
 understood as the app.
 
-If our backend were to communicate directly with the actions requests, it would look something like below. 
-
-![Direct fulfillment](../images/json-conversation.png)
-* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
-
-Actions on Google uses POST requests with a JSON payload with a bunch of information to communicate with the 
-fulfillment service. The action will have done the rough work concerning speech to text, but the intent matching 
-would be up to our app. Thankfully Google have also created Dialogflow which will help us to do that.
-
 <a name="dialogflow"></a>
 
 ###Dialogflow
@@ -94,32 +116,8 @@ Dialogflow can also do simple intent fulfillment answering simple questions wher
 required. But in most cases we will want Dialogflow to use our existing or new backend service to answer many of, 
 if not all, our intents.
 
-So in our case we need to use both Actions on Google, Dialogflow and our own backend service like in the figure below.
-
-![Dialogflow fulfillment](../images/json-dialogflow.png)
-* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
-
-Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Dialogflow will have detected 
-the user intent as well as having done work parsing any specified parameters into a manageable json format. Our backend
-will only need to parse that json and do the required task.
-
-A typical request will look
-
-<a name="dialogflowfulfillmentlibrary"></a>
-
-#####Dialogflow fulfillment library
-
-<a name="actionsongooglelibrary"></a>
-
-#####Actions on Google library
-
-<a name="developertools"></a>
-
-###Developer tools
-
-<a name="ngrok"></a>
-
-####Ngrok
+So even though it is possible to create a Google Assistant app without using Dialogflow, it is absolutely preferable
+to use it.
 
 
 
@@ -224,29 +222,6 @@ Click "Create"
  The Service Account: Used for accessing the 
  
 
-<a name="maintasks:"></a>
-
-##Main tasks:
-<a name="dronescream"></a>
-
-###Drones Cream
-
-"We deliver great ice cream delivered with drones"
-
-
-Pay the drone when you get the cone. 
-
-
-Give menu
-
-Who are you?
-Where are you?
-What ice cream do you want?
-
-Check if the ice cream is still available?
-
-
-
 <a name="part1:dialogflow"></a>
 
 ##Part 1: Dialogflow
@@ -301,6 +276,200 @@ If either flavour or number of cones is missing from the request the user should
 The answer should include the order details including location if it is supplied.
 
 
+
+<a name="introtowebhookintentfulfillment"></a>
+
+##Intro to webhook intent fulfillment
+
+To set up custom fulfillment for our Google Assistant app we will need to set up a webhook. A webhook is a simple
+http-POST endpoint capable of parsing the body of our request and create an appropriate response.
+
+If our backend were to communicate directly with the actions requests, it would look something like below. 
+
+![Direct fulfillment](images/json-conversation.png)
+* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
+
+Actions on Google sends POST requests with a JSON payload with a bunch of information to communicate with the 
+fulfillment service. The action will have done the rough work concerning speech to text, but the intent matching 
+would be up to our app. Thankfully we have used Dialogflow to do that for us.
+
+So in our case the communications look like the figure below.
+
+![Dialogflow fulfillment](images/json-dialogflow.png)
+* borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
+
+Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Since Dialogflow will have 
+detected the user intent as well as having done work parsing any specified parameters into a manageable json format. 
+Our backend will only need to parse that json and respond to the provided intent.
+
+As stated earlier this workshop will use the Node.js Dialogflow Fulfillment Library. We could have solved the tasks in 
+any programming language with tools to parse and create json. But Node.js has the most complete client library for both
+Dialogflow and Actions on Google, making the work a bit easier. 
+
+But in case you are curious to how you could solve this without the client libraries we have provided examples of the
+json requests and responses that the client library handles and creates in the tasks you will do.
+
+<a name="dialogflowfulfillmentlibrary"></a>
+
+###Dialogflow Fulfillment Library
+
+The main component to the client library is the `WebhookClient` class. It is imported from the `dialogflow-fulfillment` npm 
+package like this:
+
+```
+const { WebhookClient } = require('dialogflow-fulfillment');
+```
+
+The way we use it is by sending request and response objects as arguments to the constructor of the class, and using its 
+built in functions to most of what we need to do today.
+
+```    
+app.post('/', (req, res) => {
+    const agent = new WebhookClient({ request: req, response: res });
+    ... 
+};
+```
+
+<a name="knowwhichintentneedsfulfillment"></a>
+
+####Know which intent needs fulfillment
+
+The agent created using our request and response has a built in function choose how to respond to the request. This 
+function takes a `Map` with the name of the intent as key and a function that takes the agent as parameter.
+
+So if we were to handle a welcome intent we would do as following.
+
+```
+const welcome = agent => {
+    ... // some logic to answer the intent
+}
+const fallback = agent => {
+    ... // some logic to answer that the intent was not recognized
+}
+let intentMap = new Map();
+intentMap.set('Welcome', welcome);
+intentMap.set(null, fallback);
+agent.handleRequest(intentMap)
+```
+
+Here the function welcome would be used if the name of the intent coming from Dialogflow is "Welcome". Be aware that the
+matching is case sensitive. So the match need to be absolute. The null element of the map is used if no match for the
+intent name can be found in the map.
+
+<a name="readparameters"></a>
+
+####Read parameters
+
+The agent has the intent parameters stored in an object named `parameters`. The structure of the object will be the same 
+as the parameters in the json body of the POST request. If the name of the parameter is "location" in Dialogflow the
+value can be found in `agent.parameters.location`. 
+
+Most parameters are just a string or intenter value. But some complex types such as date ranges can occur and will be 
+objects themselves.
+
+<a name="answerintents"></a>
+
+####Answer intents
+
+Answering an intent is done using the `add-function of the agent with the text we want read to the user as parameter.
+
+```
+agent.add('Hi, this is my answer!');
+```
+
+If add is used multiple times for a single intent, all texts added will be read. The `handleRequest`-function
+then contains the logic to turn everything added to the agent into a response and using the response-object passed 
+through the constructor to respond to the POST-request.
+
+<a name="setcontexts"></a>
+
+####Set contexts
+
+While every intent has a set of parameters to help us understand specifics of what the user wants, they are only 
+available for that specific intent. So if we for some reason need to store those or other values for more than the 
+passing of one single intent (say we need to know the first sentence the user said for the entire conversation) we
+can use the context. 
+
+The context is the combination of a string name and an object or other value. In addition it has
+an integer parameter to decide how long it should be kept before it is automatically deleted. 
+
+So if we specify a lifespan of 4, then the context would be part of the next four requests we get in that conversation.
+But for every request the lifespan will reduce by one.
+
+So if we were to want to store the parameters from one intent for one request it we would do it like this:
+
+```
+agent.context.set({ name: 'params', lifespan: 1, parameters: agent.parameters });
+```
+
+and then get them using:
+
+```
+agent.context.get('params').parameters;
+```
+
+We can also delete contexts if we would like to remove it even though it has a remaining lifespan of more than zero.
+
+```
+agent.context.delete('params');
+```
+
+Actions by Google also uses contexts quite a lot to specify things such as device capabilities. So in most real life 
+cases there will always be 5-6 contexts set. But when debugging from Dialogflow only our own contexts are part of the 
+requests and responses.
+
+<a name="actionsongooglelibrary"></a>
+
+###Actions on Google library
+
+There are some things done by the Google Assistant that cannot be handled by the Dialogflow Fulfillment Library alone.
+
+One of those things that we will need to look at today is permissions. Every now and then we want to get information
+from either the user profile or device of the user behind an intent. For instance we may want to know the exact location
+if the user were to ask about the weather outside. 
+
+But because anyone can make an app for Google Assistant, Google does not share this information with your app by default.
+For each conversation your app will need to ask the user for permission to get this information.
+
+This is done by creating a special response asking for permission. When the user responds either yes or no to this request
+that is translated into a special event called "Google Assistant Permission" which we need to catch using a special
+intent in Dialogflow. The intent need to have the event "Google Assistant Permission" to fire, and our app need to
+handle an event with whatever name we choose for that intent.
+
+The way we create the response is by using the `Permission` class from the `actions-on-google` library. We need to 
+supply it what type of data we want and why.
+
+```
+const { Permission } = require('actions-on-google');
+
+...
+
+const conv = agent.conv();
+if (conv) { // conv can be null if the intent was not called from Google Assistant (say using the Dialogflow testing tool)
+    conv.ask(new Permission({
+        context: 'To know where you are',
+        permissions: 'DEVICE_PRECISE_LOCATION',
+    }));
+    agent.add(conv);
+} else {
+    agent.add('Your current device does not support location data.');
+}
+```
+
+The following intent will now include a quite deeply nested object called `originalRequest`. 
+Depending on what kind of data we request it will probably be contained under either user
+ (`agent.originalRequest.payload.user`) or device (`agent.originalRequest.payload.device`) data.
+
+In the case of location it can be found under `agent.originalRequest.payload.device.location`. It will have
+data such as latitude, longitude and formatted address. It is recommended to play use some console logging to get
+familiar with this object.
+
+In addition it is smart to check whether the permission actually was given, if not the data will be missing. That can 
+be found in one of the contexts called `actions_intent_permission`:
+
+```
+agent.context.get('actions_intent_permission').parameters.PERMISSION // this is a boolean
+```
 
 <a name="part2:webhooks"></a>
 
@@ -383,6 +552,10 @@ will keep asking for permission to get device location from users who have alrea
 Update your service to check if the user already have consented before asking for the location again.
 
 
+
+
+
+[Dialogflow Fulfillment Library](https://github.com/dialogflow/dialogflow-fulfillment-nodejs)
 
 
 <a name="andthat'sit!⎈"></a>

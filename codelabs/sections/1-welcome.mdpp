@@ -2,4 +2,11 @@
 
 Welcome to this workshop: An introduction to Voice Assistant with Google Cloud. 
 
-The code is split in X part. First you will get to do tasks 
+The workshop is split in two parts. Part 1 lets you explore Dialogflow to setup your own intent fulfillment, and in part 2 you will use Webhook intent fulfillment instead. 
+
+Each tasks has written 
+
+
+### About the different parts in the workshop: 
+*What we will do:* Gives an introduction to the task we are going to solve
+*Terminology:* Written explanation about the different   

@@ -5,7 +5,7 @@ http-POST endpoint capable of parsing the body of our request and create an appr
 
 If our backend were to communicate directly with the actions requests, it would look something like below. 
 
-![Direct fulfillment](../images/json-conversation.png)
+![Direct fulfillment](images/json-conversation.png)
 * borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
 
 Actions on Google sends POST requests with a JSON payload with a bunch of information to communicate with the 
@@ -14,7 +14,7 @@ would be up to our app. Thankfully we have used Dialogflow to do that for us.
 
 So in our case the communications look like the figure below.
 
-![Dialogflow fulfillment](../images/json-dialogflow.png)
+![Dialogflow fulfillment](images/json-dialogflow.png)
 * borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
 
 Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Since Dialogflow will have 
