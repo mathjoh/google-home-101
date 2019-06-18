@@ -20,19 +20,17 @@ Hint: We want to create our own welcome intent, so you will have to delete the e
 
 #### Task 2
 
-Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry. Do this using only Dialogflow. 
+Create an intent listing the inventory of the store if a user asks for it. The inventory for Drone's Cream is Vanilla, Chocolate, Mint and Strawberry. 
 
-The intent should answer questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?".
+The intent should respond to questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?". This task should only use Dialogflow. 
 
 #### Task 3
 
-Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own intent _iceCreamFlavour_ with all the available flavours of Drone's Cream.  
+Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own entity _iceCreamFlavour_ with all the available flavours of Drone's Cream.
 
 #### Task 4
 
-Create an intent to order a number of cones of ice cream using using only Dialogflow. The user must supply one 
-flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the 
-ice cream delivered. 
+Create an intent to order a number of cones of ice cream using only Dialogflow. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered. 
 
 If either flavour or number of cones is missing from the request the user should receive a prompt to supply these.
 
