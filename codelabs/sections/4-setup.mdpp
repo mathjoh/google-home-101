@@ -2,11 +2,6 @@
 
 For this workshop, you will need your own Google Account. You will not have to pay for the services. 
 
-### Installation
-
-Start by installing [Nodejs](https://nodejs.org/en/download/).
-You can verify that it is correctly installed by typing `node -v` in the terminal.
-
 ### Google Action setup 
 
 For this workshop you will need a Google account. 

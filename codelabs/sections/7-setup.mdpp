@@ -2,12 +2,11 @@
 
 ### Installation
 
-Start by installing [Nodejs](https://nodejs.org/en/download/).
-You can verify that it is correctly installed by typing `node -v` in the terminal.
+Start by installing [Nodejs](https://nodejs.org/en/download/). You can verify that it is correctly installed by typing `node -v` in the terminal. You will also need [npm](https://www.npmjs.com).
 
 #### Https connection 
 
-We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com/io](ngrok.com/io).  
+We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com](https://ngrok.com).  
 Register with your own account, and afterwards run _Step 3_ to connect your account. 
 
 ### Run your application

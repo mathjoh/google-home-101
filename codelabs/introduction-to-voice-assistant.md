@@ -125,13 +125,6 @@ to use it.
 
 For this workshop, you will need your own Google Account. You will not have to pay for the services. 
 
-<a name="installation"></a>
-
-###Installation
-
-Start by installing [Nodejs](https://nodejs.org/en/download/).
-You can verify that it is correctly installed by typing `node -v` in the terminal.
-
 <a name="googleactionsetup"></a>
 
 ###Google Action setup
@@ -246,7 +239,7 @@ Dialogflow support enums to create an easier concept of available input paramete
 
 ####Task 4
 
-Create an intent to order a number of cones of ice cream using only Dialogflow. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered. 
+Create an intent to order a number of cones of ice cream using the entity created in the previous task. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered. 
 
 If either flavour or number of cones is missing from the request the user should receive a prompt to supply these.
 
@@ -452,18 +445,17 @@ agent.context.get('actions_intent_permission').parameters.PERMISSION // this is 
 
 ##Installation & setup
 
-<a name="installation-1"></a>
+<a name="installation"></a>
 
 ###Installation
 
-Start by installing [Nodejs](https://nodejs.org/en/download/).
-You can verify that it is correctly installed by typing `node -v` in the terminal.
+Start by installing [Nodejs](https://nodejs.org/en/download/). You can verify that it is correctly installed by typing `node -v` in the terminal. You will also need [npm](https://www.npmjs.com).
 
 <a name="httpsconnection"></a>
 
 ####Https connection
 
-We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com/io](ngrok.com/io).  
+We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com](https://ngrok.com).  
 Register with your own account, and afterwards run _Step 3_ to connect your account. 
 
 <a name="runyourapplication"></a>

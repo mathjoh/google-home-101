@@ -72,8 +72,6 @@
     
       <google-codelab-step label="Installation &amp; setup" duration="0">
         <p>For this workshop, you will need your own Google Account. You will not have to pay for the services.</p>
-<h2>Installation</h2>
-<p>Start by installing <a href="https://nodejs.org/en/download/" target="_blank">Nodejs</a>.<br>You can verify that it is correctly installed by typing <code>node -v</code> in the terminal.</p>
 <h2>Google Action setup</h2>
 <p>For this workshop you will need a Google account.</p>
 <ul>
@@ -140,7 +138,7 @@
 <h3>Task 3</h3>
 <p>Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own entity <em>iceCreamFlavour</em> with all the available flavours of Drone&#39;s Cream.</p>
 <h3>Task 4</h3>
-<p>Create an intent to order a number of cones of ice cream using only Dialogflow. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered.</p>
+<p>Create an intent to order a number of cones of ice cream using the entity created in the previous task. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered.</p>
 <p>If either flavour or number of cones is missing from the request the user should receive a prompt to supply these.</p>
 <p>The answer should include the order details including location if it is supplied.</p>
 
@@ -242,9 +240,9 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
     
       <google-codelab-step label="Installation &amp; setup" duration="0">
         <h2>Installation</h2>
-<p>Start by installing <a href="https://nodejs.org/en/download/" target="_blank">Nodejs</a>.<br>You can verify that it is correctly installed by typing <code>node -v</code> in the terminal.</p>
+<p>Start by installing <a href="https://nodejs.org/en/download/" target="_blank">Nodejs</a>. You can verify that it is correctly installed by typing <code>node -v</code> in the terminal. You will also need <a href="https://www.npmjs.com" target="_blank">npm</a>.</p>
 <h3>Https connection</h3>
-<p>We need https connection for running the Dialogflow commands. For this, you will have to sign up on <a href="ngrok.com/io" target="_blank">ngrok.com/io</a>.<br><br>Register with your own account, and afterwards run <em>Step 3</em> to connect your account.</p>
+<p>We need https connection for running the Dialogflow commands. For this, you will have to sign up on <a href="https://ngrok.com" target="_blank">ngrok.com</a>.<br><br>Register with your own account, and afterwards run <em>Step 3</em> to connect your account.</p>
 <h2>Run your application</h2>
 <p>When running the application, you need to start both the node application and ngrok.</p>
 <p>Running the application:</p>

@@ -30,7 +30,7 @@ Dialogflow support enums to create an easier concept of available input paramete
 
 #### Task 4
 
-Create an intent to order a number of cones of ice cream using only Dialogflow. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered. 
+Create an intent to order a number of cones of ice cream using the entity created in the previous task. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered. 
 
 If either flavour or number of cones is missing from the request the user should receive a prompt to supply these.
 
