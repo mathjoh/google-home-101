@@ -451,6 +451,11 @@ agent.context.get('actions_intent_permission').parameters.PERMISSION // this is 
 
 Start by installing [Nodejs](https://nodejs.org/en/download/). You can verify that it is correctly installed by typing `node -v` in the terminal. You will also need [npm](https://www.npmjs.com).
 
+Clone the repository to get access to the code: 
+```
+git clone https://github.com/mathjoh/google-home-101.git
+```
+
 <a name="httpsconnection"></a>
 
 ####Https connection
@@ -507,7 +512,7 @@ Hint: You will have to
 
 ####Task 2
 
-Convert the intent from [task 3 in part 1](#task3) to be answered by your webhook. This time the answer should reflect the 
+Convert the intent from task 3 in part 1 to be answered by your webhook. This time the answer should reflect the 
 actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling 
 which should contain all the necessary business logic in the file `store.js`.
 
@@ -520,7 +525,7 @@ Test your webhook using either the testing tool in Dialogflow or Actions by Goog
 
 ####Task 3
 
-Convert the intent from task thfourree [???] in part one to be answered by your webhook. This time the answer should reflect the 
+Convert the intent from task 4 in part 1 to be answered by your webhook. This time the answer should reflect the 
 actual inventory of the Ice Cream store. 
 
 If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones 

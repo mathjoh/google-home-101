@@ -4,6 +4,11 @@
 
 Start by installing [Nodejs](https://nodejs.org/en/download/). You can verify that it is correctly installed by typing `node -v` in the terminal. You will also need [npm](https://www.npmjs.com).
 
+Clone the repository to get access to the code: 
+```
+git clone https://github.com/mathjoh/google-home-101.git
+```
+
 #### Https connection 
 
 We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com](https://ngrok.com).  
