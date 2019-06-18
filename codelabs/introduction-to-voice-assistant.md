@@ -123,13 +123,7 @@ to use it.
 
 ##Installation & setup
 
-<a name="requirementsfortheworkshop:"></a>
-
-###Requirements for the workshop:
- - Your own Google Account
- - [Nodejs](https://nodejs.org/en/download/) installed on your computer
- 
-Without these requirements fulfilled you will not be able to do the workshop. 
+For this workshop, you will need your own Google Account. You will not have to pay for the services. 
 
 <a name="installation"></a>
 
@@ -138,31 +132,15 @@ Without these requirements fulfilled you will not be able to do the workshop.
 Start by installing [Nodejs](https://nodejs.org/en/download/).
 You can verify that it is correctly installed by typing `node -v` in the terminal.
 
-<a name="httpsconnection"></a>
+<a name="googleactionsetup"></a>
 
-####Https connection
-
-We need https connection for running the Dialogflow commands.  
-
-Registrere på ngrok.com/io
-
-
-
-To run the application, run `npm i && npm run dev`, application is available on [http://localhost:1234](http://localhost:1234)
-
-To run ngrok go to ngrok.com and register. Then run step 3 in the setup to connect ypur account `./ngrok authtoken [your auth token]`. Then run `./ngrok http 1234` to start the http tunnel. Copy the https url given in the terminal into the webhook address in the tab fullfilment in Dialogflow.
-
-
-
-<a name="setup"></a>
-
-###setup
+###Google Action setup
 
 For this workshop you will need a Google account. 
 
- - Go to [Google Actions](https://developers.google.com/actions/) to get started.
-
- - Go to Actions Console
+ - Go to [Google Actions](https://developers.google.com/actions/) 
+ 
+ - Click _Go to Actions Console_
  
  
 <a name="createyourfirstproject"></a>
@@ -174,21 +152,30 @@ For this workshop you will need a Google account.
   * Accept Terms of Service and choose Country of residence.
   * Click "Agree and Continue"
   
- - Enter the name of you project _Voice Assistant Workshop_
- - Let the language for your Actions project be _English_
+ - Enter the name of your project _Voice Assistant Workshop_
+ - Let the language for your Actions project be _English_ (default)
  - Click Create Project
  
-Wait while the project is being created 
+- To continue click the home button in the upper left corner (_Actions on Google_)
+- Choose your project from the list of projects.
 
+<a name="invokeaction"></a>
+
+###Invoke action
+- Click _decide how your action is invoked_
+- Choose a display name (**This must be globally unique, and your first choice might be taken**)
 
 
 <a name="dialogflow-1"></a>
 
 ###Dialogflow
 
+We are now going to start creating dialogs with Dialogflow. 
+
  - Go to [Dialogflow](https://dialogflow.com/)
  - Sign in with your Google Account
- - Let Dialogflow get permission to your Google Account 
+ - Click _go to console_
+ - Let Dialogflow get permissions to your Google Account 
  
  
  Review your account settings
@@ -201,24 +188,19 @@ Wait while the project is being created
 
 ####Create your agent
 
-We are now going to create your first agent: 
+We are now going to create your first agent and connect it to your Google project. 
+
 - Give the agent a name: _Voice-assistant-workshop-agent_
 - Language: _English - en_
 - Timezone: GMT +2:00
 - Google Project: voice-assistant-workshop
 
-Click "Create"
- 
- 
- 
-<a name="inspectingtheagent"></a>
+Click _Create_
 
-######Inspecting the agent
- Let's inspect the agent we have created: 
- 
- 
- The Service Account: Used for accessing the 
- 
+
+<a name="youarenowreadytostartthetasks!"></a>
+
+###You are now ready to start the tasks!
 
 <a name="part1:dialogflow"></a>
 
@@ -237,12 +219,12 @@ The tasks you create will be used later in the workshop.
 ####Task 1
 
 Create an intent welcoming the user to the Drone's Cream virtual store using only Dialogflow. 
-The intent should answer the user with a welcome prompt. 
+The intent should respond the user with a welcome prompt. 
 
-The intent should answer prompts such as "Hi", "hello", "good morning" etc.
+The intent should respond to prompts from the user such as "Hi", "hello", "good morning" etc.
 
 The response should include the time of day if the prompt has it. I.e: 
-If the prompt is "Good afternoon" the answer should also start with "Good afternoon".
+If the prompt is "Good afternoon" the response should also start with "Good afternoon".
 
 Hint: We want to create our own welcome intent, so you will have to delete the existing welcome intent (_Default Welcome Intent_).    
 
@@ -250,8 +232,7 @@ Hint: We want to create our own welcome intent, so you will have to delete the e
 
 ####Task 2
 
-Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry. 
-Do this using using only Dialogflow. 
+Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry. Do this using only Dialogflow. 
 
 The intent should answer questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?".
 
@@ -259,7 +240,7 @@ The intent should answer questions such as "What kinds of flavours do you have?"
 
 ####Task 3
 
-Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own intent _iceCreamFlavour_ with all the avilable flavours of Drone's Cream.  
+Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own intent _iceCreamFlavour_ with all the available flavours of Drone's Cream.  
 
 <a name="task4"></a>
 
@@ -468,6 +449,45 @@ be found in one of the contexts called `actions_intent_permission`:
 ```
 agent.context.get('actions_intent_permission').parameters.PERMISSION // this is a boolean
 ```
+
+<a name="installation&setup-1"></a>
+
+##Installation & setup
+
+<a name="installation-1"></a>
+
+###Installation
+
+Start by installing [Nodejs](https://nodejs.org/en/download/).
+You can verify that it is correctly installed by typing `node -v` in the terminal.
+
+<a name="httpsconnection"></a>
+
+####Https connection
+
+We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com/io](ngrok.com/io).  
+Register with your own account, and afterwards run _Step 3_ to connect your account. 
+
+<a name="runyourapplication"></a>
+
+###Run your application
+
+When running the application, you need to start both the node application and ngrok. 
+
+Running the application: 
+```
+npm i && npm run dev
+``` 
+
+Running ngrok: 
+
+```
+./ngrok authtoken [your auth token]
+
+```
+
+Use the posted https address from ngrok in the tasks
+
 
 <a name="part2:webhooks"></a>
 

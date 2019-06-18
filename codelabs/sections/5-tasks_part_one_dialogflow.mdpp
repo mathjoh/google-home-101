@@ -9,25 +9,24 @@ The tasks you create will be used later in the workshop.
 #### Task 1
 
 Create an intent welcoming the user to the Drone's Cream virtual store using only Dialogflow. 
-The intent should answer the user with a welcome prompt. 
+The intent should respond the user with a welcome prompt. 
 
-The intent should answer prompts such as "Hi", "hello", "good morning" etc.
+The intent should respond to prompts from the user such as "Hi", "hello", "good morning" etc.
 
 The response should include the time of day if the prompt has it. I.e: 
-If the prompt is "Good afternoon" the answer should also start with "Good afternoon".
+If the prompt is "Good afternoon" the response should also start with "Good afternoon".
 
 Hint: We want to create our own welcome intent, so you will have to delete the existing welcome intent (_Default Welcome Intent_).    
 
 #### Task 2
 
-Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry. 
-Do this using using only Dialogflow. 
+Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry. Do this using only Dialogflow. 
 
 The intent should answer questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?".
 
 #### Task 3
 
-Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own intent _iceCreamFlavour_ with all the avilable flavours of Drone's Cream.  
+Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own intent _iceCreamFlavour_ with all the available flavours of Drone's Cream.  
 
 #### Task 4
 

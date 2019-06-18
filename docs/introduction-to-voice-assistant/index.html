@@ -71,24 +71,14 @@
       </google-codelab-step>
     
       <google-codelab-step label="Installation &amp; setup" duration="0">
-        <h2>Requirements for the workshop:</h2>
-<ul>
-<li>Your own Google Account</li>
-<li><a href="https://nodejs.org/en/download/" target="_blank">Nodejs</a> installed on your computer</li>
-</ul>
-<p>Without these requirements fulfilled you will not be able to do the workshop.</p>
+        <p>For this workshop, you will need your own Google Account. You will not have to pay for the services.</p>
 <h2>Installation</h2>
 <p>Start by installing <a href="https://nodejs.org/en/download/" target="_blank">Nodejs</a>.<br>You can verify that it is correctly installed by typing <code>node -v</code> in the terminal.</p>
-<h3>Https connection</h3>
-<p>We need https connection for running the Dialogflow commands.</p>
-<p>Registrere på ngrok.com/io</p>
-<p>To run the application, run <code>npm i &amp;&amp; npm run dev</code>, application is available on <a href="http://localhost:1234" target="_blank">http://localhost:1234</a></p>
-<p>To run ngrok go to ngrok.com and register. Then run step 3 in the setup to connect ypur account <code>./ngrok authtoken [your auth token]</code>. Then run <code>./ngrok http 1234</code> to start the http tunnel. Copy the https url given in the terminal into the webhook address in the tab fullfilment in Dialogflow.</p>
-<h2>setup</h2>
+<h2>Google Action setup</h2>
 <p>For this workshop you will need a Google account.</p>
 <ul>
-<li>Go to <a href="https://developers.google.com/actions/" target="_blank">Google Actions</a> to get started.</li>
-<li>Go to Actions Console</li>
+<li>Go to <a href="https://developers.google.com/actions/" target="_blank">Google Actions</a></li>
+<li>Click <em>Go to Actions Console</em></li>
 </ul>
 <h2>Create your first project</h2>
 <ul>
@@ -97,16 +87,24 @@
 <li>Click &#34;Agree and Continue&#34;<br><br></li>
 </ul>
 </li>
-<li>Enter the name of you project <em>Voice Assistant Workshop</em></li>
-<li>Let the language for your Actions project be <em>English</em></li>
+<li>Enter the name of your project <em>Voice Assistant Workshop</em></li>
+<li>Let the language for your Actions project be <em>English</em> (default)</li>
 <li>Click Create Project</li>
+<li>To continue click the home button in the upper left corner (<em>Actions on Google</em>)</li>
+<li>Choose your project from the list of projects.</li>
 </ul>
-<p>Wait while the project is being created</p>
+<h2>Invoke action</h2>
+<ul>
+<li>Click <em>decide how your action is invoked</em></li>
+<li>Choose a display name (<strong>This must be globally unique, and your first choice might be taken</strong>)</li>
+</ul>
 <h2>Dialogflow</h2>
+<p>We are now going to start creating dialogs with Dialogflow.</p>
 <ul>
 <li>Go to <a href="https://dialogflow.com/" target="_blank">Dialogflow</a></li>
 <li>Sign in with your Google Account</li>
-<li>Let Dialogflow get permission to your Google Account</li>
+<li>Click <em>go to console</em></li>
+<li>Let Dialogflow get permissions to your Google Account</li>
 </ul>
 <p>Review your account settings</p>
 <ul>
@@ -115,17 +113,15 @@
 <li>Click &#34;Create Agent&#34;</li>
 </ul>
 <h3>Create your agent</h3>
-<p>We are now going to create your first agent:</p>
+<p>We are now going to create your first agent and connect it to your Google project.</p>
 <ul>
 <li>Give the agent a name: <em>Voice-assistant-workshop-agent</em></li>
 <li>Language: <em>English - en</em></li>
 <li>Timezone: GMT +2:00</li>
 <li>Google Project: voice-assistant-workshop</li>
 </ul>
-<p>Click &#34;Create&#34;</p>
-<h5>Inspecting the agent</h5>
-<p>Let&#39;s inspect the agent we have created:</p>
-<p>The Service Account: Used for accessing the</p>
+<p>Click <em>Create</em></p>
+<h2>You are now ready to start the tasks!</h2>
 
 
       </google-codelab-step>
@@ -134,15 +130,15 @@
         <h2>Dialogflow intent fulfillment</h2>
 <p>In this part you will learn to use use Dialogflow to create your own intent fulfillment.<br>The tasks you create will be used later in the workshop.</p>
 <h3>Task 1</h3>
-<p>Create an intent welcoming the user to the Drone&#39;s Cream virtual store using only Dialogflow.<br>The intent should answer the user with a welcome prompt.</p>
-<p>The intent should answer prompts such as &#34;Hi&#34;, &#34;hello&#34;, &#34;good morning&#34; etc.</p>
-<p>The response should include the time of day if the prompt has it. I.e:<br>If the prompt is &#34;Good afternoon&#34; the answer should also start with &#34;Good afternoon&#34;.</p>
+<p>Create an intent welcoming the user to the Drone&#39;s Cream virtual store using only Dialogflow.<br>The intent should respond the user with a welcome prompt.</p>
+<p>The intent should respond to prompts from the user such as &#34;Hi&#34;, &#34;hello&#34;, &#34;good morning&#34; etc.</p>
+<p>The response should include the time of day if the prompt has it. I.e:<br>If the prompt is &#34;Good afternoon&#34; the response should also start with &#34;Good afternoon&#34;.</p>
 <p>Hint: We want to create our own welcome intent, so you will have to delete the existing welcome intent (<em>Default Welcome Intent</em>).</p>
 <h3>Task 2</h3>
-<p>Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry.<br>Do this using using only Dialogflow.</p>
+<p>Create an intent listing the following inventory for the virtual Ice Cream shop: Vanilla, Chocolate, Mint and Strawberry. Do this using only Dialogflow.</p>
 <p>The intent should answer questions such as &#34;What kinds of flavours do you have?&#34; and &#34;What ice creams do you offer?&#34;.</p>
 <h3>Task 3</h3>
-<p>Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own intent <em>iceCreamFlavour</em> with all the avilable flavours of Drone&#39;s Cream.</p>
+<p>Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own intent <em>iceCreamFlavour</em> with all the available flavours of Drone&#39;s Cream.</p>
 <h3>Task 4</h3>
 <p>Create an intent to order a number of cones of ice cream using using only Dialogflow. The user must supply one<br>flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the<br>ice cream delivered.</p>
 <p>If either flavour or number of cones is missing from the request the user should receive a prompt to supply these.</p>
@@ -240,6 +236,25 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
 <p>In addition it is smart to check whether the permission actually was given, if not the data will be missing. That can<br>be found in one of the contexts called <code>actions_intent_permission</code>:</p>
 <pre><code>agent.context.get(&#39;actions_intent_permission&#39;).parameters.PERMISSION // this is a boolean
 </code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Installation &amp; setup" duration="0">
+        <h2>Installation</h2>
+<p>Start by installing <a href="https://nodejs.org/en/download/" target="_blank">Nodejs</a>.<br>You can verify that it is correctly installed by typing <code>node -v</code> in the terminal.</p>
+<h3>Https connection</h3>
+<p>We need https connection for running the Dialogflow commands. For this, you will have to sign up on <a href="ngrok.com/io" target="_blank">ngrok.com/io</a>.<br><br>Register with your own account, and afterwards run <em>Step 3</em> to connect your account.</p>
+<h2>Run your application</h2>
+<p>When running the application, you need to start both the node application and ngrok.</p>
+<p>Running the application:</p>
+<pre><code>npm i &amp;&amp; npm run dev
+</code></pre>
+<p>Running ngrok:</p>
+<pre><code>./ngrok authtoken [your auth token]
+
+</code></pre>
+<p>Use the posted https address from ngrok in the tasks</p>
 
 
       </google-codelab-step>

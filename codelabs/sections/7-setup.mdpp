@@ -1,0 +1,29 @@
+## Installation & setup
+
+### Installation
+
+Start by installing [Nodejs](https://nodejs.org/en/download/).
+You can verify that it is correctly installed by typing `node -v` in the terminal.
+
+#### Https connection 
+
+We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com/io](ngrok.com/io).  
+Register with your own account, and afterwards run _Step 3_ to connect your account. 
+
+### Run your application
+
+When running the application, you need to start both the node application and ngrok. 
+
+Running the application: 
+```
+npm i && npm run dev
+``` 
+
+Running ngrok: 
+
+```
+./ngrok authtoken [your auth token]
+
+```
+
+Use the posted https address from ngrok in the tasks

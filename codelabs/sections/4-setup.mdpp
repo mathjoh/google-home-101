@@ -1,37 +1,19 @@
 ## Installation & setup
 
-### Requirements for the workshop: 
- - Your own Google Account
- - [Nodejs](https://nodejs.org/en/download/) installed on your computer
- 
-Without these requirements fulfilled you will not be able to do the workshop. 
+For this workshop, you will need your own Google Account. You will not have to pay for the services. 
 
 ### Installation
 
 Start by installing [Nodejs](https://nodejs.org/en/download/).
 You can verify that it is correctly installed by typing `node -v` in the terminal.
 
-#### Https connection 
-
-We need https connection for running the Dialogflow commands.  
-
-Registrere på ngrok.com/io
-
-
-
-To run the application, run `npm i && npm run dev`, application is available on [http://localhost:1234](http://localhost:1234)
-
-To run ngrok go to ngrok.com and register. Then run step 3 in the setup to connect ypur account `./ngrok authtoken [your auth token]`. Then run `./ngrok http 1234` to start the http tunnel. Copy the https url given in the terminal into the webhook address in the tab fullfilment in Dialogflow.
-
-
-
-### setup 
+### Google Action setup 
 
 For this workshop you will need a Google account. 
 
- - Go to [Google Actions](https://developers.google.com/actions/) to get started.
-
- - Go to Actions Console
+ - Go to [Google Actions](https://developers.google.com/actions/) 
+ 
+ - Click _Go to Actions Console_
  
  
 ### Create your first project 
@@ -41,19 +23,26 @@ For this workshop you will need a Google account.
   * Accept Terms of Service and choose Country of residence.
   * Click "Agree and Continue"
   
- - Enter the name of you project _Voice Assistant Workshop_
- - Let the language for your Actions project be _English_
+ - Enter the name of your project _Voice Assistant Workshop_
+ - Let the language for your Actions project be _English_ (default)
  - Click Create Project
  
-Wait while the project is being created 
+- To continue click the home button in the upper left corner (_Actions on Google_)
+- Choose your project from the list of projects.
 
+### Invoke action
+- Click _decide how your action is invoked_
+- Choose a display name (**This must be globally unique, and your first choice might be taken**)
 
 
 ### Dialogflow
 
+We are now going to start creating dialogs with Dialogflow. 
+
  - Go to [Dialogflow](https://dialogflow.com/)
  - Sign in with your Google Account
- - Let Dialogflow get permission to your Google Account 
+ - Click _go to console_
+ - Let Dialogflow get permissions to your Google Account 
  
  
  Review your account settings
@@ -64,19 +53,14 @@ Wait while the project is being created
   
 #### Create your agent
 
-We are now going to create your first agent: 
+We are now going to create your first agent and connect it to your Google project. 
+
 - Give the agent a name: _Voice-assistant-workshop-agent_
 - Language: _English - en_
 - Timezone: GMT +2:00
 - Google Project: voice-assistant-workshop
 
-Click "Create"
- 
- 
- 
-###### Inspecting the agent 
- Let's inspect the agent we have created: 
- 
- 
- The Service Account: Used for accessing the 
- 
+Click _Create_
+
+
+### You are now ready to start the tasks!
