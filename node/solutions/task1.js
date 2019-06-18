@@ -14,7 +14,7 @@ app.post('/', (req, res) => {
             agent.add(`Good ${timeOfDay} Welcome to Drone's Cream. We supply the world with the best possible ice cream, anywhere, anytime.`);
 
         } else {
-            agent.add(`Welcome to Drone's Cream. We supply the world with the best possible ice cream, anywhere, anytime.`);
+            agent.add('Welcome to Drone\'s Cream. We supply the world with the best possible ice cream, anywhere, anytime.');
         }
     };
 
