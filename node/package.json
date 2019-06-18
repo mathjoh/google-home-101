@@ -2,9 +2,9 @@
   "name": "google-home-101-node",
   "version": "1.0.0",
   "description": "Node application for the workshop \"Introduction to Voice Assistant\"",
-  "main": "index.js",
+  "main": "tasks/index.js",
   "scripts": {
-    "dev": "node index.js",
+    "dev": "node tasks/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ingrid Guren and Mathias Johansen",

@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { WebhookClient } = require('dialogflow-fulfillment');
 const { Permission } = require('actions-on-google');
-const store = require('./store.js');
+const store = require('./../tasks/store.js');
 
 const PORT = 1234;
 const app = express();
