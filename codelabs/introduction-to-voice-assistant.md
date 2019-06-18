@@ -488,6 +488,15 @@ Setup https proxy forward to localhost:1234
 ./ngrok http 1234
 ```
 
+<a name="addyouhttpsaddress"></a>
+
+###Add you https address
+
+ - Go to Fulfillment on [Dialogflow](https://console.dialogflow.com/)
+ - Enable Webhook
+ - Add the url found in the _ngrok terminal_ under Forwarding with https
+ - Add this url to your webhook fulfillment
+
 Use the posted https address from ngrok in the tasks.
 
 
@@ -506,14 +515,13 @@ In this part you will need to adapt the intents created in part 1 to be answered
 
 ####Task 1
 
-Enable webhook fulfillment for the intent created in [task 1 in part 1](#task1).
+Enable webhook fulfillment for the intent created in part 1, task 3.
 
-Create a simple express webhook answering the intent with the same response as Dialogflow did as well as fallback 
-handling if unknown intents are routed to the webhook.
+Extend the provided backend (./index.js) to respond to the intent with the same responses as Dialogflow. Also did as well as fallback handling if unknown intents are routed to the webhook.
 
-Test your webhook using either the testing tool in Dialogflow or Actions by Google.
+Test your webhook using either the testing tool in Dialogflow or Actions on Google.
 
-Hint: You will have to 
+Hint: You will have to enable webhook your dialogflow under fulfillment. It might be a good idea to remove some of your responses to make sure your get your responses from the application and not one of the predefined responses.  
 
 <a name="task2-1"></a>
 

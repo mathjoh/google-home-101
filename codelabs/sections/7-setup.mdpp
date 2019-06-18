@@ -37,4 +37,11 @@ Setup https proxy forward to localhost:1234
 ./ngrok http 1234
 ```
 
+### Add you https address
+
+ - Go to Fulfillment on [Dialogflow](https://console.dialogflow.com/)
+ - Enable Webhook
+ - Add the url found in the _ngrok terminal_ under Forwarding with https
+ - Add this url to your webhook fulfillment
+
 Use the posted https address from ngrok in the tasks.

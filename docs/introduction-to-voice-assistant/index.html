@@ -258,6 +258,13 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
 <p>Setup https proxy forward to localhost:1234</p>
 <pre><code>./ngrok http 1234
 </code></pre>
+<h2>Add you https address</h2>
+<ul>
+<li>Go to Fulfillment on <a href="https://console.dialogflow.com/" target="_blank">Dialogflow</a></li>
+<li>Enable Webhook</li>
+<li>Add the url found in the <em>ngrok terminal</em> under Forwarding with https</li>
+<li>Add this url to your webhook fulfillment</li>
+</ul>
 <p>Use the posted https address from ngrok in the tasks.</p>
 
 
@@ -267,10 +274,10 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
         <h2>Webhook intent fulfillment</h2>
 <p>In this part you will need to adapt the intents created in part 1 to be answered by a webhook instead of Dialogflow.</p>
 <h3>Task 1</h3>
-<p>Enable webhook fulfillment for the intent created in task 1 in part 1.</p>
-<p>Create a simple express webhook answering the intent with the same response as Dialogflow did as well as fallback<br>handling if unknown intents are routed to the webhook.</p>
-<p>Test your webhook using either the testing tool in Dialogflow or Actions by Google.</p>
-<p>Hint: You will have to</p>
+<p>Enable webhook fulfillment for the intent created in part 1, task 3.</p>
+<p>Extend the provided backend (./index.js) to respond to the intent with the same responses as Dialogflow. Also did as well as fallback handling if unknown intents are routed to the webhook.</p>
+<p>Test your webhook using either the testing tool in Dialogflow or Actions on Google.</p>
+<p>Hint: You will have to enable webhook your dialogflow under fulfillment. It might be a good idea to remove some of your responses to make sure your get your responses from the application and not one of the predefined responses.</p>
 <h3>Task 2</h3>
 <p>Convert the intent from task 3 in part 1 to be answered by your webhook. This time the answer should reflect the<br>actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling<br>which should contain all the necessary business logic in the file <code>store.js</code>.</p>
 <p>Have the answer to the prompt include both which flavours are in stock and which are out of stock. The number of cones<br>remaining of each does not need to be included.</p>
