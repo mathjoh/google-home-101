@@ -245,17 +245,20 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
 <pre><code>git clone https://github.com/mathjoh/google-home-101.git
 </code></pre>
 <h3>Https connection</h3>
-<p>We need https connection for running the Dialogflow commands. For this, you will have to sign up on <a href="https://ngrok.com" target="_blank">ngrok.com</a>.<br><br>Register with your own account, and afterwards run <em>Step 3</em> to connect your account.</p>
-<h2>Run your application</h2>
-<p>When running the application, you need to start both the node application and ngrok.</p>
-<p>Running the application:</p>
-<pre><code>npm i &amp;&amp; npm run dev
-</code></pre>
-<p>Running ngrok:</p>
+<p>We need https connection for running the Dialogflow commands. For this, you will have to sign up on <a href="https://ngrok.com" target="_blank">ngrok.com</a>. **You do not need to download ngrok to the **<br><br>Register with your own account, and afterwards run <em>Step 3</em> to connect your account.</p>
+<p>Setup  ngrok from the <em>node</em>-folder like this:</p>
 <pre><code>./ngrok authtoken [your auth token]
 
 </code></pre>
-<p>Use the posted https address from ngrok in the tasks</p>
+<h2>Run your application</h2>
+<p>When running the application, you need to start both the node application and ngrok.</p>
+<p>Running the application from the <em>node</em>-folder:</p>
+<pre><code>npm i &amp;&amp; npm run dev
+</code></pre>
+<p>Setup https proxy forward to localhost:1234</p>
+<pre><code>./ngrok http 1234
+</code></pre>
+<p>Use the posted https address from ngrok in the tasks.</p>
 
 
       </google-codelab-step>
