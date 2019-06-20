@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 // Needed for task 1
-// const { WebhookClient } = require('dialogflow-fulfillment');
+const { WebhookClient } = require('dialogflow-fulfillment');
 
 // Needed for task 2
 const store = require('./store.js');
@@ -15,10 +15,26 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
-	
-	
-	/* WRITE YOUR CODE HERE */
-	
+    const agent = new WebhookClient({ request: req, response: res });
+
+    const welcome = agent => {
+        if (agent.parameters.timeOfDay) {
+            agent.add(`Good ${timeOfDay} Welcome to Drone's Cream. We supply the world with the best possible ice cream, anywhere, anytime.`);
+
+        } else {
+            agent.add('Welcome to Drone\'s Cream. We supply the world with the best possible ice cream, anywhere, anytime.');
+        }
+    };
+
+    const fallback = agent => {
+        agent.add(`I'm sorry. Your request was not recognized. Please try again.`);
+    };
+
+    let intentMap = new Map();
+    intentMap.set('welcome', welcome);
+    intentMap.set(null, fallback);
+
+    agent.handleRequest(intentMap)
 	// Debug logging
 	// console.log('Dialogflow Request headers: ' + JSON.stringify(req.headers));
   	// console.log('Dialogflow Request body: ' + JSON.stringify(req.body));

@@ -13,10 +13,8 @@ We would love to get feedback to improve our workshop. You are awesome if you ha
 
 Contact us on [@mathjoh91](https://twitter.com/mathjoh91) or [@ingridguren](https://twitter.com/ingridguren).
 
-!INCLUDE "./codelabs/solutions/1-task-1.mdpp"
-!INCLUDE "./codelabs/solutions/1-task-2.mdpp"
-!INCLUDE "./codelabs/solutions/1-task-3.mdpp"
-
-!INCLUDE "./codelabs/solutions/2-task-1.mdpp"
-!INCLUDE "./codelabs/solutions/2-task-2.mdpp"
+!INCLUDE "./codelabs/solutions/task-1.mdpp"
+!INCLUDE "./codelabs/solutions/task-2.mdpp"
+!INCLUDE "./codelabs/solutions/task-3.mdpp"
+!INCLUDE "./codelabs/solutions/task-4.mdpp"
 

@@ -5,6 +5,10 @@
   "main": "tasks/index.js",
   "scripts": {
     "dev": "node tasks/index.js",
+    "solution:task5": "node solutions/task5",
+    "solution:task6": "node solutions/task6",
+    "solution:task7": "node solutions/task7",
+    "solution:task8": "node solutions/task8",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ingrid Guren and Mathias Johansen",
