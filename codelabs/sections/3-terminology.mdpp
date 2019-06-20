@@ -36,23 +36,17 @@ On the other hand. Should the user ask for the temperature outside that would be
 
 #### Fulfillment
 
-Every user intent needs to be fulfilled. Most intents will probably not have custom fulfillment but rather a general 
-answer such as "Sorry, I can't help you with that". As developers it is our job to identify which intents 
-needs to be answered, and how to answer them. 
+Every user intent needs to be fulfilled. Most intents will probably not have custom fulfillment but rather a general answer such as "Sorry, I can't help you with that". As developers it is our job to identify which intents needs to be answered, and how to answer them. 
 
 To help us with this we have a set of tools provided us by Google. Making it a quite easy thing to get started at.
 
 ### Actions on Google
 
-The first tool we will use is Actions on Google. Together with a tool called Dialogflow it will do most of the difficult 
-magic concerning understanding user intents. It is through Actions on Google that we create our action which can be 
-understood as the app.
+The first tool we will use is Actions on Google. Together with a tool called Dialogflow it will do most of the difficult magic concerning understanding user intents. It is through Actions on Google that we create our action which can be understood as the app.
 
 ### Dialogflow
 
-Dialogflow is a tool created to manage intents and train different agents to recognize the intent of the user. 
-We simply need to specify which intents we want, what data will be supplied and examples of how they can be phrased by
-the user.
+Dialogflow is a tool created to manage intents and train different agents to recognize the intent of the user. We simply need to specify which intents we want, what data will be supplied and examples of how they can be phrased by the user.
 
 Dialogflow can also do simple intent fulfillment answering simple questions where no custom logic or data store is 
 required. But in most cases we will want Dialogflow to use our existing or new backend service to answer many of, 

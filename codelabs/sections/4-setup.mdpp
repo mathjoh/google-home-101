@@ -1,13 +1,12 @@
 ## Installation & setup
 
-For this workshop, you will need your own Google Account. You will not have to pay for the services. 
+For this workshop, you will need your own Google Account. If you do not already have one, create one [here](https://accounts.google.com). You will not have to pay or add payment info for the services we use today. 
 
 ### Google Action setup 
 
-For this workshop you will need a Google account. 
+For this workshop our first task is to create an action. To do this we need to be logged in our Google accounts. 
 
  - Go to [Google Actions](https://developers.google.com/actions/) 
- 
  - Click _Go to Actions Console_
  
  
@@ -19,24 +18,28 @@ For this workshop you will need a Google account.
   * Click "Agree and Continue"
   
  - Enter the name of your project _Voice Assistant Workshop_
- - Let the language for your Actions project be _English_ (default)
  - Click Create Project
  
 - To continue click the home button in the upper left corner (_Actions on Google_)
 - Choose your project from the list of projects.
 
+### Language
+- Ensure the language of your action is English (check the upper left corner of the main info panel).
+- If it is another language, click _modify languages_ and choose Enlish and click _save_
+
 ### Invoke action
 - Click _decide how your action is invoked_
 - Choose a display name (**This must be globally unique, and your first choice might be taken**)
-
+- You may also choose a default voice for your action, or leave it as the default _Female 1_
+- Click _save_
 
 ### Dialogflow
 
-We are now going to start creating dialogs with Dialogflow. 
+We are now done creating our actions. Let's start creating dialogs with Dialogflow. 
 
- - Go to [Dialogflow](https://dialogflow.com/)
- - Sign in with your Google Account
- - Click _go to console_
+ - Go to [Dialogflow](https://dialogflow.com/) (it might be wise to use a new tab for this as we will go back to Actions on Google at a later stage)
+ - If not already signed in: Sign in with your Google Account
+ - Click _go to console_ in the upper right corner
  - Let Dialogflow get permissions to your Google Account 
  
  
@@ -48,7 +51,7 @@ We are now going to start creating dialogs with Dialogflow.
   
 #### Create your agent
 
-We are now going to create your first agent and connect it to your Google project. 
+We are now going to create our first agent and connect it to our Google project. 
 
 - Give the agent a name: _Voice-assistant-workshop-agent_
 - Language: _English - en_
