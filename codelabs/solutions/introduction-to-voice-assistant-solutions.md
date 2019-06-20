@@ -120,9 +120,9 @@ Add all available flavours and how their corresponding values. You could also ad
 Add synonyms for your flavours if you like
 ![Step 2](images/t3_3.png)
 
-<a name="task3-1"></a>
+<a name="task4"></a>
 
-##Task 3
+##Task 4
 
 <a name="step1-3"></a>
 
