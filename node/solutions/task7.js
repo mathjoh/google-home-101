@@ -12,23 +12,23 @@ app.post('/', (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
 
     const welcome = agent => {
-        if (agent.parameters.timeOfDay) {
-            agent.add(`Good ${timeOfDay} Welcome to Drone's Cream. We supply the world with the best possible ice cream, anywhere, anytime.`);
+        if (agent.parameters.time_of_day) {
+            agent.add(`Good ${time_of_day} Welcome to Drone's Cream. We supply the world with the best possible ice cream, anywhere, anytime.`);
 
         } else {
-            agent.add(`Welcome to Drone's Cream. We supply the world with the best possible ice cream, anywhere, anytime.`);
+            agent.add('Welcome to Drone\'s Cream. We supply the world with the best possible ice cream, anywhere, anytime.');
         }
     };
 
-    const flavours = agent => {
+    const menu = agent => {
         agent.add(`We have ${backend.remainingFlavours().join(', ')} in stock, but are unfortunately out of ${backend.emptyFlavours().join(', ')}`)
     };
 
     const order = agent => {
-        if(backend.order(agent.parameters.flavour, agent.parameters.cones)) {
-            agent.add(`Thank you for purchasing ${agent.parameters.cones} cones of ${agent.parameters.flavour} ice cream.`)
+        if(backend.order(agent.parameters.iceCreamFlavours, agent.parameters.number)) {
+            agent.add(`Thank you for purchasing ${agent.parameters.number} cones of ${agent.parameters.iceCreamFlavours} ice cream.`)
         } else {
-            agent.add(`Unfortunately we only have ${backend.numberOfCones(agent.parameters.flavour)} cones of ${agent.parameters.flavour} ice cream left.`)
+            agent.add(`Unfortunately we only have ${backend.numberOfCones(agent.parameters.iceCreamFlavours)} cones of ${agent.parameters.iceCreamFlavours} ice cream left.`)
         }
     };
 
@@ -37,9 +37,9 @@ app.post('/', (req, res) => {
     };
 
     let intentMap = new Map();
-    intentMap.set('welcome', welcome);
-    intentMap.set('flavours', flavours);
-    intentMap.set('order', order);
+    intentMap.set('welcome-drones-cream', welcome);
+    intentMap.set('menu-drones-cream', menu);
+    intentMap.set('order-drones-cream', order);
     intentMap.set(null, fallback);
 
     agent.handleRequest(intentMap)
