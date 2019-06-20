@@ -1,13 +1,13 @@
-## Part 2: Webhooks
+## Tasks: Webhooks
 Duration: 20:00
 
 ### Webhook intent fulfillment
 
 In this part you will need to adapt the intents created in part 1 to be answered by a webhook instead of Dialogflow.
 
-#### Task 1
+#### Task 5
 
-Enable webhook fulfillment for the intent created in part 1, task 3.
+Enable webhook fulfillment for the intent created in task 1.
 
 Extend the provided backend (./index.js) to respond to the intent with the same responses as Dialogflow. Also did as well as fallback handling if unknown intents are routed to the webhook.
 
@@ -15,28 +15,24 @@ Test your webhook using either the testing tool in Dialogflow or Actions on Goog
 
 Hint: You will have to enable webhook your dialogflow under fulfillment. It might be a good idea to remove some of your responses to make sure your get your responses from the application and not one of the predefined responses.  
 
-#### Task 2
+#### Task 6
 
-Convert the intent from task 3 in part 1 to be answered by your webhook. This time the answer should reflect the 
-actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling 
-which should contain all the necessary business logic in the file `store.js`.
+Convert the intent from task 3 to be answered by your webhook. This time the answer should reflect the actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling which should contain all the necessary business logic in the file `store.js`.
 
 Have the answer to the prompt include both which flavours are in stock and which are out of stock. The number of cones
 remaining of each does not need to be included.
 
 Test your webhook using either the testing tool in Dialogflow or Actions by Google.
 
-#### Task 3
+#### Task 7
 
-Convert the intent from task 4 in part 1 to be answered by your webhook. This time the answer should reflect the 
-actual inventory of the Ice Cream store. 
+Convert the intent from task 4 to be answered by your webhook. This time the answer should reflect the actual inventory of the Ice Cream store. 
 
-If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones 
-left the inventory numbers should be updated.
+If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones left the inventory numbers should be updated.
 
 Test your webhook using either the testing tool in Dialogflow or Actions by Google.
 
-#### Task 4
+#### Task 8
 
 #####a)
 

@@ -1,10 +1,6 @@
-## Part 1: Dialogflow
-Duration: 10:00
+## Tasks: Dialogflow intent fulfillment
 
-### Dialogflow intent fulfillment
-
-In this part you will learn to use use Dialogflow to create your own intent fulfillment.
-The tasks you create will be used later in the workshop. 
+In this part you will learn to use use Dialogflow to create your own intent fulfillment. The intents you create will be used in later stages of this workshop. So we recommend that you do not skip any of the tasks on this page. 
 
 #### Task 1
 
@@ -12,19 +8,19 @@ Create an intent welcoming the user to the Drone's Cream virtual store using onl
 
 The intent should respond to prompts from the user such as "Hi", "hello", "good morning" etc.
 
-The response should include the time of day if the prompt has it. I.e: If the prompt is "Good afternoon" the response should also start with "Good afternoon".
+The response should include the time of day if the prompt has it, i.e: If the prompt is "Good afternoon" the response should also start with "Good afternoon".
 
-Hint: We want to create our own welcome intent, so you will have to delete the existing welcome intent (_Default Welcome Intent_).    
+Hint: We want to replace the _Default Welcome Intent_, so start out by deleting it.
 
 #### Task 2
 
-Create an intent listing the inventory of the store if a user asks for it. The inventory for Drone's Cream is Vanilla, Chocolate, Mint and Strawberry. 
+Create an intent listing the inventory of the store when a user asks which flavours are available. The inventory for Drone's Cream is Vanilla, Chocolate, Mint and Strawberry. 
 
-The intent should respond to questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?". This task should only use Dialogflow. 
+The intent should respond to questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?". 
 
 #### Task 3
 
-Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own entity _iceCreamFlavour_ with all the available flavours of Drone's Cream.
+Create your own entity _iceCreamFlavour_ with all the available flavours of Drone's Cream. If needed, add synonyms for the any or all flavours.
 
 #### Task 4
 

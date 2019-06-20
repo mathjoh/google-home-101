@@ -11,20 +11,18 @@ git clone https://github.com/mathjoh/google-home-101.git
 
 #### Https connection 
 
-We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com](https://ngrok.com). **You do not need to download ngrok to the **  
-Register with your own account, and afterwards run _Step 3_ to connect your account. 
+We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com](https://ngrok.com). **You do not need to download ngrok, only sign up. We have included the binaries in the git repo you cloned.** Register with your own account, and afterwards run _Step 3_ to connect your account. 
 
-Setup  ngrok from the _node_-folder like this: 
+Setup ngrok from the _node_-folder like this: 
 
 ```
 ./ngrok authtoken [your auth token]
-
 ```
 
 ### Run your application
 
 
-When running the application, you need to start both the node application and ngrok. 
+To communicate with Dialogflow, you need to start both the node application and ngrok. 
 
 Running the application from the _node_-folder: 
 ```
@@ -37,7 +35,7 @@ Setup https proxy forward to localhost:1234
 ./ngrok http 1234
 ```
 
-### Add you https address
+### Add your https address to Dialoflow
 
  - Go to Fulfillment on [Dialogflow](https://console.dialogflow.com/)
  - Enable Webhook
