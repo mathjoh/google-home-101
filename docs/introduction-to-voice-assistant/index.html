@@ -133,17 +133,17 @@
       <google-codelab-step label="Tasks: Dialogflow intent fulfillment" duration="0">
         <p>In this part you will learn to use use Dialogflow to create your own intent fulfillment. The intents you create will be used in later stages of this workshop. So we recommend that you do not skip any of the tasks on this page.</p>
 <h3>Task 1</h3>
-<p>Create an intent welcoming the user to the Drone&#39;s Cream virtual store using only Dialogflow. The intent should respond the user with a welcome prompt.</p>
+<p>Create an intent named <em>welcome-drones-cream</em> welcoming the user to the Drone&#39;s Cream virtual store using only Dialogflow. The intent should respond the user with a welcome prompt.</p>
 <p>The intent should respond to prompts from the user such as &#34;Hi&#34;, &#34;hello&#34;, &#34;good morning&#34; etc.</p>
 <p>The response should include the time of day if the prompt has it, i.e: If the prompt is &#34;Good afternoon&#34; the response should also start with &#34;Good afternoon&#34;.</p>
 <p>Hint: We want to replace the <em>Default Welcome Intent</em>, so start out by deleting it.</p>
 <h3>Task 2</h3>
-<p>Create an intent listing the inventory of the store when a user asks which flavours are available. The inventory for Drone&#39;s Cream is Vanilla, Chocolate, Mint and Strawberry.</p>
+<p>Create an intent named <em>menu-drones-cream</em> listing the inventory of the store when a user asks which flavours are available. The inventory for Drone&#39;s Cream is Vanilla, Chocolate, Mint and Strawberry.</p>
 <p>The intent should respond to questions such as &#34;What kinds of flavours do you have?&#34; and &#34;What ice creams do you offer?&#34;.</p>
 <h3>Task 3</h3>
 <p>Create your own entity <em>iceCreamFlavour</em> with all the available flavours of Drone&#39;s Cream. If needed, add synonyms for the any or all flavours.</p>
 <h3>Task 4</h3>
-<p>Create an intent to order a number of cones of ice cream using the entity created in the previous task. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered.</p>
+<p>Create an intent named <em>order-drones-cream</em> to order a number of cones of ice cream using the entity created in the previous task. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered.</p>
 <p>If either flavour or number of cones is missing from the request the user should receive a prompt to supply these.</p>
 <p>The answer should include the order details including location if it is supplied.</p>
 
@@ -274,17 +274,17 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
 
       </google-codelab-step>
     
-      <google-codelab-step label="Tasks: Webhooks" duration="20">
+      <google-codelab-step label="Tasks: Webhooks" duration="0">
         <h2>Webhook intent fulfillment</h2>
-<p>In this part you will need to adapt the intents created in part 1 to be answered by a webhook instead of Dialogflow.</p>
+<p>In this part you will need to adapt the intents created in the first tasks to be answered by a webhook instead of Dialogflow.</p>
 <h3>Task 5</h3>
 <p>Enable webhook fulfillment for the intent created in task 1.</p>
-<p>Extend the provided backend (./index.js) to respond to the intent with the same responses as Dialogflow. Also did as well as fallback handling if unknown intents are routed to the webhook.</p>
+<p>Extend the provided backend <code>tasks/index.js</code> to respond to the intent with the same responses as Dialogflow. In addition add fallback handling if unknown intents are routed to the webhook.</p>
 <p>Test your webhook using either the testing tool in Dialogflow or Actions on Google.</p>
-<p>Hint: You will have to enable webhook your dialogflow under fulfillment. It might be a good idea to remove some of your responses to make sure your get your responses from the application and not one of the predefined responses.</p>
+<p>Hint: You will have to enable webhook fulfillment in your intent. It might be a good idea to remove some of your responses to make sure your get your responses from the application and not one of the predefined responses.</p>
 <h3>Task 6</h3>
-<p>Convert the intent from task 3 to be answered by your webhook. This time the answer should reflect the actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling which should contain all the necessary business logic in the file <code>store.js</code>.</p>
-<p>Have the answer to the prompt include both which flavours are in stock and which are out of stock. The number of cones<br>remaining of each does not need to be included.</p>
+<p>Convert the intent from task 2 to be answered by your webhook. This time the answer should reflect the actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling which should contain all the necessary business logic in the file <code>tasks/store.js</code>.</p>
+<p>Have the answer to the prompt include both which flavours are in stock and which are out of stock. The number of cones remaining of each does not need to be included.</p>
 <p>Test your webhook using either the testing tool in Dialogflow or Actions by Google.</p>
 <h3>Task 7</h3>
 <p>Convert the intent from task 4 to be answered by your webhook. This time the answer should reflect the actual inventory of the Ice Cream store.</p>
@@ -293,12 +293,12 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
 <h3>Task 8</h3>
 <h4>a)</h4>
 <p>In this task you need to update the intent fulfillment from the previous task.</p>
-<p>As specified in task four in part one, location is an optional parameter. But in order to fulfill and order, our drones<br>need to know where to deliver the ice cream cones. To get this knowledge you will ask the user for permission to get the<br>location of the device used to communicate the order.</p>
-<p>If requests contain location we can use the same logic as in the previous task. Otherwise, request the permission to get<br>device location from the user.</p>
-<p>Create a new intent handling the response to the permission request submitted by the user. This request must handle both<br>getting the permission as well as being denied the permission.</p>
-<p>Hint: <a href="../../json/request/permission-granted.json" target="_blank">Permission request granted</a></p>
+<p>As specified in task four, location is an optional parameter. But in order to fulfill and order, our drones need to know where to deliver the ice cream cones. To get this knowledge you will ask the user for permission to get the location of the device used to communicate the order.</p>
+<p>If requests contain location we can use the same logic as in the previous task. Otherwise, request the permission to get device location from the user.</p>
+<p>Create a new intent named _finsh_order_drones<em>cream</em> handling the users response to the permission request submitted by the user. This request must handle both getting the permission as well as being denied the permission.</p>
+<p>Hint: Permission intents are triggered by event, not dialogue, and does not need any training phrases.</p>
 <h4>b)</h4>
-<p>Now that we can get the location of the device our service is ready to start serving the community. Unfortunately it<br>will keep asking for permission to get device location from users who have already consented.</p>
+<p>Now that we can get the location of the device our service is ready to start serving the community. Unfortunately it will keep asking for permission to get device location from users who have already consented.</p>
 <p>Update your service to check if the user already have consented before asking for the location again.</p>
 <p><a href="https://github.com/dialogflow/dialogflow-fulfillment-nodejs" target="_blank">Dialogflow Fulfillment Library</a></p>
 

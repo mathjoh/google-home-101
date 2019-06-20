@@ -200,7 +200,7 @@ In this part you will learn to use use Dialogflow to create your own intent fulf
 
 ####Task 1
 
-Create an intent welcoming the user to the Drone's Cream virtual store using only Dialogflow. The intent should respond the user with a welcome prompt. 
+Create an intent named _welcome-drones-cream_ welcoming the user to the Drone's Cream virtual store using only Dialogflow. The intent should respond the user with a welcome prompt. 
 
 The intent should respond to prompts from the user such as "Hi", "hello", "good morning" etc.
 
@@ -212,7 +212,7 @@ Hint: We want to replace the _Default Welcome Intent_, so start out by deleting 
 
 ####Task 2
 
-Create an intent listing the inventory of the store when a user asks which flavours are available. The inventory for Drone's Cream is Vanilla, Chocolate, Mint and Strawberry. 
+Create an intent named _menu-drones-cream_ listing the inventory of the store when a user asks which flavours are available. The inventory for Drone's Cream is Vanilla, Chocolate, Mint and Strawberry. 
 
 The intent should respond to questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?". 
 
@@ -226,7 +226,7 @@ Create your own entity _iceCreamFlavour_ with all the available flavours of Dron
 
 ####Task 4
 
-Create an intent to order a number of cones of ice cream using the entity created in the previous task. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered. 
+Create an intent named _order-drones-cream_ to order a number of cones of ice cream using the entity created in the previous task. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered. 
 
 If either flavour or number of cones is missing from the request the user should receive a prompt to supply these.
 
@@ -452,13 +452,12 @@ Use the posted https address from ngrok in the tasks.
 <a name="tasks:webhooks"></a>
 
 ##Tasks: Webhooks
-Duration: 20:00
 
 <a name="webhookintentfulfillment"></a>
 
 ###Webhook intent fulfillment
 
-In this part you will need to adapt the intents created in part 1 to be answered by a webhook instead of Dialogflow.
+In this part you will need to adapt the intents created in the first tasks to be answered by a webhook instead of Dialogflow.
 
 <a name="task5"></a>
 
@@ -466,20 +465,19 @@ In this part you will need to adapt the intents created in part 1 to be answered
 
 Enable webhook fulfillment for the intent created in task 1.
 
-Extend the provided backend (./index.js) to respond to the intent with the same responses as Dialogflow. Also did as well as fallback handling if unknown intents are routed to the webhook.
+Extend the provided backend `tasks/index.js` to respond to the intent with the same responses as Dialogflow. In addition add fallback handling if unknown intents are routed to the webhook.
 
 Test your webhook using either the testing tool in Dialogflow or Actions on Google.
 
-Hint: You will have to enable webhook your dialogflow under fulfillment. It might be a good idea to remove some of your responses to make sure your get your responses from the application and not one of the predefined responses.  
+Hint: You will have to enable webhook fulfillment in your intent. It might be a good idea to remove some of your responses to make sure your get your responses from the application and not one of the predefined responses.  
 
 <a name="task6"></a>
 
 ####Task 6
 
-Convert the intent from task 3 to be answered by your webhook. This time the answer should reflect the actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling which should contain all the necessary business logic in the file `store.js`.
+Convert the intent from task 2 to be answered by your webhook. This time the answer should reflect the actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling which should contain all the necessary business logic in the file `tasks/store.js`.
 
-Have the answer to the prompt include both which flavours are in stock and which are out of stock. The number of cones
-remaining of each does not need to be included.
+Have the answer to the prompt include both which flavours are in stock and which are out of stock. The number of cones remaining of each does not need to be included.
 
 Test your webhook using either the testing tool in Dialogflow or Actions by Google.
 
@@ -503,24 +501,19 @@ Test your webhook using either the testing tool in Dialogflow or Actions by Goog
 
 In this task you need to update the intent fulfillment from the previous task. 
 
-As specified in task four in part one, location is an optional parameter. But in order to fulfill and order, our drones 
-need to know where to deliver the ice cream cones. To get this knowledge you will ask the user for permission to get the 
-location of the device used to communicate the order.
+As specified in task four, location is an optional parameter. But in order to fulfill and order, our drones need to know where to deliver the ice cream cones. To get this knowledge you will ask the user for permission to get the location of the device used to communicate the order.
 
-If requests contain location we can use the same logic as in the previous task. Otherwise, request the permission to get 
-device location from the user.
+If requests contain location we can use the same logic as in the previous task. Otherwise, request the permission to get device location from the user.
 
-Create a new intent handling the response to the permission request submitted by the user. This request must handle both 
-getting the permission as well as being denied the permission.
+Create a new intent named _finsh_order_drones_cream_ handling the users response to the permission request submitted by the user. This request must handle both getting the permission as well as being denied the permission.
 
-Hint: [Permission request granted](../../json/request/permission-granted.json)
+Hint: Permission intents are triggered by event, not dialogue, and does not need any training phrases.
 
 <a name="b)"></a>
 
 #####b)
 
-Now that we can get the location of the device our service is ready to start serving the community. Unfortunately it 
-will keep asking for permission to get device location from users who have already consented.
+Now that we can get the location of the device our service is ready to start serving the community. Unfortunately it will keep asking for permission to get device location from users who have already consented.
 
 Update your service to check if the user already have consented before asking for the location again.
 

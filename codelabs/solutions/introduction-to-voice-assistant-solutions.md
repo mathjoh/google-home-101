@@ -164,4 +164,24 @@ Add synonyms for your flavours if you like
 ####Step 8
 ![Step 8](images/t4_8.png)
 
+<a name="task8"></a>
+
+##Task 8
+
+<a name="step1-4"></a>
+
+####Step 1
+![Step 1](images/t8_1.png)
+
+<a name="step2-4"></a>
+
+####Step 2
+![Step 2](images/t8_2.png)
+
+<a name="step3-4"></a>
+
+####Step 3
+![Step 3](images/t8_3.png)
+
+
 
