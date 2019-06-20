@@ -4,7 +4,7 @@ In this part you will learn to use use Dialogflow to create your own intent fulf
 
 #### Task 1
 
-Create an intent welcoming the user to the Drone's Cream virtual store using only Dialogflow. The intent should respond the user with a welcome prompt. 
+Create an intent named _welcome-drones-cream_ welcoming the user to the Drone's Cream virtual store using only Dialogflow. The intent should respond the user with a welcome prompt. 
 
 The intent should respond to prompts from the user such as "Hi", "hello", "good morning" etc.
 
@@ -14,7 +14,7 @@ Hint: We want to replace the _Default Welcome Intent_, so start out by deleting 
 
 #### Task 2
 
-Create an intent listing the inventory of the store when a user asks which flavours are available. The inventory for Drone's Cream is Vanilla, Chocolate, Mint and Strawberry. 
+Create an intent named _menu-drones-cream_ listing the inventory of the store when a user asks which flavours are available. The inventory for Drone's Cream is Vanilla, Chocolate, Mint and Strawberry. 
 
 The intent should respond to questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?". 
 
@@ -24,7 +24,7 @@ Create your own entity _iceCreamFlavour_ with all the available flavours of Dron
 
 #### Task 4
 
-Create an intent to order a number of cones of ice cream using the entity created in the previous task. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered. 
+Create an intent named _order-drones-cream_ to order a number of cones of ice cream using the entity created in the previous task. The user must supply one flavour and the number of cones as required parameters. In addition the user may supply the location he or she wants the ice cream delivered. 
 
 If either flavour or number of cones is missing from the request the user should receive a prompt to supply these.
 
