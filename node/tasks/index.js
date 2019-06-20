@@ -12,12 +12,7 @@ const { Permission } = require('actions-on-google');
 
 const PORT = 1234;
 const app = express();
-
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-
-app.get('/health', (req, res) => res.send('Application is up and running'));
-app.get('/', (req, res) => res.send('helloooo'));
 
 app.post('/', (req, res) => {
 	
