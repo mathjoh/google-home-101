@@ -1,3 +1,11 @@
+### What to do next?
 
+If you like to learn more about making voice assistant apps we suggest you do one of the following things:
 
-[Dialogflow Fulfillment Library](https://github.com/dialogflow/dialogflow-fulfillment-nodejs)
+- Test the different prebuilt agents in Dialogflow. They are found in the m enu under _Prebuilt agents_
+- Take a look at conversation analytics under _Analytics_ in Dialogflow
+- Enable _small talk_ for your app in Dialogflow and add fun answers to the many questions they support
+- Try out complex entity types such as [lists, date ranges and more](https://dialogflow.com/docs/intents/actions-parameters) in the [Dialogflow documentation](https://dialogflow.com/docs/intro)
+- Look at more functionality and response types such as [SSML](https://developers.google.com/actions/reference/ssml) and Cards and other [Rich responses](https://developers.google.com/actions/assistant/responses) in the [Dialogflow Node.js library](https://github.com/dialogflow/dialogflow-fulfillment-nodejs)
+- Look at more functionality in the [Actions on Google Node.js library](https://github.com/actions-on-google/actions-on-google-nodejs) 
+- Create complex dialogue structures using [follow up intents](https://dialogflow.com/docs/contexts/follow-up-intents)
