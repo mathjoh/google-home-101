@@ -37,9 +37,9 @@
       <google-codelab-step label="What we will do today:" duration="0">
         <h2>Drone&#39;s Cream voice app</h2>
 <p>In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone&#39;s Cream.</p>
-<p>Drone&#39;s Cream&#39;s value proposition is quite simple. <em>&#34;We deliver the world&#39;s best ice cream by drone&#34;</em>. To be able to fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people<br>stuck outside in the sun.</p>
-<p>The task is split into two parts. For the first part you need to set up a voice assistant app with both static and<br>dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to<br>a Node.js backend provided to you.</p>
-<p>We will be using tools such as Actions on Google, Dialogflow, the Node.js Dialogflow Fulfillment Library and the<br>Actions on Google Node.js client library all of which will be explained to you throughout.</p>
+<p>Drone&#39;s Cream&#39;s value proposition is quite simple. <em>&#34;We deliver the world&#39;s best ice cream by drone&#34;</em>. To be able to fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people stuck outside in the sun.</p>
+<p>The task is split into two parts. For the first part you need to set up a voice assistant app with both static and dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to a Node.js backend provided to you.</p>
+<p>We will be using tools such as Actions on Google, Dialogflow, the Node.js Dialogflow Fulfillment Library and the Actions on Google Node.js client library all of which will be explained to you throughout.</p>
 
 
       </google-codelab-step>
@@ -58,12 +58,12 @@
 <p>For instance, an intent can be the user saying ‘Hello&#39; or ‘Good morning&#39;. Even though those are different ways of<br>greeting the app, the app can consider these to be the same intent and answer both with the same or a similar answer.</p>
 <p>On the other hand. Should the user ask for the temperature outside that would be a different intent entirely.</p>
 <h3>Fulfillment</h3>
-<p>Every user intent needs to be fulfilled. Most intents will probably not have custom fulfillment but rather a general<br>answer such as &#34;Sorry, I can&#39;t help you with that&#34;. As developers it is our job to identify which intents<br>needs to be answered, and how to answer them.</p>
+<p>Every user intent needs to be fulfilled. Most intents will probably not have custom fulfillment but rather a general answer such as &#34;Sorry, I can&#39;t help you with that&#34;. As developers it is our job to identify which intents needs to be answered, and how to answer them.</p>
 <p>To help us with this we have a set of tools provided us by Google. Making it a quite easy thing to get started at.</p>
 <h2>Actions on Google</h2>
-<p>The first tool we will use is Actions on Google. Together with a tool called Dialogflow it will do most of the difficult<br>magic concerning understanding user intents. It is through Actions on Google that we create our action which can be<br>understood as the app.</p>
+<p>The first tool we will use is Actions on Google. Together with a tool called Dialogflow it will do most of the difficult magic concerning understanding user intents. It is through Actions on Google that we create our action which can be understood as the app.</p>
 <h2>Dialogflow</h2>
-<p>Dialogflow is a tool created to manage intents and train different agents to recognize the intent of the user.<br>We simply need to specify which intents we want, what data will be supplied and examples of how they can be phrased by<br>the user.</p>
+<p>Dialogflow is a tool created to manage intents and train different agents to recognize the intent of the user. We simply need to specify which intents we want, what data will be supplied and examples of how they can be phrased by the user.</p>
 <p>Dialogflow can also do simple intent fulfillment answering simple questions where no custom logic or data store is<br>required. But in most cases we will want Dialogflow to use our existing or new backend service to answer many of,<br>if not all, our intents.</p>
 <p>So even though it is possible to create a Google Assistant app without using Dialogflow, it is absolutely preferable<br>to use it.</p>
 
@@ -71,9 +71,9 @@
       </google-codelab-step>
     
       <google-codelab-step label="Installation &amp; setup" duration="0">
-        <p>For this workshop, you will need your own Google Account. You will not have to pay for the services.</p>
+        <p>For this workshop, you will need your own Google Account. If you do not already have one, create one <a href="https://accounts.google.com" target="_blank">here</a>. You will not have to pay or add payment info for the services we use today.</p>
 <h2>Google Action setup</h2>
-<p>For this workshop you will need a Google account.</p>
+<p>For this workshop our first task is to create an action. To do this we need to be logged in our Google accounts.</p>
 <ul>
 <li>Go to <a href="https://developers.google.com/actions/" target="_blank">Google Actions</a></li>
 <li>Click <em>Go to Actions Console</em></li>
@@ -86,22 +86,28 @@
 </ul>
 </li>
 <li>Enter the name of your project <em>Voice Assistant Workshop</em></li>
-<li>Let the language for your Actions project be <em>English</em> (default)</li>
 <li>Click Create Project</li>
 <li>To continue click the home button in the upper left corner (<em>Actions on Google</em>)</li>
 <li>Choose your project from the list of projects.</li>
+</ul>
+<h2>Language</h2>
+<ul>
+<li>Ensure the language of your action is English (check the upper left corner of the main info panel).</li>
+<li>If it is another language, click <em>modify languages</em> and choose Enlish and click <em>save</em></li>
 </ul>
 <h2>Invoke action</h2>
 <ul>
 <li>Click <em>decide how your action is invoked</em></li>
 <li>Choose a display name (<strong>This must be globally unique, and your first choice might be taken</strong>)</li>
+<li>You may also choose a default voice for your action, or leave it as the default <em>Female 1</em></li>
+<li>Click <em>save</em></li>
 </ul>
 <h2>Dialogflow</h2>
-<p>We are now going to start creating dialogs with Dialogflow.</p>
+<p>We are now done creating our actions. Let&#39;s start creating dialogs with Dialogflow.</p>
 <ul>
-<li>Go to <a href="https://dialogflow.com/" target="_blank">Dialogflow</a></li>
-<li>Sign in with your Google Account</li>
-<li>Click <em>go to console</em></li>
+<li>Go to <a href="https://dialogflow.com/" target="_blank">Dialogflow</a> (it might be wise to use a new tab for this as we will go back to Actions on Google at a later stage)</li>
+<li>If not already signed in: Sign in with your Google Account</li>
+<li>Click <em>go to console</em> in the upper right corner</li>
 <li>Let Dialogflow get permissions to your Google Account</li>
 </ul>
 <p>Review your account settings</p>
@@ -111,7 +117,7 @@
 <li>Click &#34;Create Agent&#34;</li>
 </ul>
 <h3>Create your agent</h3>
-<p>We are now going to create your first agent and connect it to your Google project.</p>
+<p>We are now going to create our first agent and connect it to our Google project.</p>
 <ul>
 <li>Give the agent a name: <em>Voice-assistant-workshop-agent</em></li>
 <li>Language: <em>English - en</em></li>
@@ -128,9 +134,9 @@
         <h2>Dialogflow intent fulfillment</h2>
 <p>In this part you will learn to use use Dialogflow to create your own intent fulfillment.<br>The tasks you create will be used later in the workshop.</p>
 <h3>Task 1</h3>
-<p>Create an intent welcoming the user to the Drone&#39;s Cream virtual store using only Dialogflow.<br>The intent should respond the user with a welcome prompt.</p>
+<p>Create an intent welcoming the user to the Drone&#39;s Cream virtual store using only Dialogflow. The intent should respond the user with a welcome prompt.</p>
 <p>The intent should respond to prompts from the user such as &#34;Hi&#34;, &#34;hello&#34;, &#34;good morning&#34; etc.</p>
-<p>The response should include the time of day if the prompt has it. I.e:<br>If the prompt is &#34;Good afternoon&#34; the response should also start with &#34;Good afternoon&#34;.</p>
+<p>The response should include the time of day if the prompt has it. I.e: If the prompt is &#34;Good afternoon&#34; the response should also start with &#34;Good afternoon&#34;.</p>
 <p>Hint: We want to create our own welcome intent, so you will have to delete the existing welcome intent (<em>Default Welcome Intent</em>).</p>
 <h3>Task 2</h3>
 <p>Create an intent listing the inventory of the store if a user asks for it. The inventory for Drone&#39;s Cream is Vanilla, Chocolate, Mint and Strawberry.</p>

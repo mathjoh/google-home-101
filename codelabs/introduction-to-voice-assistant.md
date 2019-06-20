@@ -31,15 +31,11 @@ Each tasks has written
 
 In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone's Cream. 
 
-Drone's Cream's value proposition is quite simple. _"We deliver the world's best ice cream by drone"_. To be able to fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people 
-stuck outside in the sun.
+Drone's Cream's value proposition is quite simple. _"We deliver the world's best ice cream by drone"_. To be able to fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people stuck outside in the sun.
 
-The task is split into two parts. For the first part you need to set up a voice assistant app with both static and
-dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to
-a Node.js backend provided to you.
+The task is split into two parts. For the first part you need to set up a voice assistant app with both static and dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to a Node.js backend provided to you.
 
-We will be using tools such as Actions on Google, Dialogflow, the Node.js Dialogflow Fulfillment Library and the 
-Actions on Google Node.js client library all of which will be explained to you throughout.
+We will be using tools such as Actions on Google, Dialogflow, the Node.js Dialogflow Fulfillment Library and the Actions on Google Node.js client library all of which will be explained to you throughout.
 
 
 <a name="terminology"></a>
@@ -88,9 +84,7 @@ On the other hand. Should the user ask for the temperature outside that would be
 
 ####Fulfillment
 
-Every user intent needs to be fulfilled. Most intents will probably not have custom fulfillment but rather a general 
-answer such as "Sorry, I can't help you with that". As developers it is our job to identify which intents 
-needs to be answered, and how to answer them. 
+Every user intent needs to be fulfilled. Most intents will probably not have custom fulfillment but rather a general answer such as "Sorry, I can't help you with that". As developers it is our job to identify which intents needs to be answered, and how to answer them. 
 
 To help us with this we have a set of tools provided us by Google. Making it a quite easy thing to get started at.
 
@@ -98,17 +92,13 @@ To help us with this we have a set of tools provided us by Google. Making it a q
 
 ###Actions on Google
 
-The first tool we will use is Actions on Google. Together with a tool called Dialogflow it will do most of the difficult 
-magic concerning understanding user intents. It is through Actions on Google that we create our action which can be 
-understood as the app.
+The first tool we will use is Actions on Google. Together with a tool called Dialogflow it will do most of the difficult magic concerning understanding user intents. It is through Actions on Google that we create our action which can be understood as the app.
 
 <a name="dialogflow"></a>
 
 ###Dialogflow
 
-Dialogflow is a tool created to manage intents and train different agents to recognize the intent of the user. 
-We simply need to specify which intents we want, what data will be supplied and examples of how they can be phrased by
-the user.
+Dialogflow is a tool created to manage intents and train different agents to recognize the intent of the user. We simply need to specify which intents we want, what data will be supplied and examples of how they can be phrased by the user.
 
 Dialogflow can also do simple intent fulfillment answering simple questions where no custom logic or data store is 
 required. But in most cases we will want Dialogflow to use our existing or new backend service to answer many of, 
@@ -123,16 +113,15 @@ to use it.
 
 ##Installation & setup
 
-For this workshop, you will need your own Google Account. You will not have to pay for the services. 
+For this workshop, you will need your own Google Account. If you do not already have one, create one [here](https://accounts.google.com). You will not have to pay or add payment info for the services we use today. 
 
 <a name="googleactionsetup"></a>
 
 ###Google Action setup
 
-For this workshop you will need a Google account. 
+For this workshop our first task is to create an action. To do this we need to be logged in our Google accounts. 
 
  - Go to [Google Actions](https://developers.google.com/actions/) 
- 
  - Click _Go to Actions Console_
  
  
@@ -146,28 +135,34 @@ For this workshop you will need a Google account.
   * Click "Agree and Continue"
   
  - Enter the name of your project _Voice Assistant Workshop_
- - Let the language for your Actions project be _English_ (default)
  - Click Create Project
  
 - To continue click the home button in the upper left corner (_Actions on Google_)
 - Choose your project from the list of projects.
+
+<a name="language"></a>
+
+###Language
+- Ensure the language of your action is English (check the upper left corner of the main info panel).
+- If it is another language, click _modify languages_ and choose Enlish and click _save_
 
 <a name="invokeaction"></a>
 
 ###Invoke action
 - Click _decide how your action is invoked_
 - Choose a display name (**This must be globally unique, and your first choice might be taken**)
-
+- You may also choose a default voice for your action, or leave it as the default _Female 1_
+- Click _save_
 
 <a name="dialogflow-1"></a>
 
 ###Dialogflow
 
-We are now going to start creating dialogs with Dialogflow. 
+We are now done creating our actions. Let's start creating dialogs with Dialogflow. 
 
- - Go to [Dialogflow](https://dialogflow.com/)
- - Sign in with your Google Account
- - Click _go to console_
+ - Go to [Dialogflow](https://dialogflow.com/) (it might be wise to use a new tab for this as we will go back to Actions on Google at a later stage)
+ - If not already signed in: Sign in with your Google Account
+ - Click _go to console_ in the upper right corner
  - Let Dialogflow get permissions to your Google Account 
  
  
@@ -181,7 +176,7 @@ We are now going to start creating dialogs with Dialogflow.
 
 ####Create your agent
 
-We are now going to create your first agent and connect it to your Google project. 
+We are now going to create our first agent and connect it to our Google project. 
 
 - Give the agent a name: _Voice-assistant-workshop-agent_
 - Language: _English - en_
@@ -211,13 +206,11 @@ The tasks you create will be used later in the workshop.
 
 ####Task 1
 
-Create an intent welcoming the user to the Drone's Cream virtual store using only Dialogflow. 
-The intent should respond the user with a welcome prompt. 
+Create an intent welcoming the user to the Drone's Cream virtual store using only Dialogflow. The intent should respond the user with a welcome prompt. 
 
 The intent should respond to prompts from the user such as "Hi", "hello", "good morning" etc.
 
-The response should include the time of day if the prompt has it. I.e: 
-If the prompt is "Good afternoon" the response should also start with "Good afternoon".
+The response should include the time of day if the prompt has it. I.e: If the prompt is "Good afternoon" the response should also start with "Good afternoon".
 
 Hint: We want to create our own welcome intent, so you will have to delete the existing welcome intent (_Default Welcome Intent_).    
 
