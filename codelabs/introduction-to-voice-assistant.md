@@ -190,17 +190,11 @@ Click _Create_
 
 ###You are now ready to start the tasks!
 
-<a name="part1:dialogflow"></a>
+<a name="tasks:dialogflowintentfulfillment"></a>
 
-##Part 1: Dialogflow
-Duration: 10:00
+##Tasks: Dialogflow intent fulfillment
 
-<a name="dialogflowintentfulfillment"></a>
-
-###Dialogflow intent fulfillment
-
-In this part you will learn to use use Dialogflow to create your own intent fulfillment.
-The tasks you create will be used later in the workshop. 
+In this part you will learn to use use Dialogflow to create your own intent fulfillment. The intents you create will be used in later stages of this workshop. So we recommend that you do not skip any of the tasks on this page. 
 
 <a name="task1"></a>
 
@@ -210,23 +204,23 @@ Create an intent welcoming the user to the Drone's Cream virtual store using onl
 
 The intent should respond to prompts from the user such as "Hi", "hello", "good morning" etc.
 
-The response should include the time of day if the prompt has it. I.e: If the prompt is "Good afternoon" the response should also start with "Good afternoon".
+The response should include the time of day if the prompt has it, i.e: If the prompt is "Good afternoon" the response should also start with "Good afternoon".
 
-Hint: We want to create our own welcome intent, so you will have to delete the existing welcome intent (_Default Welcome Intent_).    
+Hint: We want to replace the _Default Welcome Intent_, so start out by deleting it.
 
 <a name="task2"></a>
 
 ####Task 2
 
-Create an intent listing the inventory of the store if a user asks for it. The inventory for Drone's Cream is Vanilla, Chocolate, Mint and Strawberry. 
+Create an intent listing the inventory of the store when a user asks which flavours are available. The inventory for Drone's Cream is Vanilla, Chocolate, Mint and Strawberry. 
 
-The intent should respond to questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?". This task should only use Dialogflow. 
+The intent should respond to questions such as "What kinds of flavours do you have?" and "What ice creams do you offer?". 
 
 <a name="task3"></a>
 
 ####Task 3
 
-Dialogflow support enums to create an easier concept of available input parameters on an intent. Create your own entity _iceCreamFlavour_ with all the available flavours of Drone's Cream.
+Create your own entity _iceCreamFlavour_ with all the available flavours of Drone's Cream. If needed, add synonyms for the any or all flavours.
 
 <a name="task4"></a>
 
@@ -244,47 +238,37 @@ The answer should include the order details including location if it is supplied
 
 ##Intro to webhook intent fulfillment
 
-To set up custom fulfillment for our Google Assistant app we will need to set up a webhook. A webhook is a simple
-http-POST endpoint capable of parsing the body of our request and create an appropriate response.
+To set up custom fulfillment for our Google Assistant app we will need to set up a webhook. A webhook is a simple http-POST endpoint capable of parsing the body of our request and create an appropriate response.
 
 If our backend were to communicate directly with the actions requests, it would look something like below. 
 
 ![Direct fulfillment](images/json-conversation.png)
 * borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
 
-Actions on Google sends POST requests with a JSON payload with a bunch of information to communicate with the 
-fulfillment service. The action will have done the rough work concerning speech to text, but the intent matching 
-would be up to our app. Thankfully we have used Dialogflow to do that for us.
+Actions on Google sends POST requests with a JSON payload with a bunch of information to communicate with the fulfillment service. The action will have done the rough work concerning speech to text, but the intent matching would be up to our app. Thankfully we have used Dialogflow to do that for us.
 
 So in our case the communications look like the figure below.
 
 ![Dialogflow fulfillment](images/json-dialogflow.png)
 * borrowed from [Google](https://developers.google.com/actions/build/json/) under the [Creative commons V3 licence](https://creativecommons.org/licenses/by/3.0/)
 
-Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Since Dialogflow will have 
-detected the user intent as well as having done work parsing any specified parameters into a manageable json format. 
-Our backend will only need to parse that json and respond to the provided intent.
+Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Since Dialogflow will have detected the user intent as well as having done work parsing any specified parameters into a manageable json format. Our backend will only need to parse that json and respond to the provided intent.
 
-As stated earlier this workshop will use the Node.js Dialogflow Fulfillment Library. We could have solved the tasks in 
-any programming language with tools to parse and create json. But Node.js has the most complete client library for both
-Dialogflow and Actions on Google, making the work a bit easier. 
+As stated earlier this workshop will use the Node.js Dialogflow Fulfillment Library. We could have solved the tasks in any programming language with tools to parse and create json. But Node.js has the most complete client library for both Dialogflow and Actions on Google, making the work a bit easier. 
 
-But in case you are curious to how you could solve this without the client libraries we have provided examples of the
-json requests and responses that the client library handles and creates in the tasks you will do.
+But in case you are curious to how you could solve this without the client libraries we have provided examples of the json requests and responses that the client library handles and creates in the tasks you will do.
 
 <a name="dialogflowfulfillmentlibrary"></a>
 
 ###Dialogflow Fulfillment Library
 
-The main component to the client library is the `WebhookClient` class. It is imported from the `dialogflow-fulfillment` npm 
-package like this:
+The main component to the client library is the `WebhookClient` class. It is imported from the `dialogflow-fulfillment` npm package like this:
 
 ```
 const { WebhookClient } = require('dialogflow-fulfillment');
 ```
 
-The way we use it is by sending request and response objects as arguments to the constructor of the class, and using its 
-built in functions to most of what we need to do today.
+The way we use it is by sending request and response objects as arguments to the constructor of the class, and using its built in functions to most of what we need to do today.
 
 ```    
 app.post('/', (req, res) => {
@@ -297,8 +281,7 @@ app.post('/', (req, res) => {
 
 ####Recognize which intent needs fulfillment
 
-The agent created using our request and response has a built in function choose how to respond to the request. This 
-function takes a `Map` with the name of the intent as key and a function that takes the agent as parameter.
+The agent created using our request and response has a built in function choose how to respond to the request. This function takes a `Map` with the name of the intent as key and a function that takes the agent as parameter.
 
 So if we were to handle a welcome intent we would do as following.
 
@@ -315,20 +298,15 @@ intentMap.set(null, fallback);
 agent.handleRequest(intentMap)
 ```
 
-Here the function welcome would be used if the name of the intent coming from Dialogflow is "Welcome". Be aware that the
-matching is case sensitive. So the match need to be absolute. The null element of the map is used if no match for the
-intent name can be found in the map.
+Here the function welcome would be used if the name of the intent coming from Dialogflow is "Welcome". Be aware that the matching is case sensitive. So the match need to be absolute. The null element of the map is used if no match for the intent name can be found in the map.
 
 <a name="readparameters"></a>
 
 ####Read parameters
 
-The agent has the intent parameters stored in an object named `parameters`. The structure of the object will be the same 
-as the parameters in the json body of the POST request. If the name of the parameter is "location" in Dialogflow the
-value can be found in `agent.parameters.location`. 
+The agent has the intent parameters stored in an object named `parameters`. The structure of the object will be the same as the parameters in the json body of the POST request. If the name of the parameter is "location" in Dialogflow the value can be found in `agent.parameters.location`. 
 
-Most parameters are just a string or integer value. But some complex types such as date ranges can occur and will be 
-objects themselves.
+Most parameters are just a string or integer value. But some complex types such as date ranges can occur and will be objects themselves.
 
 <a name="answerintents"></a>
 
@@ -341,23 +319,17 @@ agent.add('Hi, this is my answer!');
 ```
 
 If add is used multiple times for a single intent, all texts added will be read. The `handleRequest`-function
-then contains the logic to turn everything added to the agent into a response and using the response-object passed 
-through the constructor to respond to the POST-request.
+then contains the logic to turn everything added to the agent into a response and using the response-object passed through the constructor to respond to the POST-request.
 
 <a name="setcontexts"></a>
 
 ####Set contexts
 
-While every intent has a set of parameters to help us understand specifics of what the user wants, they are only 
-available for that specific intent. So if we for some reason need to store those or other values for more than the 
-passing of one single intent (say we need to know the first sentence the user said for the entire conversation) we
-can use the context. 
+While every intent has a set of parameters to help us understand specifics of what the user wants, they are only available for that specific intent. So if we for some reason need to store those or other values for more than the  passing of one single intent (say we need to know the first sentence the user said for the entire conversation) we can use the context. 
 
-The context is the combination of a string name and an object or other value. In addition it has
-an integer parameter to decide how long it should be kept before it is automatically deleted. 
+The context is the combination of a string name and an object or other value. In addition it has an integer parameter to decide how long it should be kept before it is automatically deleted. 
 
-So if we specify a lifespan of 4, then the context would be part of the next four requests we get in that conversation.
-But for every request the lifespan will reduce by one.
+So if we specify a lifespan of 4, then the context would be part of the next four requests we get in that conversation. But for every request the lifespan will reduce by one.
 
 So if we were to want to store the parameters from one intent for one request it we would do it like this:
 
@@ -377,9 +349,7 @@ We can also delete contexts if we would like to remove it even though it has a r
 agent.context.delete('params');
 ```
 
-Actions by Google also uses contexts quite a lot to specify things such as device capabilities. So in most real life 
-cases there will always be 5-6 contexts set. But when debugging from Dialogflow only our own contexts are part of the 
-requests and responses.
+Actions by Google also uses contexts quite a lot to specify things such as device capabilities. So in most real life cases there will always be 5-6 contexts set. But when debugging from Dialogflow only our own contexts are part of the requests and responses.
 
 <a name="actionsongooglelibrary"></a>
 
@@ -387,20 +357,13 @@ requests and responses.
 
 There are some things done by the Google Assistant that cannot be handled by the Dialogflow Fulfillment Library alone.
 
-One of those things that we will need to look at today is permissions. Every now and then we want to get information
-from either the user profile or device of the user behind an intent. For instance we may want to know the exact location
-if the user were to ask about the weather outside. 
+One of those things that we will need to look at today is permissions. Every now and then we want to get information from either the user profile or device of the user behind an intent. For instance we may want to know the exact location if the user were to ask about the weather outside. 
 
-But because anyone can make an app for Google Assistant, Google does not share this information with your app by default.
-For each conversation your app will need to ask the user for permission to get this information.
+But because anyone can make an app for Google Assistant, Google does not share this information with your app by default. For each conversation your app will need to ask the user for permission to get this information.
 
-This is done by creating a special response asking for permission. When the user responds either yes or no to this request
-that is translated into a special event called "Google Assistant Permission" which we need to catch using a special
-intent in Dialogflow. The intent need to have the event "Google Assistant Permission" to fire, and our app need to
-handle an event with whatever name we choose for that intent.
+This is done by creating a special response asking for permission. When the user responds either yes or no to this request that is translated into a special event called "Google Assistant Permission" which we need to catch using a special intent in Dialogflow. The intent need to have the event "Google Assistant Permission" to fire, and our app need to handle an event with whatever name we choose for that intent.
 
-The way we create the response is by using the `Permission` class from the `actions-on-google` library. We need to 
-supply it what type of data we want and why.
+The way we create the response is by using the `Permission` class from the `actions-on-google` library. We need to supply it what type of data we want and why.
 
 ```
 const { Permission } = require('actions-on-google');
@@ -419,16 +382,11 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
 }
 ```
 
-The following intent will now include a quite deeply nested object called `originalRequest`. 
-Depending on what kind of data we request it will probably be contained under either user
- (`agent.originalRequest.payload.user`) or device (`agent.originalRequest.payload.device`) data.
+The following intent will now include a quite deeply nested object called `originalRequest`. Depending on what kind of data we request it will probably be contained under either user (`agent.originalRequest.payload.user`) or device (`agent.originalRequest.payload.device`) data.
 
-In the case of location it can be found under `agent.originalRequest.payload.device.location`. It will have
-data such as latitude, longitude and formatted address. It is recommended to play use some console logging to get
-familiar with this object.
+In the case of location it can be found under `agent.originalRequest.payload.device.location`. It will have data such as latitude, longitude and formatted address. It is recommended to play use some console logging to get familiar with this object.
 
-In addition it is smart to check whether the permission actually was given, if not the data will be missing. That can 
-be found in one of the contexts called `actions_intent_permission`:
+In addition it is smart to check whether the permission actually was given, if not the data will be missing. That can be found in one of the contexts called `actions_intent_permission`:
 
 ```
 agent.context.get('actions_intent_permission').parameters.PERMISSION // this is a boolean
@@ -453,14 +411,12 @@ git clone https://github.com/mathjoh/google-home-101.git
 
 ####Https connection
 
-We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com](https://ngrok.com). **You do not need to download ngrok to the **  
-Register with your own account, and afterwards run _Step 3_ to connect your account. 
+We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com](https://ngrok.com). **You do not need to download ngrok, only sign up. We have included the binaries in the git repo you cloned.** Register with your own account, and afterwards run _Step 3_ to connect your account. 
 
-Setup  ngrok from the _node_-folder like this: 
+Setup ngrok from the _node_-folder like this: 
 
 ```
 ./ngrok authtoken [your auth token]
-
 ```
 
 <a name="runyourapplication"></a>
@@ -468,7 +424,7 @@ Setup  ngrok from the _node_-folder like this:
 ###Run your application
 
 
-When running the application, you need to start both the node application and ngrok. 
+To communicate with Dialogflow, you need to start both the node application and ngrok. 
 
 Running the application from the _node_-folder: 
 ```
@@ -481,9 +437,9 @@ Setup https proxy forward to localhost:1234
 ./ngrok http 1234
 ```
 
-<a name="addyouhttpsaddress"></a>
+<a name="addyourhttpsaddresstodialoflow"></a>
 
-###Add you https address
+###Add your https address to Dialoflow
 
  - Go to Fulfillment on [Dialogflow](https://console.dialogflow.com/)
  - Enable Webhook
@@ -493,9 +449,9 @@ Setup https proxy forward to localhost:1234
 Use the posted https address from ngrok in the tasks.
 
 
-<a name="part2:webhooks"></a>
+<a name="tasks:webhooks"></a>
 
-##Part 2: Webhooks
+##Tasks: Webhooks
 Duration: 20:00
 
 <a name="webhookintentfulfillment"></a>
@@ -504,11 +460,11 @@ Duration: 20:00
 
 In this part you will need to adapt the intents created in part 1 to be answered by a webhook instead of Dialogflow.
 
-<a name="task1-1"></a>
+<a name="task5"></a>
 
-####Task 1
+####Task 5
 
-Enable webhook fulfillment for the intent created in part 1, task 3.
+Enable webhook fulfillment for the intent created in task 1.
 
 Extend the provided backend (./index.js) to respond to the intent with the same responses as Dialogflow. Also did as well as fallback handling if unknown intents are routed to the webhook.
 
@@ -516,34 +472,30 @@ Test your webhook using either the testing tool in Dialogflow or Actions on Goog
 
 Hint: You will have to enable webhook your dialogflow under fulfillment. It might be a good idea to remove some of your responses to make sure your get your responses from the application and not one of the predefined responses.  
 
-<a name="task2-1"></a>
+<a name="task6"></a>
 
-####Task 2
+####Task 6
 
-Convert the intent from task 3 in part 1 to be answered by your webhook. This time the answer should reflect the 
-actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling 
-which should contain all the necessary business logic in the file `store.js`.
+Convert the intent from task 3 to be answered by your webhook. This time the answer should reflect the actual inventory of the Ice Cream store. We have provided you with a small service with in-memory inventory handling which should contain all the necessary business logic in the file `store.js`.
 
 Have the answer to the prompt include both which flavours are in stock and which are out of stock. The number of cones
 remaining of each does not need to be included.
 
 Test your webhook using either the testing tool in Dialogflow or Actions by Google.
 
-<a name="task3-1"></a>
+<a name="task7"></a>
 
-####Task 3
+####Task 7
 
-Convert the intent from task 4 in part 1 to be answered by your webhook. This time the answer should reflect the 
-actual inventory of the Ice Cream store. 
+Convert the intent from task 4 to be answered by your webhook. This time the answer should reflect the actual inventory of the Ice Cream store. 
 
-If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones 
-left the inventory numbers should be updated.
+If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones left the inventory numbers should be updated.
 
 Test your webhook using either the testing tool in Dialogflow or Actions by Google.
 
-<a name="task4-1"></a>
+<a name="task8"></a>
 
-####Task 4
+####Task 8
 
 <a name="a)"></a>
 
