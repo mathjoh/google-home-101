@@ -45,27 +45,28 @@
       </google-codelab-step>
     
       <google-codelab-step label="Terminology" duration="0">
-        <p>What we will be creating today is an app for Google Assistant. Google Assistant is the software that enables different<br>devices, such as Android phones and the Google Home smart speaker, to have fluent conversations with a user.</p>
-<p>Google Assistant creates one common interface for all these pieces of hardware, allowing us to support them all with a<br>single implementation. The only thing that might change between devices is what kind of inputs and outputs they support.</p>
-<p>For instance: a Google Home smart speaker does not have a screen limiting the types of responses it can show to the user.<br>But the same type of response is treated in the same way across devices.</p>
-<p>This workshop will focus mainly on the audio interaction, but there are other possibilities such as cards with images,<br>Call to Action elements and more.</p>
+        <p>What we will be creating today is an app for Google Assistant. Google Assistant is the software that enables different devices, such as Android phones and the Google Home smart speaker, to have fluent conversations with a user.</p>
+<p>Google Assistant creates one common interface for all these pieces of hardware, allowing us to support them all with a single implementation. The only thing that might change between devices is what kind of inputs and outputs they support.</p>
+<p>For instance: a Google Home smart speaker does not have a screen limiting the types of responses it can show to the user. But the same type of response is treated in the same way across devices.</p>
+<p>This workshop will focus mainly on the audio interaction, but there are other possibilities such as cards with images, Call to Action elements and more.</p>
 <p>To understand the different parts of an interaction between the user and our app we need to understand the concepts<br><em>conversation</em>, <em>intent</em> and <em>fulfillment</em></p>
 <h2>Conversation</h2>
-<p>A conversation is the overarching and simplest concept we need to know. It is simply all communications between the user<br>and Google Assistant, starting when the user requests which app to talk to, ending when either the user or the app<br>requests the conversation to end.</p>
-<p>So long as the conversation is active the app will respond to any request by the user. Before and after the conversation<br>the general Google Assistant app is the one that will respond.</p>
+<p>A conversation is the overarching and simplest concept we need to know. It is simply all communications between the user and Google Assistant, starting when the user requests which app to talk to, ending when either the user or the app requests the conversation to end.</p>
+<p>So long as the conversation is active the app will respond to any request by the user. Before and after the conversation the general Google Assistant app is the one that will respond.</p>
 <h3>Intents</h3>
-<p>An intent can be understood as a single type of request. The user will state their intent to the app, and it must<br>understand what the user intends and respond properly.</p>
-<p>For instance, an intent can be the user saying ‘Hello&#39; or ‘Good morning&#39;. Even though those are different ways of<br>greeting the app, the app can consider these to be the same intent and answer both with the same or a similar answer.</p>
+<p>An intent can be understood as a single type of request. The user will state their intent to the app, and it must understand what the user intends and respond properly.</p>
+<p>For instance, an intent can be the user saying ‘Hello&#39; or ‘Good morning&#39;. Even though those are different ways of greeting the app, the app can consider these to be the same intent and answer both with the same or a similar answer.</p>
 <p>On the other hand. Should the user ask for the temperature outside that would be a different intent entirely.</p>
 <h3>Fulfillment</h3>
 <p>Every user intent needs to be fulfilled. Most intents will probably not have custom fulfillment but rather a general answer such as &#34;Sorry, I can&#39;t help you with that&#34;. As developers it is our job to identify which intents needs to be answered, and how to answer them.</p>
 <p>To help us with this we have a set of tools provided us by Google. Making it a quite easy thing to get started at.</p>
 <h2>Actions on Google</h2>
 <p>The first tool we will use is Actions on Google. Together with a tool called Dialogflow it will do most of the difficult magic concerning understanding user intents. It is through Actions on Google that we create our action which can be understood as the app.</p>
+<p>Actions on google manages conversations and does speech-to-text and text-to-speech. It can communicate directly with custom backends, but leaves a lot of work to be done.</p>
 <h2>Dialogflow</h2>
 <p>Dialogflow is a tool created to manage intents and train different agents to recognize the intent of the user. We simply need to specify which intents we want, what data will be supplied and examples of how they can be phrased by the user.</p>
-<p>Dialogflow can also do simple intent fulfillment answering simple questions where no custom logic or data store is<br>required. But in most cases we will want Dialogflow to use our existing or new backend service to answer many of,<br>if not all, our intents.</p>
-<p>So even though it is possible to create a Google Assistant app without using Dialogflow, it is absolutely preferable<br>to use it.</p>
+<p>Dialogflow can also do simple intent fulfillment answering simple questions where no custom logic or data store is required. But in most cases we will want Dialogflow to use our existing or new backend service to answer many of, if not all, our intents.</p>
+<p>So even though it is possible to create a Google Assistant app without using Dialogflow, it is absolutely preferable to use it.</p>
 
 
       </google-codelab-step>
@@ -300,7 +301,17 @@ if (conv) { // conv can be null if the intent was not called from Google Assista
 <h4>b)</h4>
 <p>Now that we can get the location of the device our service is ready to start serving the community. Unfortunately it will keep asking for permission to get device location from users who have already consented.</p>
 <p>Update your service to check if the user already have consented before asking for the location again.</p>
-<p><a href="https://github.com/dialogflow/dialogflow-fulfillment-nodejs" target="_blank">Dialogflow Fulfillment Library</a></p>
+<h2>What to do next?</h2>
+<p>If you like to learn more about making voice assistant apps we suggest you do one of the following things:</p>
+<ul>
+<li>Test the different prebuilt agents in Dialogflow. They are found in the m enu under <em>Prebuilt agents</em></li>
+<li>Take a look at conversation analytics under <em>Analytics</em> in Dialogflow</li>
+<li>Enable <em>small talk</em> for your app in Dialogflow and add fun answers to the many questions they support</li>
+<li>Try out complex entity types such as <a href="https://dialogflow.com/docs/intents/actions-parameters" target="_blank">lists, date ranges and more</a> in the <a href="https://dialogflow.com/docs/intro" target="_blank">Dialogflow documentation</a></li>
+<li>Look at more functionality and response types such as <a href="https://developers.google.com/actions/reference/ssml" target="_blank">SSML</a> and Cards and other <a href="https://developers.google.com/actions/assistant/responses" target="_blank">Rich responses</a> in the <a href="https://github.com/dialogflow/dialogflow-fulfillment-nodejs" target="_blank">Dialogflow Node.js library</a></li>
+<li>Look at more functionality in the <a href="https://github.com/actions-on-google/actions-on-google-nodejs" target="_blank">Actions on Google Node.js library</a></li>
+<li>Create complex dialogue structures using <a href="https://dialogflow.com/docs/contexts/follow-up-intents" target="_blank">follow up intents</a></li>
+</ul>
 
 
       </google-codelab-step>
