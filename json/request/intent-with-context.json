@@ -1,0 +1,116 @@
+{
+  "responseId": "4caaa298-14c9-4b69-a776-ba7df7b4adc5",
+  "queryResult": {
+    "queryText": "Who am I?",
+    "parameters": {
+
+    },
+    "allRequiredParamsPresent": true,
+    "fulfillmentMessages": [
+      {
+        "text": {
+          "text": [
+            ""
+          ]
+        }
+      }
+    ],
+    "outputContexts": [
+      {
+        "name": "projects\/actiontest-ca353\/agent\/sessions\/ABwppHGDWoOwKL3XYyE-79Q0W7-z1UiYZCOTBg-fFGCxW7SRyyJqjzx1uzfQIqjVrA3UtKzOnAUSfuxZRrJicQ\/contexts\/actions_capability_screen_output"
+      },
+      {
+        "name": "projects\/actiontest-ca353\/agent\/sessions\/ABwppHGDWoOwKL3XYyE-79Q0W7-z1UiYZCOTBg-fFGCxW7SRyyJqjzx1uzfQIqjVrA3UtKzOnAUSfuxZRrJicQ\/contexts\/actions_capability_audio_output"
+      },
+      {
+        "name": "projects\/actiontest-ca353\/agent\/sessions\/ABwppHGDWoOwKL3XYyE-79Q0W7-z1UiYZCOTBg-fFGCxW7SRyyJqjzx1uzfQIqjVrA3UtKzOnAUSfuxZRrJicQ\/contexts\/actions_capability_account_linking"
+      },
+      {
+        "name": "projects\/actiontest-ca353\/agent\/sessions\/ABwppHGDWoOwKL3XYyE-79Q0W7-z1UiYZCOTBg-fFGCxW7SRyyJqjzx1uzfQIqjVrA3UtKzOnAUSfuxZRrJicQ\/contexts\/google_assistant_input_type_keyboard"
+      },
+      {
+        "name": "projects\/actiontest-ca353\/agent\/sessions\/ABwppHGDWoOwKL3XYyE-79Q0W7-z1UiYZCOTBg-fFGCxW7SRyyJqjzx1uzfQIqjVrA3UtKzOnAUSfuxZRrJicQ\/contexts\/actions_capability_media_response_audio"
+      },
+      {
+        "name": "projects\/actiontest-ca353\/agent\/sessions\/ABwppHGDWoOwKL3XYyE-79Q0W7-z1UiYZCOTBg-fFGCxW7SRyyJqjzx1uzfQIqjVrA3UtKzOnAUSfuxZRrJicQ\/contexts\/actions_capability_web_browser"
+      }
+    ],
+    "intent": {
+      "name": "projects\/actiontest-ca353\/agent\/intents\/68216d9a-5d00-4eec-861b-aaa841694db7",
+      "displayName": "Ask name"
+    },
+    "intentDetectionConfidence": 1,
+    "languageCode": "en-us"
+  },
+  "originalDetectIntentRequest": {
+    "source": "google",
+    "version": "2",
+    "payload": {
+      "isInSandbox": true,
+      "surface": {
+        "capabilities": [
+          {
+            "name": "actions.capability.AUDIO_OUTPUT"
+          },
+          {
+            "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+          },
+          {
+            "name": "actions.capability.SCREEN_OUTPUT"
+          },
+          {
+            "name": "actions.capability.WEB_BROWSER"
+          },
+          {
+            "name": "actions.capability.ACCOUNT_LINKING"
+          }
+        ]
+      },
+      "requestType": "SIMULATOR",
+      "inputs": [
+        {
+          "rawInputs": [
+            {
+              "query": "Who am I?",
+              "inputType": "KEYBOARD"
+            }
+          ],
+          "arguments": [
+            {
+              "rawText": "Who am I?",
+              "textValue": "Who am I?",
+              "name": "text"
+            }
+          ],
+          "intent": "actions.intent.TEXT"
+        }
+      ],
+      "user": {
+        "lastSeen": "2019-04-30T10:39:25Z",
+        "locale": "en-US",
+        "userId": "ABwppHGLrwSOj1tmyf6OZUJWX1NzsPubHBJeLFBKEyiMJ-biCcNg8GrklohJQi3r82C1E8p_dhmFTPbBHh1Uzw"
+      },
+      "conversation": {
+        "conversationId": "ABwppHGDWoOwKL3XYyE-79Q0W7-z1UiYZCOTBg-fFGCxW7SRyyJqjzx1uzfQIqjVrA3UtKzOnAUSfuxZRrJicQ",
+        "type": "ACTIVE",
+        "conversationToken": "[]"
+      },
+      "availableSurfaces": [
+        {
+          "capabilities": [
+            {
+              "name": "actions.capability.AUDIO_OUTPUT"
+            },
+            {
+              "name": "actions.capability.SCREEN_OUTPUT"
+            },
+            {
+              "name": "actions.capability.WEB_BROWSER"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "session": "projects\/actiontest-ca353\/agent\/sessions\/ABwppHGDWoOwKL3XYyE-79Q0W7-z1UiYZCOTBg-fFGCxW7SRyyJqjzx1uzfQIqjVrA3UtKzOnAUSfuxZRrJicQ"
+}
