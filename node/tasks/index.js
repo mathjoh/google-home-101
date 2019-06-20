@@ -35,7 +35,6 @@ app.post('/', (req, res) => {
 	// console.log('WebhookClient session: ', agent.session);
 	// console.log('WebhookClient consoleMessages: ', agent.consoleMessages);
 	// console.log('WebhookClient alternativeQueryResults: ', agent.alternativeQueryResults);
-	// console.log('WebhookClient alternativeQueryResults: ', agent.alternativeQueryResults);
 
 });
 

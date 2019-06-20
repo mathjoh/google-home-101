@@ -13,10 +13,6 @@ const defaultInventory = {
     },
     mint: {
         displayName: 'mint',
-        cones: 400
-    },
-    chocolateChip: {
-        displayName: 'chocolate chip',
         cones: 0
     },
 };
