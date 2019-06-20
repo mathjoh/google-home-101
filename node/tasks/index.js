@@ -1,6 +1,6 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 // Needed for task 1
-// const bodyParser = require('body-parser');
 // const { WebhookClient } = require('dialogflow-fulfillment');
 
 // Needed for task 2
