@@ -11,7 +11,9 @@ id: introduction-to-voice-assistant
 
 Welcome to this workshop: An introduction to Voice Assistant with Google Cloud. 
 
-The workshop is split in two parts. Part 1 lets you explore Dialogflow to setup your own intent fulfillment, and in part 2 you will use Webhook intent fulfillment.
+The workshop is split in two parts. Part one lets you explore Dialogflow to setup your own intent fulfillment, and in part two you will use Webhook intent fulfillment using some JavaScript and NodeJs.
+
+You need no previous knowledge level of either the Google Voice Assistant eco system or JavasScript and NodeJs. But basic coding will be required in part two, but we will provide you with code examples and solutions if you are having any problems. 
 
 <a name="whatwewilldotoday:"></a>
 
