@@ -1,7 +1,7 @@
 {
   "environment": "web",
   "format": "html",
-  "prefix": "../",
+  "prefix": "\"../\"",
   "mainga": "UA-49880327-14",
   "updated": "2019-10-22T16:34:33+02:00",
   "id": "introduction-to-voice-assistant-solutions",
