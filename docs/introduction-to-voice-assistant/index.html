@@ -30,15 +30,15 @@
       <google-codelab-step label="Welcome ! 👋" duration="0">
         <p>Welcome to this workshop: An introduction to Voice Assistant with Google Cloud.</p>
 <p>The workshop is split in two parts. Part one lets you explore Dialogflow to setup your own intent fulfillment, and in part two you will use Webhook intent fulfillment using some JavaScript and NodeJs.</p>
-<p>You need no previous knowledge level of either the Google Voice Assistant eco system or JavasScript and NodeJs. But basic coding will be required in part two, but we will provide you with code examples and solutions if you are having any problems.</p>
+<p>You need no previous knowledge level of either the Google Voice Assistant eco system or JavasScript and Node.js. But basic coding will be required in part two, but we will provide you with code examples and solutions if you are having any problems.</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="What we will do today:" duration="0">
         <h2 is-upgraded>Drone&#39;s Cream voice app</h2>
-<p>In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone&#39;s Cream.</p>
-<p>Drone&#39;s Cream&#39;s value proposition is quite simple. <em>&#34;We deliver the world&#39;s best ice cream by drone&#34;</em>. To be able to fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people stuck outside in the sun.</p>
+<p>In this workshop you will create a voice assistant app for FINN.no&#39;s amazing new service: Ice cream cones delivered via drone, called Drone&#39;s Cream.</p>
+<p>Drone&#39;s Cream&#39;s value proposition is quite simple. <em>&#34;We deliver the world&#39;s best ice cream to you immediately after you order it&#34;</em>. To be able to fully exploit the ice cream hunger of the world we need to be able to take orders by voice from over heated people stuck outside in the sun.</p>
 <p>The task is split into two parts. For the first part you need to set up a voice assistant app with both static and dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to a Node.js backend provided to you.</p>
 <p>We will be using tools such as Actions on Google, Dialogflow, the Node.js Dialogflow Fulfillment Library and the Actions on Google Node.js client library all of which will be explained to you throughout.</p>
 
@@ -170,12 +170,80 @@
 <p>Communicating with Dialogflow is a lot easier than communicating with Actions on Google. Since Dialogflow will have detected the user intent as well as having done work parsing any specified parameters into a manageable json format. Our backend will only need to parse that json and respond to the provided intent.</p>
 <p>As stated earlier this workshop will use the Node.js Dialogflow Fulfillment Library. We could have solved the tasks in any programming language with tools to parse and create json. But Node.js has the most complete client library for both Dialogflow and Actions on Google, making the work a bit easier.</p>
 <p>But in case you are curious to how you could solve this without the client libraries we have provided examples of the json requests and responses that the client library handles and creates in the tasks you will do.</p>
-<h2 is-upgraded>Dialogflow Fulfillment Library</h2>
-<p>The main component to the client library is the <code>WebhookClient</code> class. It is imported from the <code>dialogflow-fulfillment</code> npm package like this:</p>
-<pre><code>const { WebhookClient } = require(&#39;dialogflow-fulfillment&#39;);
+<h2 is-upgraded>Quick intro to JavaScript</h2>
+<p>To complete these tasks you will need to write some rudimentary JavaScript. What you need to know is:</p>
+<h3 is-upgraded>JavaScript does not require any typing</h3>
+<p>You can put any type of data into a constant or variable. For instance it is perfectly legal to put a string into a variable to used to contain an integer:</p>
+<pre><code>let x = 5;
+x = &#39;Hello&#39;;
 </code></pre>
-<p>The way we use it is by sending request and response objects as arguments to the constructor of the class, and using its built in functions to most of what we need to do today.</p>
-<pre><code>app.post(&#39;/&#39;, (req, res) =&gt; {
+<p>So sometimes you will need to make sure that the variable you are reading contains the data type you want when you are doing comparisons or other actions. Maybe your <code>x !== &#39;5&#39;</code> should be <code>x !== &#39;5&#39;</code></p>
+<h3 is-upgraded>How to write functions</h3>
+<p>In the later versions of JavaScript functions can be written as both lambdas and explicit function types.</p>
+<pre><code>const myFunction = x =&gt; x + 1;
+const myFunction2 = (x) =&gt; x + 1;
+const myFunction3 = x =&gt; { return x + 1; }
+const myFunction4 = (x) =&gt; { return x + 1; }
+function myFunction5(x) { return x + 1; }
+</code></pre>
+<p>All the functions above do the same thing, but the lambda version tends to give the most compact code. Be aware that if you want more than one argument, version 1 and 3 would not work as more than one arguemnt must wbe wrapped in parathesis.</p>
+<h3 is-upgraded>Equality</h3>
+<p>Equality in JavaScript can be done in two ways: <code>==</code> or <code>===</code>. There are some differences to how they work, but in this workshop we suggest you only use <code>===</code> to avoid any confusion.</p>
+<h3 is-upgraded>Objects</h3>
+<p>JavaScripts allows you to declare any object ad hoc. It needs no class definition and any member can be added or removed at any time.</p>
+<p>For instance:</p>
+<pre><code>const obj = {
+    x: 2,
+    y: 4,
+};
+obj.z = 7;
+obj.y = undefined;
+</code></pre>
+<p>is perfectly legal and will change the value o</p>
+<h3 is-upgraded>If, else and what is true&#34;</h3>
+<p>If and else statements are written similarly to Java.</p>
+<pre><code>if (x === y) {
+    // do something
+} else if (y === z) {
+
+} else {
+
+}
+</code></pre>
+<p>But one thing that can be used well is that a lot of non-boolean values will give true or false ansvers as well.</p>
+<p>For instance we can check if values contain data or objects has certain members.</p>
+<pre><code>This can be weird. But if we need to access z in the following object:
+
+</code></pre>
+<p>const obj = {</p>
+<pre><code>x: {
+    y: {
+        z: 5
+    }
+}
+</code></pre>
+<p>}</p>
+<pre><code>we might need to check that x and y are not null or undefined. If not the program would fail during runtime similarly to getting a NullPointerException in Java.
+
+So what we do is:
+
+</code></pre>
+<p>if (obj &amp;&amp; obj.x &amp;&amp; obj.x.y) {</p>
+<pre><code>console.log(obj.x.y.z);
+</code></pre>
+<p>}</p>
+<pre><code>&lt;a name=&#34;dialogflowfulfillmentlibrary&#34;&gt;&lt;/a&gt;
+
+###Dialogflow Fulfillment Library
+
+The main component to the client library is the `WebhookClient` class. It is imported from the `dialogflow-fulfillment` npm package like this:
+
+</code></pre>
+<p>const { WebhookClient } = require(‘dialogflow-fulfillment&#39;);</p>
+<pre><code>The way we use it is by sending request and response objects as arguments to the constructor of the class, and using its built in functions to most of what we need to do today.
+
+```    
+app.post(&#39;/&#39;, (req, res) =&gt; {
     const agent = new WebhookClient({ request: req, response: res });
     ... 
 };
@@ -322,11 +390,7 @@ Setup https proxy forward to localhost:1234
       </google-codelab-step>
     
       <google-codelab-step label="And that&#39;s it! 🎉" duration="0">
-        <h2 is-upgraded>Feedback? 😇</h2>
-<p>We would love to get feedback to improve our workshop. You are awesome if you have time to fill out <a href="https://forms.gle/fJC4tR6LtakgGPye9" target="_blank">feedback form</a>. It is of course anonymous.</p>
-<h2 is-upgraded>Any questions?</h2>
-<p>Contact us on <a href="https://twitter.com/mathjoh91" target="_blank">@mathjoh91</a> or <a href="https://twitter.com/ingridguren" target="_blank">@ingridguren</a>.</p>
-
+        
 
       </google-codelab-step>
     

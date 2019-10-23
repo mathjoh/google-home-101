@@ -13,7 +13,7 @@ Welcome to this workshop: An introduction to Voice Assistant with Google Cloud.
 
 The workshop is split in two parts. Part one lets you explore Dialogflow to setup your own intent fulfillment, and in part two you will use Webhook intent fulfillment using some JavaScript and NodeJs.
 
-You need no previous knowledge level of either the Google Voice Assistant eco system or JavasScript and NodeJs. But basic coding will be required in part two, but we will provide you with code examples and solutions if you are having any problems. 
+You need no previous knowledge level of either the Google Voice Assistant eco system or JavasScript and Node.js. But basic coding will be required in part two, but we will provide you with code examples and solutions if you are having any problems. 
 
 <a name="whatwewilldotoday:"></a>
 
@@ -22,9 +22,9 @@ You need no previous knowledge level of either the Google Voice Assistant eco sy
 
 ###Drone's Cream voice app
 
-In this workshop you will create a voice assistant app for the fictional but awesome online ice cream shop Drone's Cream. 
+In this workshop you will create a voice assistant app for FINN.no's amazing new service: Ice cream cones delivered via drone, called Drone's Cream. 
 
-Drone's Cream's value proposition is quite simple. _"We deliver the world's best ice cream by drone"_. To be able to fully exploit the ice cream hunger of the world they need to be able to take orders by voice from over heated people stuck outside in the sun.
+Drone's Cream's value proposition is quite simple. _"We deliver the world's best ice cream to you immediately after you order it"_. To be able to fully exploit the ice cream hunger of the world we need to be able to take orders by voice from over heated people stuck outside in the sun.
 
 The task is split into two parts. For the first part you need to set up a voice assistant app with both static and dynamic answers without hooking up to a separate backend. In part two you will have to connect the app from part one to a Node.js backend provided to you.
 
@@ -245,6 +245,107 @@ As stated earlier this workshop will use the Node.js Dialogflow Fulfillment Libr
 
 But in case you are curious to how you could solve this without the client libraries we have provided examples of the json requests and responses that the client library handles and creates in the tasks you will do.
 
+<a name="quickintrotojavascript"></a>
+
+###Quick intro to JavaScript
+
+To complete these tasks you will need to write some rudimentary JavaScript. What you need to know is:
+
+<a name="javascriptdoesnotrequireanytyping"></a>
+
+####JavaScript does not require any typing
+
+You can put any type of data into a constant or variable. For instance it is perfectly legal to put a string into a variable to used to contain an integer:
+
+```
+let x = 5;
+x = 'Hello';
+```
+
+So sometimes you will need to make sure that the variable you are reading contains the data type you want when you are doing comparisons or other actions. Maybe your ```x !== '5'``` should be ``` x !== '5'```
+
+<a name="howtowritefunctions"></a>
+
+####How to write functions
+
+In the later versions of JavaScript functions can be written as both lambdas and explicit function types.
+
+```
+const myFunction = x => x + 1;
+const myFunction2 = (x) => x + 1;
+const myFunction3 = x => { return x + 1; }
+const myFunction4 = (x) => { return x + 1; }
+function myFunction5(x) { return x + 1; }
+```
+
+All the functions above do the same thing, but the lambda version tends to give the most compact code. Be aware that if you want more than one argument, version 1 and 3 would not work as more than one arguemnt must wbe wrapped in parathesis.
+
+<a name="equality"></a>
+
+####Equality
+
+Equality in JavaScript can be done in two ways: ```==``` or ```===```. There are some differences to how they work, but in this workshop we suggest you only use ```===``` to avoid any confusion.
+
+<a name="objects"></a>
+
+####Objects
+
+JavaScripts allows you to declare any object ad hoc. It needs no class definition and any member can be added or removed at any time.
+
+For instance:
+```
+const obj = {
+    x: 2,
+    y: 4,
+};
+obj.z = 7;
+obj.y = undefined;
+```
+is perfectly legal and will change the value o
+
+<a name="if,elseandwhatistrue""></a>
+
+####If, else and what is true"
+
+If and else statements are written similarly to Java.
+
+```
+if (x === y) {
+    // do something
+} else if (y === z) {
+
+} else {
+
+}
+```
+
+But one thing that can be used well is that a lot of non-boolean values will give true or false ansvers as well.
+
+For instance we can check if values contain data or objects has certain members.
+
+```if (x) { ... }``` will be false if x is ```null```, ```undefined```, ```{}```, ```0```, ```''``` and many other things. 
+
+This can be weird. But if we need to access z in the following object:
+
+```
+const obj = {
+    x: {
+        y: {
+            z: 5
+        }
+    }
+}
+```
+
+we might need to check that x and y are not null or undefined. If not the program would fail during runtime similarly to getting a NullPointerException in Java.
+
+So what we do is:
+
+```
+if (obj && obj.x && obj.x.y) {
+    console.log(obj.x.y.z);
+}
+```
 <a name="dialogflowfulfillmentlibrary"></a>
 
 ###Dialogflow Fulfillment Library
@@ -524,15 +625,3 @@ If you like to learn more about making voice assistant apps we suggest you do on
 <a name="andthat'sit!🎉"></a>
 
 ##And that's it! 🎉
-
-<a name="feedback?😇"></a>
-
-###Feedback? 😇
-
-We would love to get feedback to improve our workshop. You are awesome if you have time to fill out [feedback form](https://forms.gle/fJC4tR6LtakgGPye9). It is of course anonymous.
-
-<a name="anyquestions?"></a>
-
-###Any questions?
-
-Contact us on [@mathjoh91](https://twitter.com/mathjoh91) or [@ingridguren](https://twitter.com/ingridguren).
