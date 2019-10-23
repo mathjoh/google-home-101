@@ -20,6 +20,95 @@ As stated earlier this workshop will use the Node.js Dialogflow Fulfillment Libr
 
 But in case you are curious to how you could solve this without the client libraries we have provided examples of the json requests and responses that the client library handles and creates in the tasks you will do.
 
+### Quick intro to JavaScript
+
+To complete these tasks you will need to write some rudimentary JavaScript. What you need to know is:
+
+#### JavaScript does not require any typing
+
+You can put any type of data into a constant or variable. For instance it is perfectly legal to put a string into a variable to used to contain an integer:
+
+```
+let x = 5;
+x = 'Hello';
+```
+
+So sometimes you will need to make sure that the variable you are reading contains the data type you want when you are doing comparisons or other actions. Maybe your ```x !== '5'``` should be ``` x !== '5'```
+
+#### How to write functions
+
+In the later versions of JavaScript functions can be written as both lambdas and explicit function types.
+
+```
+const myFunction = x => x + 1;
+const myFunction2 = (x) => x + 1;
+const myFunction3 = x => { return x + 1; }
+const myFunction4 = (x) => { return x + 1; }
+function myFunction5(x) { return x + 1; }
+```
+
+All the functions above do the same thing, but the lambda version tends to give the most compact code. Be aware that if you want more than one argument, version 1 and 3 would not work as more than one arguemnt must wbe wrapped in parathesis.
+
+#### Equality
+
+Equality in JavaScript can be done in two ways: ```==``` or ```===```. There are some differences to how they work, but in this workshop we suggest you only use ```===``` to avoid any confusion.
+
+#### Objects
+
+JavaScripts allows you to declare any object ad hoc. It needs no class definition and any member can be added or removed at any time.
+
+For instance:
+```
+const obj = {
+    x: 2,
+    y: 4,
+};
+obj.z = 7;
+obj.y = undefined;
+```
+is perfectly legal and will change the value o
+
+#### If, else and what is true"
+
+If and else statements are written similarly to Java.
+
+```
+if (x === y) {
+    // do something
+} else if (y === z) {
+
+} else {
+
+}
+```
+
+But one thing that can be used well is that a lot of non-boolean values will give true or false ansvers as well.
+
+For instance we can check if values contain data or objects has certain members.
+
+```if (x) { ... }``` will be false if x is ```null```, ```undefined```, ```{}```, ```0```, ```''``` and many other things. 
+
+This can be weird. But if we need to access z in the following object:
+
+```
+const obj = {
+    x: {
+        y: {
+            z: 5
+        }
+    }
+}
+```
+
+we might need to check that x and y are not null or undefined. If not the program would fail during runtime similarly to getting a NullPointerException in Java.
+
+So what we do is:
+
+```
+if (obj && obj.x && obj.x.y) {
+    console.log(obj.x.y.z);
+}
+```
 ### Dialogflow Fulfillment Library
 
 The main component to the client library is the `WebhookClient` class. It is imported from the `dialogflow-fulfillment` npm package like this:
