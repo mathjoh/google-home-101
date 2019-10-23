@@ -18,16 +18,11 @@ app.post('/', (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
 
     const welcome = agent => {
-        if (agent.parameters.timeOfDay) {
-            agent.add(`Good ${timeOfDay} Welcome to Drone's Cream. We supply the world with the best possible ice cream, anywhere, anytime.`);
-
-        } else {
-            agent.add('Welcome to Drone\'s Cream. We supply the world with the best possible ice cream, anywhere, anytime.');
-        }
+        // Add welcome logic here
     };
 
     const fallback = agent => {
-        agent.add(`I'm sorry. Your request was not recognized. Please try again.`);
+        // Add fallback logic here
     };
 
     let intentMap = new Map();
