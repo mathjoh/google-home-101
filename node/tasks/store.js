@@ -24,7 +24,7 @@ const emptyFlavours = inventory => Object.values(inventory).filter(item => item.
 const numberOfCones = (flavour, inventory) => inventory[flavour].cones;
 
 const order = (flavour, cones, inventory) => {
-    if(inventory[flavour].cones >= cones) {
+    if (inventory[flavour] && inventory[flavour].cones >= cones) {
         inventory[flavour].cones = inventory[flavour].cones - cones;
         return true;
     }
