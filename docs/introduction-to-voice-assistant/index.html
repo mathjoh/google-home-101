@@ -209,82 +209,80 @@ obj.y = undefined;
 </code></pre>
 <p>But one thing that can be used well is that a lot of non-boolean values will give true or false ansvers as well.</p>
 <p>For instance we can check if values contain data or objects has certain members.</p>
-<pre><code>This can be weird. But if we need to access z in the following object:
-
-</code></pre>
-<p>const obj = {</p>
-<pre><code>x: {
+<p>This can be weird. But if we need to access z in the following object:</p>
+<pre><code>
+const obj = {
+  x: {
     y: {
-        z: 5
+      z: 5
     }
+  }
 }
 </code></pre>
-<p>}</p>
-<pre><code>we might need to check that x and y are not null or undefined. If not the program would fail during runtime similarly to getting a NullPointerException in Java.
-
-So what we do is:
-
+<p>We might need to check that x and y are not null or undefined. If not the program would fail during runtime similarly to getting a NullPointerException in Java.</p>
+<p>So what we do is:</p>
+<pre><code>
+  if (obj &amp;&amp; obj.x &amp;&amp; obj.x.y) {
+    console.log(obj.x.y.z);
+  }
 </code></pre>
-<p>if (obj &amp;&amp; obj.x &amp;&amp; obj.x.y) {</p>
-<pre><code>console.log(obj.x.y.z);
+
+<h3>Dialogflow Fulfillment Library</h3>
+
+<p>The main component to the client library is the `WebhookClient` class. It is imported from the `dialogflow-fulfillment` npm package like this:</p>
+
+<pre><code>
+  const { WebhookClient } = require('dialogflow-fulfillment');
 </code></pre>
-<p>}</p>
-<pre><code>&lt;a name=&#34;dialogflowfulfillmentlibrary&#34;&gt;&lt;/a&gt;
+<p>The way we use it is by sending request and response objects as arguments to the constructor of the class, and using its built in functions to most of what we need to do today.</p>
 
-###Dialogflow Fulfillment Library
-
-The main component to the client library is the `WebhookClient` class. It is imported from the `dialogflow-fulfillment` npm package like this:
-
-</code></pre>
-<p>const { WebhookClient } = require(‘dialogflow-fulfillment&#39;);</p>
-<pre><code>The way we use it is by sending request and response objects as arguments to the constructor of the class, and using its built in functions to most of what we need to do today.
-
-</code></pre>
-<p>app.post(‘/&#39;, (req, res) =&gt; {</p>
-<pre><code>const agent = new WebhookClient({ request: req, response: res });
+  <pre><code>
+app.post(‘/&#39;, (req, res) =&gt; {
+  const agent = new WebhookClient({ request: req, response: res });
 ... 
+};
 </code></pre>
-<p>};</p>
-<pre><code>&lt;a name=&#34;recognizewhichintentneedsfulfillment&#34;&gt;&lt;/a&gt;
 
-####Recognize which intent needs fulfillment
+<h3>Recognize which intent needs fulfillment</h3>
 
 The agent created using our request and response has a built in function choose how to respond to the request. This function takes a `Map` with the name of the intent as key and a function that takes the agent as parameter.
 
 So if we were to handle a welcome intent we would do as following.
 
 </code></pre>
-<p>const welcome = agent =&gt; {</p>
-<pre><code>... // some logic to answer the intent
+<pre><code>
+  const welcome = agent =&gt; {
+    ... // some logic to answer the intent
+  }
+  const fallback = agent =&gt; {
+    ... // some logic to answer that the intent was not recognized
+  }
+  let intentMap = new Map();
+  intentMap.set('Welcome', welcome);
+  intentMap.set(null, fallback);
+  agent.handleRequest(intentMap);
 </code></pre>
-<p>}<br>const fallback = agent =&gt; {</p>
-<pre><code>... // some logic to answer that the intent was not recognized
-</code></pre>
-<p>}<br>let intentMap = new Map();<br>intentMap.set(‘Welcome&#39;, welcome);<br>intentMap.set(null, fallback);<br>agent.handleRequest(intentMap)</p>
-<pre><code>Here the function welcome would be used if the name of the intent coming from Dialogflow is &#34;Welcome&#34;. Be aware that the matching is case sensitive. So the match need to be absolute. The null element of the map is used if no match for the intent name can be found in the map.
+<p>Here the function welcome would be used if the name of the intent coming from Dialogflow is &#34;Welcome&#34;. Be aware that the matching is case sensitive. So the match need to be absolute. The null element of the map is used if no match for the intent name can be found in the map.</p>
 
-&lt;a name=&#34;readparameters&#34;&gt;&lt;/a&gt;
-
-####Read parameters
+<h3>Read parameters</h3>
 
 The agent has the intent parameters stored in an object named `parameters`. The structure of the object will be the same as the parameters in the json body of the POST request. If the name of the parameter is &#34;location&#34; in Dialogflow the value can be found in `agent.parameters.location`. 
 
 Most parameters are just a string or integer value. But some complex types such as date ranges can occur and will be objects themselves.
 
-&lt;a name=&#34;answerintents&#34;&gt;&lt;/a&gt;
-
-####Answer intents
+<h3>Answer intents</h3>
 
 Answering an intent is done using the `add-function of the agent with the text we want read to the user as parameter.
 
 </code></pre>
-<p>agent.add(‘Hi, this is my answer!&#39;);</p>
-<pre><code>If add is used multiple times for a single intent, all texts added will be read. The `handleRequest`-function
+<pre><code>
+agent.add(‘Hi, this is my answer!&#39;);
+</code></pre>
+
+  If add is used multiple times for a single intent, all texts added will be read. The `handleRequest`-function
 then contains the logic to turn everything added to the agent into a response and using the response-object passed through the constructor to respond to the POST-request.
 
-&lt;a name=&#34;setcontexts&#34;&gt;&lt;/a&gt;
-
-####Set contexts
+<h3>Set contexts</h3>
 
 While every intent has a set of parameters to help us understand specifics of what the user wants, they are only available for that specific intent. So if we for some reason need to store those or other values for more than the  passing of one single intent (say we need to know the first sentence the user said for the entire conversation) we can use the context. 
 
@@ -294,21 +292,30 @@ So if we specify a lifespan of 4, then the context would be part of the next fou
 
 So if we were to want to store the parameters from one intent for one request it we would do it like this:
 
+<pre><code>
+  agent.context.set({ name: ‘params&#39;, lifespan: 1, parameters: agent.parameters });</p>
 </code></pre>
-<p>agent.context.set({ name: ‘params&#39;, lifespan: 1, parameters: agent.parameters });</p>
-<pre><code>and then get them using:
+    <p>
+  and then get them using:
+    </p>
+  <pre><code>
 
+  agent.context.get(‘params&#39;).parameters;
 </code></pre>
-<p>agent.context.get(‘params&#39;).parameters;</p>
-<pre><code>We can also delete contexts if we would like to remove it even though it has a remaining lifespan of more than zero.
 
+</p>
+  We can also delete contexts if we would like to remove it even though it has a remaining lifespan of more than zero.
+  <p>
+    
+<pre><code>
+  agent.context.delete(‘params&#39;);
 </code></pre>
-<p>agent.context.delete(‘params&#39;);</p>
-<pre><code>Actions by Google also uses contexts quite a lot to specify things such as device capabilities. So in most real life cases there will always be 5-6 contexts set. But when debugging from Dialogflow only our own contexts are part of the requests and responses.
 
-&lt;a name=&#34;actionsongooglelibrary&#34;&gt;&lt;/a&gt;
+<p>
+  Actions by Google also uses contexts quite a lot to specify things such as device capabilities. So in most real life cases there will always be 5-6 contexts set. But when debugging from Dialogflow only our own contexts are part of the requests and responses.
+</p>
 
-###Actions on Google library
+<h3>Actions on Google library</h3>
 
 There are some things done by the Google Assistant that cannot be handled by the Dialogflow Fulfillment Library alone.
 
