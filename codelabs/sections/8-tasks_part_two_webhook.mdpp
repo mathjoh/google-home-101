@@ -34,6 +34,7 @@ Test your webhook using either the testing tool in Dialogflow or Actions by Goog
 
 Hint: The function `order` takes favour and number of cones as parameter and returns `true`if the sale was successful and `false` if it is not.
 
+Note: The backend only support 'vanilla', 'mint', 'chocolate' and 'strawberry' as flavours. And the spelling must be correct. If not it will not recognize that it is in the inventory. But feel free to add new flavours in `store.js` if you like.
 
 #### Task 8
 
