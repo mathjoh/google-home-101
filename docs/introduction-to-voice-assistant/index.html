@@ -399,6 +399,7 @@ Running the application from the _node_-folder:
 <p>If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones left the inventory numbers should be updated.</p>
 <p>Test your webhook using either the testing tool in Dialogflow or Actions by Google.</p>
 <p>Hint: The function <code>order</code> takes favour and number of cones as parameter and returns <code>true</code>if the sale was successful and <code>false</code> if it is not.</p>
+<p>Note: The backend only support 'vanilla', 'mint', 'chocolate' and 'strawberry' as flavours. And the spelling must be correct. If not it will not recognize that it is in the inventory. But feel free to add new flavours in `store.js` if you like.</p>
 <h3>Task 8</h3>
 <h4>a)</h4>
 <p>In this task you need to update the intent fulfillment from the previous task.</p>
