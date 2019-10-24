@@ -4,7 +4,7 @@
   "description": "Node application for the workshop \"Introduction to Voice Assistant\"",
   "main": "tasks/index.js",
   "scripts": {
-    "dev": "node tasks/index.js",
+    "dev": "nodemon --watch tasks/ tasks/index.js",
     "solution:task5": "node solutions/task5",
     "solution:task6": "node solutions/task6",
     "solution:task7": "node solutions/task7",
@@ -21,6 +21,7 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0"
+    "eslint": "^5.16.0",
+    "nodemon": "^1.19.4"
   }
 }
