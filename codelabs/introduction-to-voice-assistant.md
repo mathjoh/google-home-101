@@ -495,18 +495,6 @@ Clone the repository to get access to the code:
 git clone https://github.com/mathjoh/google-home-101.git
 ```
 
-<a name="httpsconnection"></a>
-
-####Https connection
-
-We need https connection for running the Dialogflow commands. For this, you will have to sign up on [ngrok.com](https://ngrok.com). **You do not need to download ngrok, only sign up. We have included the binaries in the git repo you cloned.** Register with your own account, and afterwards run _Step 3_ to connect your account. 
-
-Setup ngrok from the _node_-folder like this: 
-
-```
-./ngrok authtoken [your auth token]
-```
-
 <a name="runyourapplication"></a>
 
 ###Run your application
@@ -569,6 +557,8 @@ Have the answer to the prompt include both which flavours are in stock and which
 
 Test your webhook using either the testing tool in Dialogflow or Actions by Google.
 
+Hint: The functions `remainingFlavours` and `emptyFlavours` both return an array of strings, and in javascript you can call `array.join(', ')` to merge the strings into a comma-separated string.
+
 <a name="task7"></a>
 
 ####Task 7
@@ -578,6 +568,9 @@ Convert the intent from task 4 to be answered by your webhook. This time the ans
 If there is not enough cones of the requested flavour left the response should reflect that. If there are enough cones left the inventory numbers should be updated.
 
 Test your webhook using either the testing tool in Dialogflow or Actions by Google.
+
+Hint: The function `order` takes favour and number of cones as parameter and returns `true`if the sale was successful and `false` if it is not.
+
 
 <a name="task8"></a>
 
